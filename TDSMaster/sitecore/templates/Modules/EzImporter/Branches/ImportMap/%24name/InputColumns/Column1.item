@@ -1,0 +1,58 @@
+----item----
+version: 1
+id: {2E6BA3B8-55D5-46AA-88CC-2F08C3681D98}
+database: master
+path: /sitecore/templates/Modules/EzImporter/Branches/ImportMap/$name/InputColumns/Column1
+parent: {AF88209F-1360-45FA-8B0A-EAA194C88658}
+name: Column1
+master: {00000000-0000-0000-0000-000000000000}
+template: {1B0F85E0-4767-41FA-AD87-CF6EDF715330}
+templatekey: InputColumn
+
+----version----
+language: en
+version: 1
+revision: c57f1da8-527f-4d55-8fc8-885e66faf3a0
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20150703T155415Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+c57f1da8-527f-4d55-8fc8-885e66faf3a0
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 35
+
+20150703T155415:635715356555480000Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
