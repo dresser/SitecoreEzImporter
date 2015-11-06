@@ -64,10 +64,10 @@ namespace EzImporter
             {
                 reader = new DataReaders.CsvDataReader();
             }
-            //else if (Args.FileName.ToLower().EndsWith(".xlsx"))
-            //{
-            //    reader = new DataReaders.XlsxDataReader();
-            //}
+            else if (Args.FileName.ToLower().EndsWith(".xlsx"))
+            {
+                reader = new DataReaders.XlsxDataReader();
+            }
             else
             {
                 Log.AppendLine("Unsupported file format supplied. DataImporter accepts *.CSV and *.XLSX files");
