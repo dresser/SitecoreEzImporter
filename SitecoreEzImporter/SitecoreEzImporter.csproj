@@ -94,6 +94,7 @@
     <Compile Include="DataReaders\CsvDataReader.cs" />
     <Compile Include="DataReaders\IDataReader.cs" />
     <Compile Include="DataReaders\XlsxDataReader.cs" />
+    <Compile Include="ExistingItemHandling.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
     <Compile Include="InputField.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ItemImportTask.cs" />
     <Compile Include="ItemImportTaskArgs.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

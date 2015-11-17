@@ -16,5 +16,6 @@ namespace EzImporter
         public ID RootDataItemId { get; set; }
         public Language TargetLanguage { get; set; }
         public MediaImportMap MediaImportMap { get; set; }
+        public ExistingItemHandling ExistingItemHandling { get; set; }
     }
 }

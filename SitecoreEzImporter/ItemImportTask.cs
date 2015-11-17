@@ -97,7 +97,7 @@ namespace EzImporter
                 if (rootLevel ||
                     Convert.ToString(row[outputMap.ParentMap.NameInputField]) == parentItem.Name)
                 {
-                    var createdItem = CreateNewItem(row, outputMap, parentItem);
+                    var createdItem = CreateItem(row, outputMap, parentItem);
                     if (createdItem != null &&
                         outputMap.ChildMaps != null && outputMap.ChildMaps.Any())
                     {
@@ -110,7 +110,7 @@ namespace EzImporter
             }
         }
 
-        protected Item CreateNewItem(DataRow dataRow, OutputMap outputMap, Item parentItem)
+        protected Item CreateItem(DataRow dataRow, OutputMap outputMap, Item parentItem)
         {
             //CustomItemBase nItemTemplate = GetNewItemTemplate(dataRow);
             var templateItem = Args.Database.GetTemplate(outputMap.TemplateId);
@@ -120,29 +120,39 @@ namespace EzImporter
                 //get the parent in the specific language
                 Item parent = Args.Database.GetItem(parentItem.ID);
 
-                Item newItem;
+                Item item;
                 //search for the child by name
-                string newItemName = Utils.GetValidItemName(dataRow[outputMap.NameInputField]);
-                newItem = parent.GetChildren()[newItemName];
-                if (newItem != null)
+                string itemName = Utils.GetValidItemName(dataRow[outputMap.NameInputField]);
+                item = parent.GetChildren()[itemName];
+                if (item != null)
                 {
-                    //add version for lang
-                    newItem = newItem.Versions.AddVersion();
-                    Log.AppendFormat("Creating new version of item {0}{1}", newItem.Paths.ContentPath, Environment.NewLine);
+                    if (Args.ExistingItemHandling == ExistingItemHandling.AddVersion)
+                    {
+                        item = item.Versions.AddVersion();
+                        Log.AppendFormat("Creating new version of item {0}{1}", item.Paths.ContentPath, Environment.NewLine);
+                    }
+                    else if (Args.ExistingItemHandling == ExistingItemHandling.Skip)
+                    {
+                        return item;
+                    }
+                    else if (Args.ExistingItemHandling == ExistingItemHandling.Update)
+                    {
+                        //continue to update current item/version
+                    }
                 }
                 else
                 {
                     //if not found then create one
-                    newItem = parent.Add(newItemName, templateItem);
-                    Log.AppendFormat("Creating item {0}{1}", newItem.Paths.ContentPath, Environment.NewLine);
+                    item = parent.Add(itemName, templateItem);
+                    Log.AppendFormat("Creating item {0}{1}", item.Paths.ContentPath, Environment.NewLine);
                 }
 
-                if (newItem == null)
+                if (item == null)
                 {
                     throw new NullReferenceException("the new item created was null");
                 }
 
-                using (new EditContext(newItem, true, false))
+                using (new EditContext(item, true, false))
                 {
                     //add in the field mappings
                     for (int i = 0; i < outputMap.Fields.Count; i++)
@@ -150,11 +160,11 @@ namespace EzImporter
                         var mapFieldName = outputMap.Fields[i].TargetFieldName;
                         if (!string.IsNullOrEmpty(mapFieldName))
                         {
-                            var newItemField = newItem.Fields[mapFieldName];
-                            if (newItemField != null)
+                            var field = item.Fields[mapFieldName];
+                            if (field != null)
                             {
                                 var fieldValue = dataRow[outputMap.Fields[i].SourceColumn].ToString();
-                                newItemField.Value = fieldValue;
+                                field.Value = fieldValue;
                                 Log.AppendFormat("'{0}' field set to '{1}'{2}", mapFieldName, fieldValue, Environment.NewLine);
                             }
                             else
@@ -168,7 +178,7 @@ namespace EzImporter
                         }
                     }
                 }
-                return newItem;
+                return item;
             }
         }
     }

@@ -16,5 +16,6 @@ namespace EzImporter
         public ID RootItemId { get; set; }
         public Language TargetLanguage { get; set; }
         public ItemImportMap Map { get; set; }
+        public ExistingItemHandling ExistingItemHandling { get; set; }
     }
 }

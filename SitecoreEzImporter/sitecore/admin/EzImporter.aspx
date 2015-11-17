@@ -80,7 +80,8 @@
             FileName = csvFileName.Value,
             RootItemId = new ID(ddlSites.SelectedValue),
             TargetLanguage = Sitecore.Globalization.Language.Parse(ddlLanguages.SelectedValue),
-            Map = ItemImportMap.BuildMapInfo(new ID(ddlDataImportMap.SelectedValue))
+            Map = ItemImportMap.BuildMapInfo(new ID(ddlDataImportMap.SelectedValue)),
+            ExistingItemHandling = EzImporter.Settings.ExistingItemHandling
         };
         var task = new ItemImportTask();
         var result = task.Run(args);
