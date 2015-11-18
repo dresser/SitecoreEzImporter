@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.IO;
-using Sitecore.Data;
+﻿using EzImporter.Extensions;
+using EzImporter.FieldUpdater;
 using Sitecore.Data.Items;
 using Sitecore.Globalization;
-using EzImporter.Extensions;
+using System;
+using System.Data;
+using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace EzImporter
 {
@@ -164,7 +161,7 @@ namespace EzImporter
                             if (field != null)
                             {
                                 var fieldValue = dataRow[outputMap.Fields[i].SourceColumn].ToString();
-                                field.Value = fieldValue;
+                                FieldUpdateManager.UpdateField(field, fieldValue);
                                 Log.AppendFormat("'{0}' field set to '{1}'{2}", mapFieldName, fieldValue, Environment.NewLine);
                             }
                             else

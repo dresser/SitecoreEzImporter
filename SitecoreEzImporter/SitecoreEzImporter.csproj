@@ -82,7 +82,7 @@
   <ItemGroup>
     <Content Include="sitecore\admin\EzImporter.aspx" />
     <None Include="packages.config" />
-    <None Include="App_Config\Include\Sitecore.EzImporter.config" />
+    <None Include="App_Config\Include\EzImporter.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomItems\ImportModule\ImportMapTemplateItem.base.cs" />
@@ -97,6 +97,11 @@
     <Compile Include="ExistingItemHandling.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
+    <Compile Include="FieldUpdater\FieldUpdateManager.cs" />
+    <Compile Include="FieldUpdater\FieldUpdaterBase.cs" />
+    <Compile Include="FieldUpdater\IFieldUpdater.cs" />
+    <Compile Include="FieldUpdater\MultiSelectFieldUpdater.cs" />
+    <Compile Include="FieldUpdater\TextFieldUpdater.cs" />
     <Compile Include="InputField.cs" />
     <Compile Include="ItemImportMap.cs" />
     <Compile Include="MediaImportMap.cs" />
