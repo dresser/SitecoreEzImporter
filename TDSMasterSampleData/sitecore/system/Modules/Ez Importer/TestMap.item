@@ -1,0 +1,51 @@
+----item----
+version: 1
+id: {71D1D740-9789-4422-A4FB-7813B4B4E9EC}
+database: master
+path: /sitecore/system/Modules/Ez Importer/TestMap
+parent: {5055AEB0-CB35-4405-A51E-DD54021ED7E8}
+name: TestMap
+master: {3DD41A19-1F84-4E83-A657-930ADD646ADB}
+template: {F666A29E-A9C3-40FD-A3B8-CDAE59D9F09D}
+templatekey: ImportMap
+
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 0
+
+
+----version----
+language: en
+version: 1
+revision: 388d377f-3280-4f47-8861-43e0d922c8d0
+
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20151119T205455Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+388d377f-3280-4f47-8861-43e0d922c8d0
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20151119T205455Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

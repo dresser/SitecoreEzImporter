@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreEzImporter", "Sitec
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDSMaster", "TDSMaster\TDSMaster.scproj", "{DD2D14E0-7052-4CE7-9DBA-34FE0440DE90}"
 EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDSMasterSampleData", "TDSMasterSampleData\TDSMasterSampleData.scproj", "{2910F4A7-8100-435E-96ED-864B2B57AD91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{DD2D14E0-7052-4CE7-9DBA-34FE0440DE90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD2D14E0-7052-4CE7-9DBA-34FE0440DE90}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DD2D14E0-7052-4CE7-9DBA-34FE0440DE90}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2910F4A7-8100-435E-96ED-864B2B57AD91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2910F4A7-8100-435E-96ED-864B2B57AD91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2910F4A7-8100-435E-96ED-864B2B57AD91}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2910F4A7-8100-435E-96ED-864B2B57AD91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2910F4A7-8100-435E-96ED-864B2B57AD91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2910F4A7-8100-435E-96ED-864B2B57AD91}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
