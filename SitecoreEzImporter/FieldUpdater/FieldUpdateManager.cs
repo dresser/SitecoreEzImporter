@@ -12,6 +12,10 @@ namespace EzImporter.FieldUpdater
 
         private static IFieldUpdater GetFieldUpdater(Field field)
         {
+            if (field.Type == "Droplink")
+            {
+                return new LinkFieldUpdater();
+            }
             return new TextFieldUpdater();
         }
     }

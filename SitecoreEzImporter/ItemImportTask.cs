@@ -130,6 +130,7 @@ namespace EzImporter
                     }
                     else if (Args.ExistingItemHandling == ExistingItemHandling.Skip)
                     {
+                        Log.AppendFormat("Skipping update of item {0}{1}", item.Paths.ContentPath, Environment.NewLine);
                         return item;
                     }
                     else if (Args.ExistingItemHandling == ExistingItemHandling.Update)

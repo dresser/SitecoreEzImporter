@@ -37,5 +37,19 @@ namespace EzImporter
                 return Sitecore.Configuration.Settings.GetSetting("EzImporter.RootItemQuery", "");
             }
         }
+
+        public static InvalidLinkHandling InvalidLinkHandling
+        {
+            get
+            {
+                var value = Sitecore.Configuration.Settings.GetSetting("EzImporter.InvalidLinkHandling", "SetBroken");
+                InvalidLinkHandling invalidLinkHandling;
+                if (!Enum.TryParse<InvalidLinkHandling>(value, out invalidLinkHandling))
+                {
+                    invalidLinkHandling = EzImporter.InvalidLinkHandling.SetBroken;
+                }
+                return invalidLinkHandling;
+            }
+        }
     }
 }
