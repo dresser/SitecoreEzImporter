@@ -19,10 +19,8 @@
         {
             var db = Sitecore.Configuration.Factory.GetDatabase("master");
 
-            const string WebsiteTemplateId = "{10B7B021-6EEE-45FE-B7F9-78CED481258C}";
-            const string HomePageTemplateId = "{E712AAC6-0710-4850-8A8E-8C9716B63F74}";
-            var siteNodes = db.SelectItems("/sitecore/content//*[@@templateid='" + WebsiteTemplateId + "']//*[@@templateid='" + HomePageTemplateId + "']");
-            ddlSites.DataSource = siteNodes.Select(n => new { n.Parent.Name, n.ID });
+            var siteNodes = db.SelectItems(EzImporter.Settings.RootItemQuery);
+            ddlSites.DataSource = siteNodes.Select(n => new { n.Name, n.ID });
             ddlSites.DataBind();
 
             var languages = db.SelectItems("/sitecore/system/Languages//*");
@@ -33,7 +31,7 @@
             ddlMediaFolder.DataSource = mediaFolders.Select(mf => new { mf.Parent.Name, mf.ID });
             ddlMediaFolder.DataBind();
 
-            ddlDataImportMap.DataSource = db.SelectItems("/sitecore/system/Modules/EzImporter//*[@@templatename='ImportMap']");
+            ddlDataImportMap.DataSource = db.SelectItems(EzImporter.Settings.MapsLocation); // "/sitecore/system/Modules/EzImporter//*[@@templatename='ImportMap']");
             ddlDataImportMap.DataBind();
 
             ddlMediaImportMap.DataSource = db.SelectItems("/sitecore/system/Modules/EzImporter//*[@@templatename='MediaImportMap']");
@@ -146,7 +144,7 @@
                     <asp:DropDownList ID="ddlDataImportMap" DataTextField="Name" DataValueField="ID" runat="server" />
                 </p>
                 <p>
-                    <asp:Label AssociatedControlID="ddlSites" Text="Select site to import data to" runat="server" />
+                    <asp:Label AssociatedControlID="ddlSites" Text="Select node to import data to" runat="server" />
                     <asp:DropDownList ID="ddlSites" DataTextField="Name" DataValueField="ID" runat="server" />
                 </p>
                 <asp:Button ID="process" OnClick="processData_OnClick" Text="Import Product Data" runat="server"/>

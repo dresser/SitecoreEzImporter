@@ -20,5 +20,22 @@ namespace EzImporter
                 return existingItemHandling;
             }
         }
+
+        public static string MapsLocation
+        {
+            get
+            {
+                var value = Sitecore.Configuration.Settings.GetSetting("EzImporter.MapsLocation", "");
+                return value;
+            }
+        }
+
+        public static string RootItemQuery
+        {
+            get
+            {
+                return Sitecore.Configuration.Settings.GetSetting("EzImporter.RootItemQuery", "");
+            }
+        }
     }
 }

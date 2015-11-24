@@ -82,7 +82,7 @@
   <ItemGroup>
     <Content Include="sitecore\admin\EzImporter.aspx" />
     <None Include="packages.config" />
-    <None Include="App_Config\Include\EzImporter.config" />
+    <Content Include="App_Config\Include\EzImporter.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomItems\ImportModule\ImportMapTemplateItem.base.cs" />
