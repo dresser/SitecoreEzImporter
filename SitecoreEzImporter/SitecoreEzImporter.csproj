@@ -97,10 +97,11 @@
     <Compile Include="ExistingItemHandling.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
+    <Compile Include="FieldUpdater\DropTreeFieldUpdater.cs" />
     <Compile Include="FieldUpdater\FieldUpdateManager.cs" />
     <Compile Include="FieldUpdater\FieldUpdaterBase.cs" />
     <Compile Include="FieldUpdater\IFieldUpdater.cs" />
-    <Compile Include="FieldUpdater\LinkFieldUpdater.cs" />
+    <Compile Include="FieldUpdater\DropLinkFieldUpdater.cs" />
     <Compile Include="FieldUpdater\MultiSelectFieldUpdater.cs" />
     <Compile Include="FieldUpdater\TextFieldUpdater.cs" />
     <Compile Include="InputField.cs" />

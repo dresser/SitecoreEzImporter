@@ -10,6 +10,13 @@ template: {317A4F55-F36E-4E6E-A411-85883BFD4496}
 templatekey: OutputField
 
 ----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 3
+
+100
+----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
 name: __Originator
 key: __originator
@@ -19,7 +26,7 @@ content-length: 0
 ----version----
 language: en
 version: 1
-revision: 67359a1a-093b-4bb2-a5f1-6c7df3023560
+revision: 0dc91e06-f50d-41b9-b007-6fbc478c5ca3
 
 ----field----
 field: {3441A5E1-99AB-4344-A4A6-082F64A7C2AF}
@@ -55,14 +62,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-67359a1a-093b-4bb2-a5f1-6c7df3023560
+0dc91e06-f50d-41b9-b007-6fbc478c5ca3
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20151124T220058Z
+20151125T223926Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

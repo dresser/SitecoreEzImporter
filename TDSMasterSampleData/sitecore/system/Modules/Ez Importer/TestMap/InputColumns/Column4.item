@@ -1,33 +1,26 @@
 ----item----
 version: 1
-id: {00AF900D-FA1B-407E-BCCF-FBEAF2615A72}
+id: {F623A9FD-3FA4-4474-AC36-0E82DF493A26}
 database: master
-path: /sitecore/system/Modules/Ez Importer/TestMap/OutputMap/Fields/Option
-parent: {EACA88B9-7DAE-412C-8668-E4FC3857BD35}
-name: Option
-master: {00000000-0000-0000-0000-000000000000}
-template: {317A4F55-F36E-4E6E-A411-85883BFD4496}
-templatekey: OutputField
+path: /sitecore/system/Modules/Ez Importer/TestMap/InputColumns/Column4
+parent: {51D2E026-F795-4C81-A648-893BF9D9A242}
+name: Column4
+master: {3DD41A19-1F84-4E83-A657-930ADD646ADB}
+template: {1B0F85E0-4767-41FA-AD87-CF6EDF715330}
+templatekey: InputColumn
 
 ----field----
-field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
-name: __Sortorder
-key: __sortorder
-content-length: 3
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 0
 
-400
+
 ----version----
 language: en
 version: 1
-revision: d67880c6-7fa3-4ee8-8d13-d2602589db59
+revision: eaf94f73-ecf5-4be1-be33-a55cacc3445f
 
-----field----
-field: {3441A5E1-99AB-4344-A4A6-082F64A7C2AF}
-name: InputField
-key: inputfield
-content-length: 38
-
-{E61B1B49-1F0D-480D-8835-7C47438B0E79}
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -41,7 +34,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20151124T222759Z
+20151119T205455Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -55,14 +48,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d67880c6-7fa3-4ee8-8d13-d2602589db59
+eaf94f73-ecf5-4be1-be33-a55cacc3445f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20151125T223926Z
+20151119T205455Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

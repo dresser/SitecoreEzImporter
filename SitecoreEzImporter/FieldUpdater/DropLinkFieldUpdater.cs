@@ -5,7 +5,7 @@ using System.Web;
 
 namespace EzImporter.FieldUpdater
 {
-    public class LinkFieldUpdater : IFieldUpdater
+    public class DropLinkFieldUpdater : IFieldUpdater
     {
         public void UpdateField(Sitecore.Data.Fields.Field field, string importValue)
         {

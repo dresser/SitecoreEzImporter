@@ -14,7 +14,11 @@ namespace EzImporter.FieldUpdater
         {
             if (field.Type == "Droplink")
             {
-                return new LinkFieldUpdater();
+                return new DropLinkFieldUpdater();
+            }
+            if (field.Type == "Droptree")
+            {
+                return new DropTreeFieldUpdater();
             }
             return new TextFieldUpdater();
         }
