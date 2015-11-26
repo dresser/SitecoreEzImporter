@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Sitecore.Data.Fields;
 
 namespace EzImporter.FieldUpdater
 {
     public class DropLinkFieldUpdater : IFieldUpdater
     {
-        public void UpdateField(Sitecore.Data.Fields.Field field, string importValue)
+        public void UpdateField(Field field, string importValue)
         {
             try
             {

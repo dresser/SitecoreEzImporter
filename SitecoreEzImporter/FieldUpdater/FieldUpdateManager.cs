@@ -20,6 +20,10 @@ namespace EzImporter.FieldUpdater
             {
                 return new DropTreeFieldUpdater();
             }
+            if (field.Type == "Checklist")
+            {
+                return new MultiLinkFieldUpdater();
+            }
             return new TextFieldUpdater();
         }
     }

@@ -48,5 +48,10 @@ namespace EzImporter
                 return invalidLinkHandling;
             }
         }
+
+        public static string MultipleValuesImportSeparator
+        {
+            get { return Sitecore.Configuration.Settings.GetSetting("EzImporter.MultipleValuesImportSeparator", "|"); }
+        }
     }
 }
