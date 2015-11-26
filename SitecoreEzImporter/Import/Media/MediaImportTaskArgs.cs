@@ -1,11 +1,7 @@
 ﻿using Sitecore.Data;
 using Sitecore.Globalization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace EzImporter
+namespace EzImporter.Import.Media
 {
     public class MediaImportTaskArgs
     {

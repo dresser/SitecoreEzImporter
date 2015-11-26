@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Sitecore.Data;
-using Sitecore.Data.Items;
 using EzImporter.Extensions;
+using Sitecore.Data;
 
-namespace EzImporter
+namespace EzImporter.Import.Item
 {
     public class ItemImportMap
     {
@@ -36,7 +35,7 @@ namespace EzImporter
             return mapInfo;
         }
 
-        private static OutputMap CreateOutputMap(Item item, OutputMap parentMap)
+        private static OutputMap CreateOutputMap(Sitecore.Data.Items.Item item, OutputMap parentMap)
         {
             var outputMap = new OutputMap();
             outputMap.ParentMap = parentMap;

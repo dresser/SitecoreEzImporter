@@ -1,14 +1,14 @@
-﻿using EzImporter.Extensions;
-using EzImporter.FieldUpdater;
-using Sitecore.Data.Items;
-using Sitecore.Globalization;
-using System;
+﻿using System;
 using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using EzImporter.Extensions;
+using EzImporter.FieldUpdater;
+using Sitecore.Data.Items;
+using Sitecore.Globalization;
 
-namespace EzImporter
+namespace EzImporter.Import.Item
 {
     public class ItemImportTask
     {
@@ -85,7 +85,7 @@ namespace EzImporter
             }
         }
 
-        private void ImportMapItems(DataTable dataTable, OutputMap outputMap, Item parentItem, bool rootLevel)
+        private void ImportMapItems(DataTable dataTable, OutputMap outputMap, Sitecore.Data.Items.Item parentItem, bool rootLevel)
         {
             var groupedTable = dataTable.GroupBy(outputMap.Fields.Select(f => f.SourceColumn).ToArray());
             for (int i = 0; i < groupedTable.Rows.Count; i++)
@@ -107,7 +107,7 @@ namespace EzImporter
             }
         }
 
-        protected Item CreateItem(DataRow dataRow, OutputMap outputMap, Item parentItem)
+        protected Sitecore.Data.Items.Item CreateItem(DataRow dataRow, OutputMap outputMap, Sitecore.Data.Items.Item parentItem)
         {
             //CustomItemBase nItemTemplate = GetNewItemTemplate(dataRow);
             var templateItem = Args.Database.GetTemplate(outputMap.TemplateId);
@@ -115,9 +115,9 @@ namespace EzImporter
             using (new LanguageSwitcher(Args.TargetLanguage))
             {
                 //get the parent in the specific language
-                Item parent = Args.Database.GetItem(parentItem.ID);
+                Sitecore.Data.Items.Item parent = Args.Database.GetItem(parentItem.ID);
 
-                Item item;
+                Sitecore.Data.Items.Item item;
                 //search for the child by name
                 string itemName = Utils.GetValidItemName(dataRow[outputMap.NameInputField]);
                 item = parent.GetChildren()[itemName];

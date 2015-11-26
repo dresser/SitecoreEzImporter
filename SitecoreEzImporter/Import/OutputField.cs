@@ -1,4 +1,4 @@
-﻿namespace EzImporter
+﻿namespace EzImporter.Import
 {
     public class OutputField
     {

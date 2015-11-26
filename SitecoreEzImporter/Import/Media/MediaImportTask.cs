@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Web;
-using System.IO;
-using System.IO.Compression;
+using EzImporter.Extensions;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Resources.Media;
-using System.Data;
-using System.Text.RegularExpressions;
-using EzImporter.Extensions;
 
-namespace EzImporter
+namespace EzImporter.Import.Media
 {
     public class MediaImportTask
     {

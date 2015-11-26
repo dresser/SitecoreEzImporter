@@ -1,11 +1,9 @@
-﻿using EzImporter.CustomItems.ImportModule;
-using Sitecore.Data;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Web;
+using EzImporter.CustomItems.ImportModule;
+using Sitecore.Data;
 
-namespace EzImporter
+namespace EzImporter.Import.Media
 {
     public class MediaImportMap
     {

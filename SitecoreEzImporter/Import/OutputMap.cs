@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sitecore.Data;
 
-namespace EzImporter
+namespace EzImporter.Import
 {
     public class OutputMap
     {

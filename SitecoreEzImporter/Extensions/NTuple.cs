@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EzImporter
+namespace EzImporter.Extensions
 {
     /// <summary>
     /// Stolen from http://stackoverflow.com/questions/26658978/c-sharp-linq-how-to-build-group-by-clause-dynamically

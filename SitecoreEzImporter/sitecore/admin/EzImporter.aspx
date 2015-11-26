@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="Sitecore.sitecore.admin.AdminPage" %>
 <%@ Import Namespace="EzImporter" %>
+<%@ Import Namespace="EzImporter.Import.Item" %>
+<%@ Import Namespace="EzImporter.Import.Media" %>
 <%@ Import Namespace="Sitecore.Configuration" %>
 <%@ Import Namespace="Sitecore.Data" %>
 <%@ Import Namespace="Sitecore.Data.Items" %>

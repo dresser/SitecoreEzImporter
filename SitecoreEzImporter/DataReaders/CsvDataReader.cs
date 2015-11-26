@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Text;
 using System.IO;
+using EzImporter.Import.Item;
 
 namespace EzImporter.DataReaders
 {
