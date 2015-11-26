@@ -40,8 +40,35 @@
             ddlMediaImportMap.DataBind();
         }
     }
-    
-    protected void upload_Click(object sender, EventArgs e)
+
+    protected void importItems_Click(object sender, EventArgs e)
+    {
+        homePanel.Visible = false;
+        dataUploadPanel.Visible = true;
+    }
+
+    protected void importMedia_Click(object sender, EventArgs e)
+    {
+        homePanel.Visible = false;
+        mediaUploadPanel.Visible = true;
+    }
+
+    protected void uploadData_Click(object sender, EventArgs e)
+    {
+        var importDir = Server.MapPath("~/temp/ProductImport");
+        if (!Directory.Exists(importDir))
+        {
+            Directory.CreateDirectory(importDir);
+        }
+        
+        csvFileName.Value = importDir + @"\products" + GetExtension(csvFile.FileName);
+        csvFile.PostedFile.SaveAs(csvFileName.Value);
+
+        dataUploadPanel.Visible = false;
+        processDataPanel.Visible = true;
+    }
+
+    protected void uploadMedia_Click(object sender, EventArgs e)
     {
         var importDir = Server.MapPath("~/temp/ProductImport");
         if (!Directory.Exists(importDir))
@@ -51,11 +78,8 @@
         imagesZipFileName.Value = importDir + @"\images.zip";
         imagesZip.PostedFile.SaveAs(imagesZipFileName.Value);
 
-        csvFileName.Value = importDir + @"\products" + GetExtension(csvFile.FileName);
-        csvFile.PostedFile.SaveAs(csvFileName.Value);
-
-        uploadPanel.Visible = false;
-        processPanel.Visible = true;
+        mediaUploadPanel.Visible = false;
+        processMediaPanel.Visible = true;
     }
 
     private string GetExtension(string fileName)
@@ -117,22 +141,33 @@
     <form id="form1" runat="server">
     <div>
         <h1>EzImporter</h1>
-        <asp:Panel ID="uploadPanel" Visible="true" runat="server">
+        <asp:Panel ID="homePanel" runat="server" Visible="True">
+            <p>
+                <asp:Button ID="importItems" OnClick="importItems_Click" Text="Import Items" runat="server"/>
+            </p>
+            <p>
+                <asp:Button ID="importMedia" OnClick="importMedia_Click" Text="Import Media" runat="server"/>
+            </p>
+        </asp:Panel>
+        <asp:Panel ID="dataUploadPanel" Visible="false" runat="server">
             <p>
                 <asp:Label AssociatedControlID="csvFile" Text="Product Data (Supported format: CSV)" runat="server" />
             </p>
             <p>
                 <asp:FileUpload ID="csvFile" AllowMultiple="false" runat="server" />
             </p>            
+            <asp:Button ID="upload" OnClick="uploadData_Click" Text="Upload" runat="server" />
+        </asp:Panel>
+        <asp:Panel ID="mediaUploadPanel" Visible="false" runat="server">           
             <p>
-                <asp:Label AssociatedControlID="imagesZip" Text="Product Images (ZIP)" runat="server" />
+                <asp:Label ID="Label2" AssociatedControlID="imagesZip" Text="Media (ZIP)" runat="server" />
             </p>
             <p>
                 <asp:FileUpload ID="imagesZip" AllowMultiple="false" runat="server" />
             </p>
-            <asp:Button ID="upload" OnClick="upload_Click" Text="Upload" runat="server" />
+            <asp:Button ID="uploadMedia" OnClick="uploadMedia_Click" Text="Upload" runat="server" />
         </asp:Panel>
-        <asp:Panel ID="processPanel" Visible="false" runat="server">
+        <asp:Panel ID="processDataPanel" Visible="false" runat="server">
             <asp:Label AssociatedControlID="ddlLanguages" Text="Select target language" runat="server" />
             <asp:DropDownList ID="ddlLanguages" DataTextField="Name" DataValueField="Name" runat="server" />
 
@@ -149,23 +184,25 @@
                     <asp:Label AssociatedControlID="ddlSites" Text="Select node to import data to" runat="server" />
                     <asp:DropDownList ID="ddlSites" DataTextField="Name" DataValueField="ID" runat="server" />
                 </p>
-                <asp:Button ID="process" OnClick="processData_OnClick" Text="Import Product Data" runat="server"/>
+                <asp:Button ID="process" OnClick="processData_OnClick" Text="Import" runat="server"/>
                 <div>
                     <p><asp:Literal ID="output" runat="server"/></p>
                 </div>
             </div>
+        </asp:Panel>
+        <asp:Panel ID="processMediaPanel" Visible="False" runat="server">
             <div class="imageImporter">
                 <h2>Image Data</h2>
 
                 <p>
-                    <asp:Label AssociatedControlID="ddlMediaImportMap" Text="Select Image Import Map" runat="server" />
+                    <asp:Label ID="Label1" AssociatedControlID="ddlMediaImportMap" Text="Select Image Import Map" runat="server" />
                     <asp:DropDownList ID="ddlMediaImportMap" DataTextField="Name" DataValueField="ID" runat="server" />
                 </p>
                 <p>
-                    <asp:Label AssociatedControlID="ddlMediaFolder" Text="Select folder to import images to" runat="server" />
+                    <asp:Label ID="Label3" AssociatedControlID="ddlMediaFolder" Text="Select folder to import images to" runat="server" />
                     <asp:DropDownList ID="ddlMediaFolder" DataTextField="Name" DataValueField="ID" runat="server" />
                 </p>
-                <asp:Button ID="processImages" OnClick="processImages_Click" Text="Import Images" runat="server" />
+                <asp:Button ID="processImages" OnClick="processImages_Click" Text="Import" runat="server" />
                 <div>
                     <p><asp:Literal ID="imageImportOutput" runat="server"/></p>
                 </div>
