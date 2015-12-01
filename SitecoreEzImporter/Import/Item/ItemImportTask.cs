@@ -57,11 +57,13 @@ namespace EzImporter.Import.Item
         protected void ReadData(ref DataTable dataTable)
         {
             DataReaders.IDataReader reader;
-            if (Args.FileName.ToLower().EndsWith(".csv"))
+            var loweredFileName = Args.FileName.ToLower();
+            if (loweredFileName.EndsWith(".csv"))
             {
                 reader = new DataReaders.CsvDataReader();
             }
-            else if (Args.FileName.ToLower().EndsWith(".xlsx"))
+            else if (loweredFileName.EndsWith(".xlsx") ||
+                     loweredFileName.EndsWith(".xls"))
             {
                 reader = new DataReaders.XlsxDataReader();
             }

@@ -26,10 +26,19 @@ namespace EzImporter.DataReaders
                 IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
                 excelReader.IsFirstRowAsColumnNames = true;
-                DataSet result = excelReader.AsDataSet();
-                if (result.Tables.Count == 0)
+                if (!excelReader.IsValid)
                 {
-                    log.AppendLine("No worksheets found in XLSX file");
+                    log.AppendLine("Invalid Excel file '" + excelReader.ExceptionMessage + "'");
+                    return;
+                }
+                DataSet result = excelReader.AsDataSet();
+                if (result == null)
+                {
+                    log.AppendLine("No data could be retrieved from Excel file.");
+                }
+                if (result.Tables == null || result.Tables.Count == 0)
+                {
+                    log.AppendLine("No worksheets found in Excel file");
                     return;
                 }
                 var readDataTable = result.Tables[0];
