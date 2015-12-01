@@ -44,13 +44,19 @@
     protected void importItems_Click(object sender, EventArgs e)
     {
         homePanel.Visible = false;
-        dataUploadPanel.Visible = true;
+        dataPanel.Visible = true;
     }
 
     protected void importMedia_Click(object sender, EventArgs e)
     {
         homePanel.Visible = false;
         mediaUploadPanel.Visible = true;
+    }
+
+    protected void dataUploadNew_Click(object sender, EventArgs e)
+    {
+        dataUploadPanel.Visible = true;
+        dataPanel.Visible = false;
     }
 
     protected void uploadData_Click(object sender, EventArgs e)
@@ -69,6 +75,31 @@
         csvFile.PostedFile.SaveAs(csvFileName.Value);
 
         dataUploadPanel.Visible = false;
+        dataPanel.Visible = true;
+        selectedDataFile.Text = csvFile.FileName;
+    }
+
+    protected void dataSelectExisting_Click(object sender, EventArgs e)
+    {
+        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\Items");
+        var importDirectory = new DirectoryInfo(importDir);
+        existingFiles.Items.AddRange(importDirectory.GetFiles().Select(f => new ListItem(f.Name)).ToArray());
+        dataSelectExistingPanel.Visible = true;
+        dataPanel.Visible = false;
+    }
+
+    protected void dataSelectExistingContinue_Click(object sender, EventArgs e)
+    {
+        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\Items");
+        csvFileName.Value = importDir + @"\" + existingFiles.SelectedItem.Text;
+        selectedDataFile.Text = existingFiles.SelectedItem.Text;
+        dataSelectExistingPanel.Visible = false;
+        dataPanel.Visible = true;
+    }
+
+    protected void dataPanelNext_Click(object sender, EventArgs e)
+    {
+        dataPanel.Visible = false;
         processDataPanel.Visible = true;
     }
 
@@ -89,20 +120,6 @@
 
         mediaUploadPanel.Visible = false;
         processMediaPanel.Visible = true;
-    }
-
-    private string GetExtension(string fileName)
-    {
-        if (fileName == null)
-        {
-            return null;
-        }
-        var i = fileName.LastIndexOf(".");
-        if (i == -1 || i == fileName.Length - 1)
-        {
-            return null;
-        }
-        return fileName.Substring(i);
     }
 
     private void processData_OnClick(object sender, EventArgs e)
@@ -158,14 +175,38 @@
                 <asp:Button ID="importMedia" OnClick="importMedia_Click" Text="Import Media" runat="server"/>
             </p>
         </asp:Panel>
-        <asp:Panel ID="dataUploadPanel" Visible="false" runat="server">
+        <asp:Panel ID="dataPanel" Visible="false" runat="server">
+            <p>Data Panel</p>
             <p>
-                <asp:Label AssociatedControlID="csvFile" Text="Product Data (Supported format: CSV)" runat="server" />
+                <asp:Label AssociatedControlID="selectedDataFile" Text="Data File" runat="server" />
+                <asp:TextBox ID="selectedDataFile" runat="server"/>
+            </p>
+            <p>
+                <asp:Button Text="Select Existing" OnClick="dataSelectExisting_Click" runat="server"/>
+                <asp:Button Text="Upload New" OnClick="dataUploadNew_Click" runat="server"/>
+            </p>
+            <p>
+                <asp:Button OnClick="dataPanelNext_Click" Text="Next" runat="server" />
+            </p>            
+        </asp:Panel>
+        <asp:Panel ID="dataUploadPanel" Visible="false" runat="server">
+            <p>Upload Panel</p>
+            <p>
+                <asp:Label AssociatedControlID="csvFile" Text="Data (Supported format: CSV, XLS, XLSX)" runat="server" />
             </p>
             <p>
                 <asp:FileUpload ID="csvFile" AllowMultiple="false" runat="server" />
             </p>            
             <asp:Button ID="upload" OnClick="uploadData_Click" Text="Upload" runat="server" />
+        </asp:Panel>
+        <asp:Panel ID="dataSelectExistingPanel" Visible="false" runat="server">
+            <p>Select Existing data Panel</p>
+            <p>
+                <asp:Label AssociatedControlID="existingFiles" Text="Existing Files:" runat="server" />
+                <asp:ListBox ID="existingFiles" SelectionMode="Single" runat="server">
+                </asp:ListBox>
+            </p>            
+            <asp:Button OnClick="dataSelectExistingContinue_Click" Text="Select" runat="server" />
         </asp:Panel>
         <asp:Panel ID="mediaUploadPanel" Visible="false" runat="server">           
             <p>
