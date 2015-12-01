@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="Sitecore.sitecore.admin.AdminPage" %>
+﻿<%@ Page Language="C#" Debug="true" AutoEventWireup="true" Inherits="Sitecore.sitecore.admin.AdminPage" %>
 <%@ Import Namespace="EzImporter" %>
 <%@ Import Namespace="EzImporter.Import.Item" %>
 <%@ Import Namespace="EzImporter.Import.Media" %>
@@ -55,13 +55,17 @@
 
     protected void uploadData_Click(object sender, EventArgs e)
     {
-        var importDir = Server.MapPath("~/temp/ProductImport");
+        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory);
         if (!Directory.Exists(importDir))
         {
             Directory.CreateDirectory(importDir);
         }
-        
-        csvFileName.Value = importDir + @"\products" + GetExtension(csvFile.FileName);
+        importDir = importDir + @"\Items";
+        if (!Directory.Exists(importDir))
+        {
+            Directory.CreateDirectory(importDir);
+        }
+        csvFileName.Value = importDir + @"\" + csvFile.FileName;
         csvFile.PostedFile.SaveAs(csvFileName.Value);
 
         dataUploadPanel.Visible = false;
@@ -70,12 +74,17 @@
 
     protected void uploadMedia_Click(object sender, EventArgs e)
     {
-        var importDir = Server.MapPath("~/temp/ProductImport");
+        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory);
         if (!Directory.Exists(importDir))
         {
             Directory.CreateDirectory(importDir);
         }
-        imagesZipFileName.Value = importDir + @"\images.zip";
+        importDir = importDir + @"\Media";
+        if (!Directory.Exists(importDir))
+        {
+            Directory.CreateDirectory(importDir);
+        }
+        imagesZipFileName.Value = importDir + @"\" + imagesZip.FileName;
         imagesZip.PostedFile.SaveAs(imagesZipFileName.Value);
 
         mediaUploadPanel.Visible = false;
@@ -118,7 +127,7 @@
         var args = new MediaImportTaskArgs
         {
             ZipFileName = imagesZipFileName.Value,
-            ExtractionFolder = Server.MapPath("~/temp/ProductImport/ExtractedFiles"),
+            ExtractionFolder = Server.MapPath(EzImporter.Settings.ImportDirectory + "/ExtractedFiles"),
             Database = database,
             RootMediaItemId = new ID(ddlMediaFolder.SelectedValue),
             RootDataItemId = new ID(ddlSites.SelectedValue),

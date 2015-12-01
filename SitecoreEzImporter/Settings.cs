@@ -53,5 +53,13 @@ namespace EzImporter
         {
             get { return Sitecore.Configuration.Settings.GetSetting("EzImporter.MultipleValuesImportSeparator", "|"); }
         }
+
+        public static string ImportDirectory
+        {
+            get
+            {
+                return Sitecore.Configuration.Settings.GetSetting("EzImporter.ImportDirectory", "~/temp/EzImporter");
+            }
+        }
     }
 }
