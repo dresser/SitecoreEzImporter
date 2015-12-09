@@ -61,5 +61,21 @@ namespace EzImporter
                 return Sitecore.Configuration.Settings.GetSetting("EzImporter.ImportDirectory", "~/temp/EzImporter");
             }
         }
+
+        public static string ImportItemsSubDirectory
+        {
+            get
+            {
+                return Sitecore.Configuration.Settings.GetSetting("EzImporter.ImportItemsSubDirectory", "Items");
+            }
+        }
+
+        public static string ImportMediaSubDirectory
+        {
+            get
+            {
+                return Sitecore.Configuration.Settings.GetSetting("EzImporter.ImportMediaSubDirectory", "Items");
+            }
+        }
     }
 }

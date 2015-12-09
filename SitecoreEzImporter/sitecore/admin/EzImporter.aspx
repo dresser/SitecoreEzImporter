@@ -50,7 +50,7 @@
     protected void importMedia_Click(object sender, EventArgs e)
     {
         homePanel.Visible = false;
-        mediaUploadPanel.Visible = true;
+        mediaPanel.Visible = true;
     }
 
     protected void dataUploadNew_Click(object sender, EventArgs e)
@@ -59,18 +59,20 @@
         dataPanel.Visible = false;
     }
 
+    private void CreateDirectoryIfNotFound(string path)
+    {
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+    }
+
     protected void uploadData_Click(object sender, EventArgs e)
     {
         var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory);
-        if (!Directory.Exists(importDir))
-        {
-            Directory.CreateDirectory(importDir);
-        }
-        importDir = importDir + @"\Items";
-        if (!Directory.Exists(importDir))
-        {
-            Directory.CreateDirectory(importDir);
-        }
+        CreateDirectoryIfNotFound(importDir);
+        importDir = importDir + @"\" + EzImporter.Settings.ImportItemsSubDirectory;
+        CreateDirectoryIfNotFound(importDir);
         csvFileName.Value = importDir + @"\" + csvFile.FileName;
         csvFile.PostedFile.SaveAs(csvFileName.Value);
 
@@ -81,7 +83,7 @@
 
     protected void dataSelectExisting_Click(object sender, EventArgs e)
     {
-        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\Items");
+        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\" + EzImporter.Settings.ImportItemsSubDirectory);
         var importDirectory = new DirectoryInfo(importDir);
         existingFiles.Items.AddRange(importDirectory.GetFiles().Select(f => new ListItem(f.Name)).ToArray());
         dataSelectExistingPanel.Visible = true;
@@ -90,9 +92,15 @@
 
     protected void dataSelectExistingContinue_Click(object sender, EventArgs e)
     {
-        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\Items");
+        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\" + EzImporter.Settings.ImportItemsSubDirectory);
         csvFileName.Value = importDir + @"\" + existingFiles.SelectedItem.Text;
         selectedDataFile.Text = existingFiles.SelectedItem.Text;
+        dataSelectExistingPanel.Visible = false;
+        dataPanel.Visible = true;
+    }
+
+    protected void dataSelectExistingCancel_Click(object sender, EventArgs e)
+    {
         dataSelectExistingPanel.Visible = false;
         dataPanel.Visible = true;
     }
@@ -103,23 +111,61 @@
         processDataPanel.Visible = true;
     }
 
+    protected void mediaUploadNew_Click(object sender, EventArgs e)
+    {
+        mediaPanel.Visible = false;
+        mediaUploadPanel.Visible = true;
+    }
+
+    protected void mediaSelectExisting_Click(object sender, EventArgs e)
+    {
+        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\" + EzImporter.Settings.ImportMediaSubDirectory);
+        CreateDirectoryIfNotFound(importDir);
+        var importDirectory = new DirectoryInfo(importDir);
+        existingMediaFiles.Items.AddRange(importDirectory.GetFiles().Select(f => new ListItem(f.Name)).ToArray());
+        mediaPanel.Visible = false;
+        mediaSelectExistingPanel.Visible = true;
+    }
+
+    protected void mediaPanelNext_Click(object sender, EventArgs e)
+    {
+        mediaPanel.Visible = false;
+        processMediaPanel.Visible = true;
+    }
+
     protected void uploadMedia_Click(object sender, EventArgs e)
     {
         var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory);
-        if (!Directory.Exists(importDir))
-        {
-            Directory.CreateDirectory(importDir);
-        }
-        importDir = importDir + @"\Media";
-        if (!Directory.Exists(importDir))
-        {
-            Directory.CreateDirectory(importDir);
-        }
+        CreateDirectoryIfNotFound(importDir);
+        importDir = importDir + @"\" + EzImporter.Settings.ImportMediaSubDirectory;
+        CreateDirectoryIfNotFound(importDir);
         imagesZipFileName.Value = importDir + @"\" + imagesZip.FileName;
         imagesZip.PostedFile.SaveAs(imagesZipFileName.Value);
-
+        selectedMediaFile.Text = imagesZip.FileName;
+        
         mediaUploadPanel.Visible = false;
-        processMediaPanel.Visible = true;
+        mediaPanel.Visible = true;
+    }
+
+    protected void uploadMediaCancel_Click(object sender, EventArgs e)
+    {
+        mediaUploadPanel.Visible = false;
+        mediaPanel.Visible = true;
+    }
+
+    protected void mediaSelectExistingCancel_Click(object sender, EventArgs e)
+    {
+        mediaSelectExistingPanel.Visible = false;
+        mediaPanel.Visible = true;
+    }
+
+    protected void mediaSelectExistingContinue_Click(object sender, EventArgs e)
+    {
+        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\" + EzImporter.Settings.ImportMediaSubDirectory);
+        imagesZipFileName.Value = importDir + @"\" + existingMediaFiles.SelectedItem.Text;
+        selectedMediaFile.Text = existingMediaFiles.SelectedItem.Text;
+        mediaSelectExistingPanel.Visible = false;
+        mediaPanel.Visible = true;
     }
 
     private void processData_OnClick(object sender, EventArgs e)
@@ -207,15 +253,7 @@
                 </asp:ListBox>
             </p>            
             <asp:Button OnClick="dataSelectExistingContinue_Click" Text="Select" runat="server" />
-        </asp:Panel>
-        <asp:Panel ID="mediaUploadPanel" Visible="false" runat="server">           
-            <p>
-                <asp:Label ID="Label2" AssociatedControlID="imagesZip" Text="Media (ZIP)" runat="server" />
-            </p>
-            <p>
-                <asp:FileUpload ID="imagesZip" AllowMultiple="false" runat="server" />
-            </p>
-            <asp:Button ID="uploadMedia" OnClick="uploadMedia_Click" Text="Upload" runat="server" />
+            <asp:Button OnClick="dataSelectExistingCancel_Click" Text="Back" runat="server" />
         </asp:Panel>
         <asp:Panel ID="processDataPanel" Visible="false" runat="server">
             <asp:Label AssociatedControlID="ddlLanguages" Text="Select target language" runat="server" />
@@ -239,6 +277,40 @@
                     <p><asp:Literal ID="output" runat="server"/></p>
                 </div>
             </div>
+        </asp:Panel>
+        <asp:Panel ID="mediaPanel" Visible="false" runat="server">
+            <p>Media</p>
+            <p>
+                <asp:Label AssociatedControlID="selectedMediaFile" Text="Media File" runat="server" />
+                <asp:TextBox ID="selectedMediaFile" runat="server"/>
+            </p>
+            <p>
+                <asp:Button Text="Select Existing" OnClick="mediaSelectExisting_Click" runat="server"/>
+                <asp:Button Text="Upload New" OnClick="mediaUploadNew_Click" runat="server"/>
+            </p>
+            <p>
+                <asp:Button OnClick="mediaPanelNext_Click" Text="Next" runat="server" />
+            </p>            
+        </asp:Panel>
+        <asp:Panel ID="mediaUploadPanel" Visible="false" runat="server">           
+            <p>
+                <asp:Label AssociatedControlID="imagesZip" Text="Media (ZIP)" runat="server" />
+            </p>
+            <p>
+                <asp:FileUpload ID="imagesZip" AllowMultiple="false" runat="server" />
+            </p>
+            <asp:Button ID="uploadMedia" OnClick="uploadMedia_Click" Text="Upload" runat="server" />
+            <asp:Button OnClick="uploadMediaCancel_Click" Text="Back" runat="server" />
+        </asp:Panel>
+        <asp:Panel ID="mediaSelectExistingPanel" Visible="false" runat="server">
+            <p>Select Existing Media</p>
+            <p>
+                <asp:Label AssociatedControlID="existingMediaFiles" Text="Existing Files:" runat="server" />
+                <asp:ListBox ID="existingMediaFiles" SelectionMode="Single" runat="server">
+                </asp:ListBox>
+            </p>            
+            <asp:Button OnClick="mediaSelectExistingContinue_Click" Text="Select" runat="server" />
+            <asp:Button OnClick="mediaSelectExistingCancel_Click" Text="Back" runat="server" />
         </asp:Panel>
         <asp:Panel ID="processMediaPanel" Visible="False" runat="server">
             <div class="imageImporter">
