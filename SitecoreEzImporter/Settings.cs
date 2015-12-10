@@ -4,78 +4,54 @@ namespace EzImporter
 {
     public class Settings
     {
-        public static ExistingItemHandling ExistingItemHandling
+        public static Settings GetConfigurationSettings()
         {
-            get
+            var value = Sitecore.Configuration.Settings.GetSetting("EzImporter.ExistingItemHandling", "AddVersion");
+            ExistingItemHandling existingItemHandling;
+            if (!Enum.TryParse<ExistingItemHandling>(value, out existingItemHandling))
             {
-                var value = Sitecore.Configuration.Settings.GetSetting("EzImporter.ExistingItemHandling", "AddVersion");
-                ExistingItemHandling existingItemHandling;
-                if (!Enum.TryParse<ExistingItemHandling>(value, out existingItemHandling))
-                {
-                    existingItemHandling = EzImporter.ExistingItemHandling.AddVersion;
-                }
-                return existingItemHandling;
+                existingItemHandling = EzImporter.ExistingItemHandling.AddVersion;
             }
+
+            var invalidLinkHandlingValue = Sitecore.Configuration.Settings.GetSetting("EzImporter.InvalidLinkHandling",
+                "SetBroken");
+            InvalidLinkHandling invalidLinkHandling;
+            if (!Enum.TryParse<InvalidLinkHandling>(invalidLinkHandlingValue, out invalidLinkHandling))
+            {
+                invalidLinkHandling = EzImporter.InvalidLinkHandling.SetBroken;
+            }
+
+            return new Settings
+            {
+                ExistingItemHandling = existingItemHandling,
+                MapsLocation = Sitecore.Configuration.Settings.GetSetting("EzImporter.MapsLocation", ""),
+                RootItemQuery = Sitecore.Configuration.Settings.GetSetting("EzImporter.RootItemQuery", ""),
+                InvalidLinkHandling = invalidLinkHandling,
+                MultipleValuesImportSeparator =
+                    Sitecore.Configuration.Settings.GetSetting("EzImporter.MultipleValuesImportSeparator", "|"),
+                ImportDirectory =
+                    Sitecore.Configuration.Settings.GetSetting("EzImporter.ImportDirectory", "~/temp/EzImporter"),
+                ImportItemsSubDirectory =
+                    Sitecore.Configuration.Settings.GetSetting("EzImporter.ImportItemsSubDirectory", "Items"),
+                ImportMediaSubDirectory =
+                    Sitecore.Configuration.Settings.GetSetting("EzImporter.ImportMediaSubDirectory", "Items")
+            };
         }
 
-        public static string MapsLocation
-        {
-            get
-            {
-                var value = Sitecore.Configuration.Settings.GetSetting("EzImporter.MapsLocation", "");
-                return value;
-            }
-        }
+        public ExistingItemHandling ExistingItemHandling { get; set; }
 
-        public static string RootItemQuery
-        {
-            get
-            {
-                return Sitecore.Configuration.Settings.GetSetting("EzImporter.RootItemQuery", "");
-            }
-        }
+        public string MapsLocation { get; set; }
 
-        public static InvalidLinkHandling InvalidLinkHandling
-        {
-            get
-            {
-                var value = Sitecore.Configuration.Settings.GetSetting("EzImporter.InvalidLinkHandling", "SetBroken");
-                InvalidLinkHandling invalidLinkHandling;
-                if (!Enum.TryParse<InvalidLinkHandling>(value, out invalidLinkHandling))
-                {
-                    invalidLinkHandling = EzImporter.InvalidLinkHandling.SetBroken;
-                }
-                return invalidLinkHandling;
-            }
-        }
+        public string RootItemQuery { get; set; }
 
-        public static string MultipleValuesImportSeparator
-        {
-            get { return Sitecore.Configuration.Settings.GetSetting("EzImporter.MultipleValuesImportSeparator", "|"); }
-        }
+        public InvalidLinkHandling InvalidLinkHandling { get; set; }
 
-        public static string ImportDirectory
-        {
-            get
-            {
-                return Sitecore.Configuration.Settings.GetSetting("EzImporter.ImportDirectory", "~/temp/EzImporter");
-            }
-        }
+        public string MultipleValuesImportSeparator { get; set; }
 
-        public static string ImportItemsSubDirectory
-        {
-            get
-            {
-                return Sitecore.Configuration.Settings.GetSetting("EzImporter.ImportItemsSubDirectory", "Items");
-            }
-        }
+        public string ImportDirectory { get; set; }
 
-        public static string ImportMediaSubDirectory
-        {
-            get
-            {
-                return Sitecore.Configuration.Settings.GetSetting("EzImporter.ImportMediaSubDirectory", "Items");
-            }
-        }
+        public string ImportItemsSubDirectory { get; set; }
+
+        public string ImportMediaSubDirectory { get; set; }
     }
 }

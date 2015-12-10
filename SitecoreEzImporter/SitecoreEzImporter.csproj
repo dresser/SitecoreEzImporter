@@ -121,7 +121,7 @@
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\sc8sandbox.pubxml" />
+    <None Include="Properties\PublishProfiles\ezimporter.pubxml" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
   </ItemGroup>
   <ItemGroup />

@@ -20,8 +20,8 @@
         if (!Page.IsPostBack)
         {
             var db = Sitecore.Configuration.Factory.GetDatabase("master");
-
-            var siteNodes = db.SelectItems(EzImporter.Settings.RootItemQuery);
+            var settings = EzImporter.Settings.GetConfigurationSettings();
+            var siteNodes = db.SelectItems(settings.RootItemQuery);
             ddlSites.DataSource = siteNodes.Select(n => new { n.Name, n.ID });
             ddlSites.DataBind();
 
@@ -33,7 +33,7 @@
             ddlMediaFolder.DataSource = mediaFolders.Select(mf => new { mf.Parent.Name, mf.ID });
             ddlMediaFolder.DataBind();
 
-            ddlDataImportMap.DataSource = db.SelectItems(EzImporter.Settings.MapsLocation); // "/sitecore/system/Modules/EzImporter//*[@@templatename='ImportMap']");
+            ddlDataImportMap.DataSource = db.SelectItems(settings.MapsLocation);
             ddlDataImportMap.DataBind();
 
             ddlMediaImportMap.DataSource = db.SelectItems("/sitecore/system/Modules/EzImporter//*[@@templatename='MediaImportMap']");
@@ -69,9 +69,10 @@
 
     protected void uploadData_Click(object sender, EventArgs e)
     {
-        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory);
+        var settings = EzImporter.Settings.GetConfigurationSettings();
+        var importDir = Server.MapPath(settings.ImportDirectory);
         CreateDirectoryIfNotFound(importDir);
-        importDir = importDir + @"\" + EzImporter.Settings.ImportItemsSubDirectory;
+        importDir = importDir + @"\" + settings.ImportItemsSubDirectory;
         CreateDirectoryIfNotFound(importDir);
         csvFileName.Value = importDir + @"\" + csvFile.FileName;
         csvFile.PostedFile.SaveAs(csvFileName.Value);
@@ -83,7 +84,11 @@
 
     protected void dataSelectExisting_Click(object sender, EventArgs e)
     {
-        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\" + EzImporter.Settings.ImportItemsSubDirectory);
+        var settings = EzImporter.Settings.GetConfigurationSettings();
+        var importDir = Server.MapPath(settings.ImportDirectory);
+        CreateDirectoryIfNotFound(importDir);
+        importDir = Server.MapPath(settings.ImportDirectory + @"\" + settings.ImportItemsSubDirectory);
+        CreateDirectoryIfNotFound(importDir);
         var importDirectory = new DirectoryInfo(importDir);
         existingFiles.Items.AddRange(importDirectory.GetFiles().Select(f => new ListItem(f.Name)).ToArray());
         dataSelectExistingPanel.Visible = true;
@@ -92,7 +97,8 @@
 
     protected void dataSelectExistingContinue_Click(object sender, EventArgs e)
     {
-        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\" + EzImporter.Settings.ImportItemsSubDirectory);
+        var settings = EzImporter.Settings.GetConfigurationSettings();
+        var importDir = Server.MapPath(settings.ImportDirectory + @"\" + settings.ImportItemsSubDirectory);
         csvFileName.Value = importDir + @"\" + existingFiles.SelectedItem.Text;
         selectedDataFile.Text = existingFiles.SelectedItem.Text;
         dataSelectExistingPanel.Visible = false;
@@ -119,7 +125,8 @@
 
     protected void mediaSelectExisting_Click(object sender, EventArgs e)
     {
-        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\" + EzImporter.Settings.ImportMediaSubDirectory);
+        var settings = EzImporter.Settings.GetConfigurationSettings();
+        var importDir = Server.MapPath(settings.ImportDirectory + @"\" + settings.ImportMediaSubDirectory);
         CreateDirectoryIfNotFound(importDir);
         var importDirectory = new DirectoryInfo(importDir);
         existingMediaFiles.Items.AddRange(importDirectory.GetFiles().Select(f => new ListItem(f.Name)).ToArray());
@@ -135,9 +142,10 @@
 
     protected void uploadMedia_Click(object sender, EventArgs e)
     {
-        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory);
+        var settings = EzImporter.Settings.GetConfigurationSettings();
+        var importDir = Server.MapPath(settings.ImportDirectory);
         CreateDirectoryIfNotFound(importDir);
-        importDir = importDir + @"\" + EzImporter.Settings.ImportMediaSubDirectory;
+        importDir = importDir + @"\" + settings.ImportMediaSubDirectory;
         CreateDirectoryIfNotFound(importDir);
         imagesZipFileName.Value = importDir + @"\" + imagesZip.FileName;
         imagesZip.PostedFile.SaveAs(imagesZipFileName.Value);
@@ -161,7 +169,8 @@
 
     protected void mediaSelectExistingContinue_Click(object sender, EventArgs e)
     {
-        var importDir = Server.MapPath(EzImporter.Settings.ImportDirectory + @"\" + EzImporter.Settings.ImportMediaSubDirectory);
+        var settings = EzImporter.Settings.GetConfigurationSettings();
+        var importDir = Server.MapPath(settings.ImportDirectory + @"\" + settings.ImportMediaSubDirectory);
         imagesZipFileName.Value = importDir + @"\" + existingMediaFiles.SelectedItem.Text;
         selectedMediaFile.Text = existingMediaFiles.SelectedItem.Text;
         mediaSelectExistingPanel.Visible = false;
@@ -170,6 +179,7 @@
 
     private void processData_OnClick(object sender, EventArgs e)
     {
+        var settings = EzImporter.Settings.GetConfigurationSettings();
         var args = new ItemImportTaskArgs
         {
             Database = Sitecore.Configuration.Factory.GetDatabase("master"),
@@ -177,7 +187,7 @@
             RootItemId = new ID(ddlSites.SelectedValue),
             TargetLanguage = Sitecore.Globalization.Language.Parse(ddlLanguages.SelectedValue),
             Map = ItemImportMap.BuildMapInfo(new ID(ddlDataImportMap.SelectedValue)),
-            ExistingItemHandling = EzImporter.Settings.ExistingItemHandling
+            ExistingItemHandling = settings.ExistingItemHandling
         };
         var task = new ItemImportTask();
         var result = task.Run(args);
@@ -186,11 +196,12 @@
 
     private void processImages_Click(object sender, EventArgs e)
     {
-        var database=Sitecore.Configuration.Factory.GetDatabase("master");
+        var settings = EzImporter.Settings.GetConfigurationSettings();
+        var database = Sitecore.Configuration.Factory.GetDatabase("master");
         var args = new MediaImportTaskArgs
         {
             ZipFileName = imagesZipFileName.Value,
-            ExtractionFolder = Server.MapPath(EzImporter.Settings.ImportDirectory + "/ExtractedFiles"),
+            ExtractionFolder = Server.MapPath(settings.ImportDirectory + "/ExtractedFiles"),
             Database = database,
             RootMediaItemId = new ID(ddlMediaFolder.SelectedValue),
             RootDataItemId = new ID(ddlSites.SelectedValue),

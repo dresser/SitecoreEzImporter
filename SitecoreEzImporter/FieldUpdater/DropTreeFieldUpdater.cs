@@ -9,6 +9,7 @@ namespace EzImporter.FieldUpdater
     {
         public void UpdateField(Sitecore.Data.Fields.Field field, string importValue)
         {
+            var settings = Settings.GetConfigurationSettings();
             try
             {
                 var selectionSource = field.Item.Database.SelectSingleItem(field.Source);
@@ -26,11 +27,11 @@ namespace EzImporter.FieldUpdater
             catch
             {
             }
-            if (Settings.InvalidLinkHandling == InvalidLinkHandling.SetBroken)
+            if (settings.InvalidLinkHandling == InvalidLinkHandling.SetBroken)
             {
                 field.Value = importValue;
             }
-            else if (Settings.InvalidLinkHandling == InvalidLinkHandling.SetEmpty)
+            else if (settings.InvalidLinkHandling == InvalidLinkHandling.SetEmpty)
             {
                 field.Value = string.Empty;
             }

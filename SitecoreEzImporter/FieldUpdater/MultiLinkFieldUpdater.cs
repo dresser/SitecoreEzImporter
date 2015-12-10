@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Sitecore.Data;
-using Sitecore.Data.Fields;
+﻿using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
+using System;
 
 namespace EzImporter.FieldUpdater
 {
@@ -10,9 +8,10 @@ namespace EzImporter.FieldUpdater
     {
         public void UpdateField(Field field, string importValue)
         {
+            var settings = Settings.GetConfigurationSettings();
             try
             {
-                var separator = new[] {Settings.MultipleValuesImportSeparator};
+                var separator = new[] {settings.MultipleValuesImportSeparator};
                 var selectionSource = field.Item.Database.SelectSingleItem(field.Source);
                 var importValues = importValue != null
                     ? importValue.Split(separator, StringSplitOptions.RemoveEmptyEntries)
@@ -27,7 +26,7 @@ namespace EzImporter.FieldUpdater
                     }
                     else
                     {
-                        if (Settings.InvalidLinkHandling == InvalidLinkHandling.SetBroken)
+                        if (settings.InvalidLinkHandling == InvalidLinkHandling.SetBroken)
                         {
                             idListValue += "|" + value;
                         }
@@ -41,11 +40,11 @@ namespace EzImporter.FieldUpdater
             }
             catch (Exception ex)
             {
-                if (Settings.InvalidLinkHandling == InvalidLinkHandling.SetBroken)
+                if (settings.InvalidLinkHandling == InvalidLinkHandling.SetBroken)
                 {
                     field.Value = importValue;
                 }
-                else if (Settings.InvalidLinkHandling == InvalidLinkHandling.SetEmpty)
+                else if (settings.InvalidLinkHandling == InvalidLinkHandling.SetEmpty)
                 {
                     field.Value = string.Empty;
                 }
