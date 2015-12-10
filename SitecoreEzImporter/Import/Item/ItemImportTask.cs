@@ -125,17 +125,17 @@ namespace EzImporter.Import.Item
                 item = parent.GetChildren()[itemName];
                 if (item != null)
                 {
-                    if (Args.ExistingItemHandling == ExistingItemHandling.AddVersion)
+                    if (Args.ImportOptions.ExistingItemHandling == ExistingItemHandling.AddVersion)
                     {
                         item = item.Versions.AddVersion();
                         Log.AppendFormat("Creating new version of item {0}{1}", item.Paths.ContentPath, Environment.NewLine);
                     }
-                    else if (Args.ExistingItemHandling == ExistingItemHandling.Skip)
+                    else if (Args.ImportOptions.ExistingItemHandling == ExistingItemHandling.Skip)
                     {
                         Log.AppendFormat("Skipping update of item {0}{1}", item.Paths.ContentPath, Environment.NewLine);
                         return item;
                     }
-                    else if (Args.ExistingItemHandling == ExistingItemHandling.Update)
+                    else if (Args.ImportOptions.ExistingItemHandling == ExistingItemHandling.Update)
                     {
                         //continue to update current item/version
                     }
@@ -164,7 +164,7 @@ namespace EzImporter.Import.Item
                             if (field != null)
                             {
                                 var fieldValue = dataRow[outputMap.Fields[i].SourceColumn].ToString();
-                                FieldUpdateManager.UpdateField(field, fieldValue);
+                                FieldUpdateManager.UpdateField(field, fieldValue, Args.ImportOptions);
                                 Log.AppendFormat("'{0}' field set to '{1}'{2}", mapFieldName, fieldValue, Environment.NewLine);
                             }
                             else

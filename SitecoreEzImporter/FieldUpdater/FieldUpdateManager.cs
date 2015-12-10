@@ -1,13 +1,14 @@
-﻿using Sitecore.Data.Fields;
+﻿using EzImporter.Configuration;
+using Sitecore.Data.Fields;
 
 namespace EzImporter.FieldUpdater
 {
     public class FieldUpdateManager
     {
-        public static void UpdateField(Field field, string importValue)
+        public static void UpdateField(Field field, string importValue, IImportOptions importOptions)
         {
             IFieldUpdater updater = GetFieldUpdater(field);
-            updater.UpdateField(field, importValue);
+            updater.UpdateField(field, importValue, importOptions);
         }
 
         private static IFieldUpdater GetFieldUpdater(Field field)

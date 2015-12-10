@@ -1,4 +1,5 @@
-﻿using Sitecore.Data;
+﻿using EzImporter.Configuration;
+using Sitecore.Data;
 using Sitecore.Globalization;
 
 namespace EzImporter.Import.Item
@@ -11,6 +12,6 @@ namespace EzImporter.Import.Item
         public ID RootItemId { get; set; }
         public Language TargetLanguage { get; set; }
         public ItemImportMap Map { get; set; }
-        public ExistingItemHandling ExistingItemHandling { get; set; }
+        public IImportOptions ImportOptions { get; set; }
     }
 }

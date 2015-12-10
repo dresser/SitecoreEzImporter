@@ -1,13 +1,13 @@
 ﻿using System;
+using EzImporter.Configuration;
 using Sitecore.Data.Fields;
 
 namespace EzImporter.FieldUpdater
 {
     public class DropLinkFieldUpdater : IFieldUpdater
     {
-        public void UpdateField(Field field, string importValue)
+        public void UpdateField(Field field, string importValue, IImportOptions importOptions)
         {
-            var settings = Settings.GetConfigurationSettings();
             try
             {
                 var selectionSource = field.Item.Database.SelectSingleItem(field.Source);
@@ -16,11 +16,11 @@ namespace EzImporter.FieldUpdater
             }
             catch (Exception ex)
             {
-                if (settings.InvalidLinkHandling == InvalidLinkHandling.SetBroken)
+                if (importOptions.InvalidLinkHandling == InvalidLinkHandling.SetBroken)
                 {
                     field.Value = importValue;
                 }
-                else if (settings.InvalidLinkHandling == InvalidLinkHandling.SetEmpty)
+                else if (importOptions.InvalidLinkHandling == InvalidLinkHandling.SetEmpty)
                 {
                     field.Value = string.Empty;
                 }
