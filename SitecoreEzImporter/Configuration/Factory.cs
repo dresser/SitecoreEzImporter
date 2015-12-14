@@ -26,7 +26,9 @@ namespace EzImporter.Configuration
                 ExistingItemHandling = existingItemHandling,
                 InvalidLinkHandling = invalidLinkHandling,
                 MultipleValuesImportSeparator =
-                    Sitecore.Configuration.Settings.GetSetting("EzImporter.MultipleValuesImportSeparator", "|")
+                    Sitecore.Configuration.Settings.GetSetting("EzImporter.MultipleValuesImportSeparator", "|"),
+                TreePathValuesImportSeparator =
+                    Sitecore.Configuration.Settings.GetSetting("EzImporter.TreePathValuesImportSeparator", "\"")
             };
         }
     }

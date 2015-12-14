@@ -25,6 +25,11 @@ namespace EzImporter.FieldUpdater
             {
                 return new MultiLinkFieldUpdater();
             }
+            if (field.Type == "Treelist" ||
+                field.Type == "TreelistEx")
+            {
+                return new TreeListFieldUpdater();
+            }
             return new TextFieldUpdater();
         }
     }
