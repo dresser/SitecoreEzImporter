@@ -4,6 +4,7 @@
     {
         Skip,
         SetBroken,
-        SetEmpty
+        SetEmpty,
+        CreateItem
     }
 }
