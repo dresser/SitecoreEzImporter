@@ -10,11 +10,28 @@ namespace EzImporter.FieldUpdater
         public void UpdateField(Field field, string importValue, IImportOptions importOptions)
         {
             var selectionSource = field.Item.Database.SelectSingleItem(field.Source);
-            var selectedItem = selectionSource.Children[importValue];
-            if (selectedItem != null)
+            if (selectionSource != null)
             {
-                field.Value = selectedItem.ID.ToString();
-                return;
+                var selectedItem = selectionSource.Children[importValue];
+                if (selectedItem != null)
+                {
+                    field.Value = selectedItem.ID.ToString();
+                    return;
+                }
+                if (importOptions.InvalidLinkHandling == InvalidLinkHandling.CreateItem)
+                {
+                    var firstChild = selectionSource.Children.FirstOrDefault();
+                    if (firstChild != null)
+                    {
+                        var template = field.Item.Database.GetTemplate(firstChild.TemplateID);
+                        var itemName = Utils.GetValidItemName(importValue);
+                        var createdItem = selectionSource.Add(itemName, template);
+                        if (createdItem != null)
+                        {
+                            field.Value = createdItem.ID.ToString();
+                        }
+                    }
+                }
             }
             if (importOptions.InvalidLinkHandling == InvalidLinkHandling.SetBroken)
             {
@@ -23,16 +40,6 @@ namespace EzImporter.FieldUpdater
             else if (importOptions.InvalidLinkHandling == InvalidLinkHandling.SetEmpty)
             {
                 field.Value = string.Empty;
-            }
-            else if (importOptions.InvalidLinkHandling == InvalidLinkHandling.CreateItem)
-            {
-                var firstChild = selectionSource.Children.FirstOrDefault();
-                if (firstChild != null)
-                {
-                    var template = field.Item.Database.GetTemplate(firstChild.TemplateID);
-                    var itemName = Utils.GetValidItemName(importValue);
-                    selectionSource.Add(itemName, template);
-                }
             }
         }
     }

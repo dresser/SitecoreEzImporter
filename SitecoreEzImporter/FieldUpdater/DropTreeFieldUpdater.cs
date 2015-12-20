@@ -10,22 +10,18 @@ namespace EzImporter.FieldUpdater
     {
         public void UpdateField(Sitecore.Data.Fields.Field field, string importValue, IImportOptions importOptions)
         {
-            try
+            var selectionSource = field.Item.Database.SelectSingleItem(field.Source);
+            if (selectionSource != null)
             {
-                var selectionSource = field.Item.Database.SelectSingleItem(field.Source);
-                var selectionItems = new List<Item>(new[] {selectionSource});
-                selectionItems.AddRange(selectionSource.Axes.GetDescendants());
-                var selectedItem =
-                    selectionItems.FirstOrDefault(
-                        i => i.Name.Equals(importValue, StringComparison.CurrentCultureIgnoreCase));
+                var query = "." +
+                            Sitecore.StringUtil.EnsurePrefix('/',
+                                importValue.Replace(importOptions.TreePathValuesImportSeparator, "/"));
+                var selectedItem = selectionSource.Axes.SelectSingleItem(query);
                 if (selectedItem != null)
                 {
                     field.Value = selectedItem.ID.ToString();
                     return;
                 }
-            }
-            catch
-            {
             }
             if (importOptions.InvalidLinkHandling == InvalidLinkHandling.SetBroken)
             {
