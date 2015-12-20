@@ -23,7 +23,7 @@ namespace EzImporter.FieldUpdater
             }
             if (field.Type == "Checklist")
             {
-                return new MultiLinkFieldUpdater();
+                return new CheckBoxListFieldUpdater();
             }
             if (field.Type == "Treelist" ||
                 field.Type == "TreelistEx")

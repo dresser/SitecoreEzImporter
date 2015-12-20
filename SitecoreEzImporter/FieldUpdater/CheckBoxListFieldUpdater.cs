@@ -5,7 +5,7 @@ using System;
 
 namespace EzImporter.FieldUpdater
 {
-    public class MultiLinkFieldUpdater : IFieldUpdater
+    public class CheckBoxListFieldUpdater : IFieldUpdater
     {
         public void UpdateField(Field field, string importValue, IImportOptions importOptions)
         {
