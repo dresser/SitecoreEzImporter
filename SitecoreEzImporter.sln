@@ -7,6 +7,8 @@ Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDSMaster", "TDSMaster\TDSM
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDSMasterSampleData", "TDSMasterSampleData\TDSMasterSampleData.scproj", "{2910F4A7-8100-435E-96ED-864B2B57AD91}"
 EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDSCore", "TDSCore\TDSCore.scproj", "{87D4C190-741C-457C-A8FD-B5FFA59C05DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,12 @@ Global
 		{2910F4A7-8100-435E-96ED-864B2B57AD91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2910F4A7-8100-435E-96ED-864B2B57AD91}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2910F4A7-8100-435E-96ED-864B2B57AD91}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{87D4C190-741C-457C-A8FD-B5FFA59C05DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87D4C190-741C-457C-A8FD-B5FFA59C05DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87D4C190-741C-457C-A8FD-B5FFA59C05DC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{87D4C190-741C-457C-A8FD-B5FFA59C05DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87D4C190-741C-457C-A8FD-B5FFA59C05DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87D4C190-741C-457C-A8FD-B5FFA59C05DC}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
