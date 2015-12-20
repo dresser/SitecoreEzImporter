@@ -107,7 +107,6 @@
     <Compile Include="FieldUpdater\IFieldUpdater.cs" />
     <Compile Include="FieldUpdater\DropLinkFieldUpdater.cs" />
     <Compile Include="FieldUpdater\MultiLinkFieldUpdater.cs" />
-    <Compile Include="FieldUpdater\MultiSelectFieldUpdater.cs" />
     <Compile Include="FieldUpdater\TextFieldUpdater.cs" />
     <Compile Include="Import\InputField.cs" />
     <Compile Include="InvalidLinkHandling.cs" />
