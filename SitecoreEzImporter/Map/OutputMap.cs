@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Sitecore.Data;
+﻿using Sitecore.Data;
+using System.Collections.Generic;
 
-namespace EzImporter.Import
+namespace EzImporter.Map
 {
     public class OutputMap
     {

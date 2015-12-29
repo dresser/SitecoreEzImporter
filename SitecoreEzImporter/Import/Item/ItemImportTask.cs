@@ -1,12 +1,13 @@
-﻿using System;
+﻿using EzImporter.Extensions;
+using EzImporter.FieldUpdater;
+using EzImporter.Map;
+using Sitecore.Data.Items;
+using Sitecore.Globalization;
+using System;
 using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
-using EzImporter.Extensions;
-using EzImporter.FieldUpdater;
-using Sitecore.Data.Items;
-using Sitecore.Globalization;
 
 namespace EzImporter.Import.Item
 {

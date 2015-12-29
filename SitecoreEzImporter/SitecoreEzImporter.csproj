@@ -99,7 +99,7 @@
     <Compile Include="FieldUpdater\DropLinkFieldUpdater.cs" />
     <Compile Include="FieldUpdater\CheckBoxListFieldUpdater.cs" />
     <Compile Include="FieldUpdater\TextFieldUpdater.cs" />
-    <Compile Include="Import\InputField.cs" />
+    <Compile Include="Map\InputField.cs" />
     <Compile Include="InvalidLinkHandling.cs" />
     <Compile Include="Map\CustomItems\InputColumnCollectionItem.cs" />
     <Compile Include="Map\CustomItems\MediaImportMapItem.cs" />
@@ -111,8 +111,8 @@
     <Compile Include="Import\Media\MediaImportTask.cs" />
     <Compile Include="Import\Media\MediaImportTaskArgs.cs" />
     <Compile Include="Extensions\NTuple.cs" />
-    <Compile Include="Import\OutputField.cs" />
-    <Compile Include="Import\OutputMap.cs" />
+    <Compile Include="Map\OutputField.cs" />
+    <Compile Include="Map\OutputMap.cs" />
     <Compile Include="Map\Factory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Import\Item\ItemImportTask.cs" />

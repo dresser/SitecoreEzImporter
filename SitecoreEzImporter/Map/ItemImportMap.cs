@@ -1,5 +1,4 @@
-﻿using EzImporter.Import;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace EzImporter.Map
 {
