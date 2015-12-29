@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using EzImporter.Extensions;
-using EzImporter.Import;
+﻿using EzImporter.Extensions;
 using EzImporter.Map.CustomItems;
 using Sitecore.Data;
+using System;
+using System.Linq;
 
 namespace EzImporter.Map
 {
@@ -17,17 +15,14 @@ namespace EzImporter.Map
             var inputColumnsItem =
                 mapItem.FirstChildInheritingFrom(InputColumnCollectionItem.TemplateId);
 
-            var mapInfo = new ItemImportMap();
-            mapInfo.CsvDelimiter =
-                inputColumnsItem[InputColumnCollectionItem.DelimiterConstFieldName].ToCharArray(); //TODO delimiter should come from settings
-            mapInfo.InputFields = inputColumnsItem.Children.Select(c => new InputField { Name = c.Name }).ToList();
-
-            mapInfo.OutputMaps = new List<OutputMap>();
-            var outputMapItems = mapItem.Children.Where(c => c.InheritsFrom(OutputMapTemplateItem.TemplateId));
-            foreach (var outputMapItem in outputMapItems)
+            var mapInfo = new ItemImportMap
             {
-                mapInfo.OutputMaps.Add(CreateOutputMap(outputMapItem, null));
-            }
+                InputFields = inputColumnsItem.Children.Select(c => new InputField {Name = c.Name}).ToList(),
+                OutputMaps = mapItem.Children
+                    .Where(c => c.InheritsFrom(OutputMapTemplateItem.TemplateId))
+                    .Select(om => CreateOutputMap(om, null))
+                    .ToList()
+            };
             return mapInfo;
         }
 

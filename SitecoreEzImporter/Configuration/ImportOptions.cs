@@ -9,5 +9,7 @@
         public string MultipleValuesImportSeparator { get; set; }
 
         public string TreePathValuesImportSeparator { get; set; }
+
+        public string[] CsvDelimiter { get; set; }
     }
 }

@@ -6,5 +6,6 @@
         ExistingItemHandling ExistingItemHandling { get; set; }
         string MultipleValuesImportSeparator { get; set; }
         string TreePathValuesImportSeparator { get; set; }
+        string[] CsvDelimiter { get; set; }
     }
 }

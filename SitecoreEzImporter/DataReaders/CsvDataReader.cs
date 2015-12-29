@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Text;
+﻿using EzImporter.Import.Item;
+using System;
 using System.IO;
-using EzImporter.Import.Item;
+using System.Text;
 
 namespace EzImporter.DataReaders
 {
@@ -23,7 +20,7 @@ namespace EzImporter.DataReaders
                 for (int i = 0; i < lines.Length; i++)
                 {
                     var row = dataTable.NewRow();
-                    var values = lines[i].Split(args.Map.CsvDelimiter, StringSplitOptions.None);
+                    var values = lines[i].Split(args.ImportOptions.CsvDelimiter, StringSplitOptions.None);
                     for (int j = 0; j < args.Map.InputFields.Count; j++)
                     {
                         if (j < values.Length)
