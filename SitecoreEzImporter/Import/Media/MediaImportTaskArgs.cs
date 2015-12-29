@@ -1,4 +1,5 @@
-﻿using Sitecore.Data;
+﻿using EzImporter.Map;
+using Sitecore.Data;
 using Sitecore.Globalization;
 
 namespace EzImporter.Import.Media

@@ -1,4 +1,5 @@
 ﻿using EzImporter.Configuration;
+using EzImporter.Map;
 using Sitecore.Data;
 using Sitecore.Globalization;
 

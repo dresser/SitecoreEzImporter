@@ -2,6 +2,7 @@
 <%@ Import Namespace="EzImporter" %>
 <%@ Import Namespace="EzImporter.Import.Item" %>
 <%@ Import Namespace="EzImporter.Import.Media" %>
+<%@ Import Namespace="EzImporter.Map" %>
 <%@ Import Namespace="Sitecore.Configuration" %>
 <%@ Import Namespace="Sitecore.Data" %>
 <%@ Import Namespace="Sitecore.Data.Items" %>
@@ -185,7 +186,7 @@
             FileName = csvFileName.Value,
             RootItemId = new ID(ddlSites.SelectedValue),
             TargetLanguage = Sitecore.Globalization.Language.Parse(ddlLanguages.SelectedValue),
-            Map = ItemImportMap.BuildMapInfo(new ID(ddlDataImportMap.SelectedValue)),
+            Map = EzImporter.Map.Factory.BuildMapInfo(new ID(ddlDataImportMap.SelectedValue)),
             ImportOptions = EzImporter.Configuration.Factory.GetDefaultImportOptions()
         };
         var task = new ItemImportTask();
@@ -205,7 +206,7 @@
             RootMediaItemId = new ID(ddlMediaFolder.SelectedValue),
             RootDataItemId = new ID(ddlSites.SelectedValue),
             TargetLanguage = Sitecore.Globalization.Language.Parse(ddlLanguages.SelectedValue),
-            MediaImportMap = new MediaImportMap(new ID(ddlMediaImportMap.SelectedValue), database)
+            MediaImportMap = EzImporter.Map.Factory.GetMediaImportMap(new ID(ddlMediaImportMap.SelectedValue), database)
         };
         var task = new MediaImportTask();
         var result = task.Run(args);

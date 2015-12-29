@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using EzImporter.Extensions;
+using EzImporter.Map;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Resources.Media;
