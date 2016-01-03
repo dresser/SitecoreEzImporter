@@ -1,26 +1,33 @@
 ----item----
 version: 1
-id: {CD9F7B13-C732-440D-B487-8B0B6045C0E2}
+id: {978C9AA9-2B78-4C61-BD46-7AB6CC665FE7}
 database: master
-path: /sitecore/templates/Modules/EzImporter/InputColumnCollection/InputFields
-parent: {1A50AD7B-C6C8-4B6D-991B-37885A662DF1}
-name: InputFields
+path: /sitecore/content/DropdownSource/7
+parent: {B0104DDF-DD26-4ADD-9EBA-EB153AEDEB52}
+name: 7
 master: {00000000-0000-0000-0000-000000000000}
-template: {E269FBB5-3750-427A-9149-7AA950B49301}
-templatekey: Template section
+template: {7333442E-6FCF-4D37-A23C-5E547BBCFC29}
+templatekey: DropDownItem
 
 ----version----
 language: en
 version: 1
-revision: b25ce3ce-590f-4555-bcb2-f8e77c45beda
+revision: 6311d9d6-6117-4c81-8ff8-7fc37ab0eedc
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20150703T152637Z
+20151220T223621Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -34,14 +41,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-b25ce3ce-590f-4555-bcb2-f8e77c45beda
+6311d9d6-6117-4c81-8ff8-7fc37ab0eedc
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
-content-length: 35
+content-length: 16
 
-20150703T152637:635715339972884000Z
+20151220T223621Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
