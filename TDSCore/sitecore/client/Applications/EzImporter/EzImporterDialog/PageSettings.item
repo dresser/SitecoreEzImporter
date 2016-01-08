@@ -1,0 +1,11 @@
+----item----
+version: 1
+id: {AF178B2F-A499-4843-86CA-8339DDF04520}
+database: core
+path: /sitecore/client/Applications/EzImporter/EzImporterDialog/PageSettings
+parent: {E0986455-1512-4409-93C1-7DA72A2AB315}
+name: PageSettings
+master: {00000000-0000-0000-0000-000000000000}
+template: {E35EAA2D-EDEA-431C-A9E6-488272B53782}
+templatekey: PageSettings
+

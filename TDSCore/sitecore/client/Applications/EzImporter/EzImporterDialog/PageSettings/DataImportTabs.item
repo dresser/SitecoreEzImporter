@@ -1,0 +1,11 @@
+----item----
+version: 1
+id: {18860360-3407-4EA9-9A76-95A3E53B8288}
+database: core
+path: /sitecore/client/Applications/EzImporter/EzImporterDialog/PageSettings/DataImportTabs
+parent: {AF178B2F-A499-4843-86CA-8339DDF04520}
+name: DataImportTabs
+master: {00000000-0000-0000-0000-000000000000}
+template: {A87A00B1-E6DB-45AB-8B54-636FEC3B5523}
+templatekey: Folder
+

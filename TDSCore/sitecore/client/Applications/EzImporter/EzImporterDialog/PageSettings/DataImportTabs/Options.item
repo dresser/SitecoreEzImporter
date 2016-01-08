@@ -1,0 +1,92 @@
+----item----
+version: 1
+id: {F4D43CBA-8D8D-4A87-8176-C3D8FB639DFE}
+database: core
+path: /sitecore/client/Applications/EzImporter/EzImporterDialog/PageSettings/DataImportTabs/Options
+parent: {18860360-3407-4EA9-9A76-95A3E53B8288}
+name: Options
+master: {00000000-0000-0000-0000-000000000000}
+template: {F62B4CD7-754C-4461-810F-2B6BD2C92A0D}
+templatekey: Tab
+
+----field----
+field: {DEAB3795-056F-4421-ADF0-758844461B72}
+name: Placeholder Name
+key: placeholder name
+content-length: 14
+
+Import Options
+----field----
+field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
+name: __Renderings
+key: __renderings
+content-length: 5319
+
+<r>
+  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=OptionsBorder&amp;UsePadding=0" uid="{CD18415E-EECC-4727-95AC-4A115D6030CF}" />
+    <r id="{442BD093-FBAD-4E36-BC08-489E16C82D08}" par="Id=StandardOptionsExpander&amp;Header=Standard+Options&amp;IsCollapsible=0" ph="OptionsBorder.Content" uid="{3EE2C63B-2E74-47B0-867F-AD227EB22A6B}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=ImportLocationBorder&amp;UsePadding=1" ph="StandardOptionsExpander.Body" uid="{32291705-3920-4B61-9FF8-F73B099959D8}" />
+    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=ImportLocationLabel&amp;Tooltip=Items+will+be+created+beneath+this+item&amp;Text=Import+Node" ph="ImportLocationBorder.Content" uid="{2A156AFE-2C63-47C0-81D0-137B4DD04BE6}" />
+    <r id="{08B6767B-8E8A-41C8-8880-EFEBB4EAE0E3}" par="Id=ImportLocationTreeView&amp;Database=master&amp;RootItem=%7b0DE95AE4-41AB-4D01-9EB0-67441B7C2450%7d&amp;IsCheckboxEnabled=0" ph="ImportLocationBorder.Content" uid="{055B932C-C41A-47CE-9F7F-28D048DCCE64}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=TargetLanguageBorder&amp;UsePadding=1" ph="StandardOptionsExpander.Body" uid="{9FCC093F-073B-46A0-BD42-D1339C589BA7}" />
+    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=TargetLanguageLabel&amp;Text=Target+Language" ph="TargetLanguageBorder.Content" uid="{10E38312-30FC-4114-B1C1-A6F8D3DFDE8B}" />
+    <r id="{33A02142-2DBD-4034-AEA2-BDF215EB2451}" par="Id=LanguagesDataSource&amp;Query=%2fsitecore%2fsystem%2fLanguages%2f*&amp;Database=master" ph="TargetLanguageBorder.Content" uid="{3E9B9593-EAE0-4BC6-8289-F99EDF881E29}" />
+    <r id="{25D357D3-3648-4336-9B53-55EED7CFA078}" par="Id=TargetLanguageCombo&amp;IsVisible=1&amp;WidthPolicy=%7b10E1CB3E-660F-4C5E-9F25-F67C4637D463%7d&amp;Items=%7bBinding+LanguagesDataSource.Items%7d&amp;IsEnabled=1" ph="TargetLanguageBorder.Content" uid="{8CD4C927-7D21-4316-9007-C7D1D01C5280}" />
+    <r id="{442BD093-FBAD-4E36-BC08-489E16C82D08}" par="Id=AdvancedOptionsExpander&amp;Header=Advanced+Options&amp;IsOpen=0" ph="OptionsBorder.Content" uid="{A713AF4E-B8DA-46AC-B728-B1A0347E06CB}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=ExistingItemHandlingBorder&amp;UsePadding=1" ph="AdvancedOptionsExpander.Body" uid="{7E45E41F-915E-4606-AC50-6735D06EA568}" />
+    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=ExistingItemHandlingLabel&amp;Text=Existing+Item+Handling" ph="ExistingItemHandlingBorder.Content" uid="{12836085-DD74-49E6-A85A-A69573F3F1CB}" />
+    <r id="{33A02142-2DBD-4034-AEA2-BDF215EB2451}" par="Id=ExistingItemHandlingDataSource&amp;Query=%2fsitecore%2fclient%2fApplications%2fEzImporter%2fEzImporterDialog%2fSystemOptions%2fExistingItemHandling%2f*&amp;Database=core" ph="ExistingItemHandlingBorder.Content" uid="{012D33DA-388D-48E5-9B78-1E98B4019549}" />
+    <r id="{25D357D3-3648-4336-9B53-55EED7CFA078}" par="Id=ExistingItemHandling&amp;Items=%7bBinding+ExistingItemHandlingDataSource.Items%7d" ph="ExistingItemHandlingBorder.Content" uid="{EDB35FC9-7B13-4271-B946-E78FF63B8E87}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=InvalidLinkHandlingBorder&amp;UsePadding=1" ph="AdvancedOptionsExpander.Body" uid="{D807681D-99A3-4C27-BC11-85AF84EA760E}" />
+    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=InvalidLinkHandlingLabel&amp;Text=Invalid+Link+Handling" ph="InvalidLinkHandlingBorder.Content" uid="{F1EA1427-8DEA-4FF6-A2DD-73DBFFA24858}" />
+    <r id="{33A02142-2DBD-4034-AEA2-BDF215EB2451}" par="Id=InvalidLinkHandlingDataSource&amp;Query=%2fsitecore%2fclient%2fApplications%2fEzImporter%2fEzImporterDialog%2fSystemOptions%2fInvalidLinkHandling%2f*&amp;Database=core" ph="ExistingItemHandlingBorder.Content" uid="{53B8468C-ED21-4E57-A976-D9BCA239852E}" />
+    <r id="{25D357D3-3648-4336-9B53-55EED7CFA078}" par="Id=InvalidLinkHandling&amp;Items=%7bBinding+InvalidLinkHandlingDataSource.Items%7d" ph="InvalidLinkHandlingBorder.Content" uid="{78B4C2D6-1FCC-404F-8AA4-52677EDA78BF}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=CsvDelimiterBorder&amp;UsePadding=1" ph="AdvancedOptionsExpander.Body" uid="{E9CE149A-13E9-42FA-9901-3CF8B06A5AA1}" />
+    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=CsvDelimiterLabel&amp;Text=CSV+Delimiter" ph="CsvDelimiterBorder.Content" uid="{0F827F97-DEB3-4362-8D33-A4641D0835C9}" />
+    <r id="{57F86E9A-1844-45CE-BF8A-62900AE17A92}" par="IsEnabled=1&amp;Id=CsvDelimiter&amp;IsVisible=1" ph="CsvDelimiterBorder.Content" uid="{2977AC15-5F1B-46E6-9E89-B182383F17D9}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=MultipleValuesImportSeparatorBorder&amp;UsePadding=1" ph="AdvancedOptionsExpander.Body" uid="{FCA2CB83-4A0A-40F3-BD61-78C2C3FE1D5F}" />
+    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=MultipleValuesImportSeparatorLabel&amp;Tooltip=Separator+for+multi-select+fields&amp;Text=Multiple+Values+Separator" ph="MultipleValuesImportSeparatorBorder.Content" uid="{0AECDB1C-B365-4390-94E4-FAE57137229F}" />
+    <r id="{57F86E9A-1844-45CE-BF8A-62900AE17A92}" par="IsEnabled=1&amp;Id=MultipleValuesImportSeparator&amp;IsVisible=1" ph="MultipleValuesImportSeparatorBorder.Content" uid="{66BDDFE7-F92D-4341-B5C7-FF224B7224F4}" />
+  </d>
+</r>
+----version----
+language: en
+version: 1
+revision: d95e3656-2081-4eb9-8885-7d3fd42eec2d
+
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20160107T140245Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+d95e3656-2081-4eb9-8885-7d3fd42eec2d
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20160107T141418Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

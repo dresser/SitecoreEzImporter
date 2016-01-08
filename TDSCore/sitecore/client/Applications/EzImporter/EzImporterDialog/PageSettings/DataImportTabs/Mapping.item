@@ -1,0 +1,25 @@
+----item----
+version: 1
+id: {F2E0358B-C765-4B3D-81C5-A0CF8389AC03}
+database: core
+path: /sitecore/client/Applications/EzImporter/EzImporterDialog/PageSettings/DataImportTabs/Mapping
+parent: {18860360-3407-4EA9-9A76-95A3E53B8288}
+name: Mapping
+master: {00000000-0000-0000-0000-000000000000}
+template: {F62B4CD7-754C-4461-810F-2B6BD2C92A0D}
+templatekey: Tab
+
+----field----
+field: {DEAB3795-056F-4421-ADF0-758844461B72}
+name: Placeholder Name
+key: placeholder name
+content-length: 14
+
+Import Mapping
+----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 3
+
+200

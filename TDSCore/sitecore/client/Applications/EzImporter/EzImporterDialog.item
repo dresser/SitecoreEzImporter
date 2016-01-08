@@ -20,50 +20,17 @@ Harvard
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 226
+content-length: 1232
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
     <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" ph="Page.Code" uid="{EBDA2BA2-1715-4B9B-B374-1902DC86FF7E}" />
+    <r id="{BE007891-2D9C-4E67-943C-752DBA0C041F}" ph="Page.Body" uid="{91DEEDDC-B621-4A19-B2B8-8ADADEA9FE6B}" />
+    <r id="{5AE97C0C-EE88-4564-A363-4FA11C01C90A}" ph="GlobalHeader" uid="{56B1FCDE-0250-4AA1-998B-6EA277CE67DB}" />
+    <r id="{93CEEFCD-2DE1-40AF-AE9A-EBBFBCCC522F}" ph="ApplicationHeader" uid="{78E1151F-237A-49CF-96A0-74FF0B5B6E36}" />
+    <r id="{19A9EB6B-1283-49EB-BD75-AAFE76453469}" ph="ApplicationContent" uid="{4FC547E0-FA84-4801-B3B7-5707D4667168}" />
+    <r id="{7A69C522-7E99-4630-A25A-5D571505862A}" par="Id=LaunchpadLogo" ph="GlobalHeader.StartButton" uid="{49433BD9-E327-45B9-9763-E9F4E1774093}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=ApplicationTitle&amp;Text=Ez+Importer" ph="ApplicationHeader.Title" uid="{0F7B9156-DCC6-4B4C-83CC-7ED860B94216}" />
+    <r ds="{18860360-3407-4EA9-9A76-95A3E53B8288}" id="{7426CD5B-A534-4462-ABEE-D700D78ECF6A}" par="Id=DataImportTabs" ph="ApplicationContent.Main" uid="{5EFD1869-DE53-45AA-8749-7D4CD6AAC924}" />
   </d>
 </r>
-----version----
-language: en
-version: 1
-revision: 48194a20-7457-49e6-99cc-679ffb5b3462
-
-----field----
-field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
-name: BrowserTitle
-key: browsertitle
-content-length: 16
-
-EzImporterDialog
-----field----
-field: {25BED78C-4957-4165-998A-CA1B52F67497}
-name: __Created
-key: __created
-content-length: 16
-
-20151220T230358Z
-----field----
-field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
-name: __Revision
-key: __revision
-content-length: 36
-
-48194a20-7457-49e6-99cc-679ffb5b3462
-----field----
-field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
-name: __Updated
-key: __updated
-content-length: 16
-
-20151220T232137Z
-----field----
-field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
-name: __Updated by
-key: __updated by
-content-length: 14
-
-sitecore\admin
