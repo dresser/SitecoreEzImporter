@@ -27,22 +27,22 @@ content-length: 1
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 1003
+content-length: 1015
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=UploadBorder" uid="{5A9BAB9A-6C55-44A7-8CDB-5DBD610851A5}" />
     <r id="{442BD093-FBAD-4E36-BC08-489E16C82D08}" par="Id=DataExpander&amp;Header=Import+Data&amp;IsCollapsible=0" ph="UploadBorder.Content" uid="{CD789518-2AB8-4372-B500-DE9C71C5A807}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=DataBorder&amp;UsePadding=1" ph="DataExpander.Body" uid="{A31E392F-2C25-41DC-86E4-DF2A4BC8CD93}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=Text1&amp;Text=Select+XLSX+or+CSV+file" ph="DataBorder.Content" uid="{51FA839A-5808-4917-AC98-CFF02B385A0E}" />
-    <r id="{B2257CAC-47CA-4061-9352-C06D687ED32C}" par="Id=Uploader1" ph="DataBorder.Content" uid="{484F472B-8019-44B3-8D26-A375B09092BA}" />
-    <r id="{F05CDBA5-03ED-46D2-B58C-C0283F86C332}" par="Id=UploaderInfo1" ph="DataBorder.Content" uid="{8D9AFA19-4BA8-4453-B18C-DEC3FA2EC401}" />
+    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=SourceFileLabel&amp;Text=Select+XLSX+or+CSV+file" ph="DataBorder.Content" uid="{B95B7AC5-8A24-4BAA-A0B0-690422D360CD}" />
+    <r id="{B2257CAC-47CA-4061-9352-C06D687ED32C}" par="Id=SourceFile" ph="DataBorder.Content" uid="{484F472B-8019-44B3-8D26-A375B09092BA}" />
+    <r id="{F05CDBA5-03ED-46D2-B58C-C0283F86C332}" par="Id=SourceFileInfo" ph="DataBorder.Content" uid="{8D9AFA19-4BA8-4453-B18C-DEC3FA2EC401}" />
   </d>
 </r>
 ----version----
 language: en
 version: 1
-revision: 5dd64925-55ea-4a7a-bbf2-e86f7e071484
+revision: d9f7ab88-133a-40e5-a49d-c8e77d92c85a
 
 ----field----
 field: {AEA872FB-AA91-4D1A-B877-3CA6FBBB4FD4}
@@ -64,14 +64,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-5dd64925-55ea-4a7a-bbf2-e86f7e071484
+d9f7ab88-133a-40e5-a49d-c8e77d92c85a
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160111T215848Z
+20160220T221520Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

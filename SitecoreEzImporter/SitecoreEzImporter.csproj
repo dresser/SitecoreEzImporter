@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="sitecore\admin\EzImporter.aspx" />
+    <Content Include="sitecore\SitecoreEzImporter.js" />
     <None Include="packages.config" />
     <Content Include="App_Config\Include\EzImporter.config" />
   </ItemGroup>
