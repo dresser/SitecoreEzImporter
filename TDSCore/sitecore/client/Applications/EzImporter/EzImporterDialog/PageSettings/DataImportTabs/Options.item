@@ -20,14 +20,14 @@ Import Options
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 5319
+content-length: 5323
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=OptionsBorder&amp;UsePadding=0" uid="{CD18415E-EECC-4727-95AC-4A115D6030CF}" />
     <r id="{442BD093-FBAD-4E36-BC08-489E16C82D08}" par="Id=StandardOptionsExpander&amp;Header=Standard+Options&amp;IsCollapsible=0" ph="OptionsBorder.Content" uid="{3EE2C63B-2E74-47B0-867F-AD227EB22A6B}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=ImportLocationBorder&amp;UsePadding=1" ph="StandardOptionsExpander.Body" uid="{32291705-3920-4B61-9FF8-F73B099959D8}" />
-    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=ImportLocationLabel&amp;Tooltip=Items+will+be+created+beneath+this+item&amp;Text=Import+Node" ph="ImportLocationBorder.Content" uid="{2A156AFE-2C63-47C0-81D0-137B4DD04BE6}" />
+    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=ImportLocationLabel&amp;Tooltip=Items+will+be+created+beneath+this+item&amp;Text=Import+Location" ph="ImportLocationBorder.Content" uid="{2A156AFE-2C63-47C0-81D0-137B4DD04BE6}" />
     <r id="{08B6767B-8E8A-41C8-8880-EFEBB4EAE0E3}" par="Id=ImportLocationTreeView&amp;Database=master&amp;RootItem=%7b0DE95AE4-41AB-4D01-9EB0-67441B7C2450%7d&amp;IsCheckboxEnabled=0" ph="ImportLocationBorder.Content" uid="{055B932C-C41A-47CE-9F7F-28D048DCCE64}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=TargetLanguageBorder&amp;UsePadding=1" ph="StandardOptionsExpander.Body" uid="{9FCC093F-073B-46A0-BD42-D1339C589BA7}" />
     <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=TargetLanguageLabel&amp;Text=Target+Language" ph="TargetLanguageBorder.Content" uid="{10E38312-30FC-4114-B1C1-A6F8D3DFDE8B}" />
@@ -53,7 +53,7 @@ content-length: 5319
 ----version----
 language: en
 version: 1
-revision: d95e3656-2081-4eb9-8885-7d3fd42eec2d
+revision: e3a0f274-5d89-4a9c-9b5a-18f7d0cee779
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -75,14 +75,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d95e3656-2081-4eb9-8885-7d3fd42eec2d
+e3a0f274-5d89-4a9c-9b5a-18f7d0cee779
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160107T141418Z
+20160228T142620Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

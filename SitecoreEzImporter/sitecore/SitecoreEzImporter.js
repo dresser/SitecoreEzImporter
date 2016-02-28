@@ -20,20 +20,23 @@
         },
 
         ImportData: function () {
-            var template = this.tvTemplate.viewModel.selectedItemId();
-            var folder = this.tvLocation.viewModel.selectedItemId();
-            var update = this.cbUpdate.viewModel.isChecked();
+            var location = this.ImportLocationTreeView.viewModel.selectedItemId();
+            var language = this.TargetLanguageCombo.viewModel.selectedItemId();
+            var existingItemHandling = this.ExistingItemHandling.viewModel.selectedItemId();
+            var invalidLinkHandling = this.InvalidLinkHandling.viewModel.selectedItem();
+            var csvDelimiter = this.CsvDelimiter.viewModel.value;
+            var multipleValuesSeparator = this.MultipleValuesImportSeparator.viewModel.value;
 
-            if (template == null) {
-                this.MessageBar.addMessage("warning", "Please select a template to import");
+            alert(location + "\n" + language + "\n" + existingItemHandling + "\n" + invalidLinkHandling + "\n" + csvDelimiter + "\n" + multipleValuesSeparator);
+            if (language == null) {
+                alert('null language');
+                this.MessageBar.addMessage("warning", "Please select language for import");
             }
 
-            if (folder == null) {
-                this.MessageBar.addMessage("warning", "Please select a import location");
-            }
-
-            if (template == null || folder == null) {
-                return;
+            if (location == null) {
+                alert('null import location');
+                this.MessageBar.addMessage("warning", "Please select import location");
+                alert('null import location');
             }
 
             for (var i = 0; i < this.filesUploaded.length; i++) {
@@ -47,7 +50,7 @@
                 alert('button clicked');
                 //$.ajax({
                 //    url: "/sitecore/api/ssc/MikeRobbins-SitecoreDataImporter-Controllers/Item/1/ImportItems",
-                //    type: "PUT",
+                //    type: "POST",
                 //    contentType: "application/json; charset=utf-8",
                 //    dataType: "json",
                 //    context: this,
@@ -58,33 +61,7 @@
                 //});
             }
 
-
             this.pi.viewModel.hide();
-        },
-
-        GetImportAudit: function (mediaItemId) {
-            $.ajax({
-                url: "/sitecore/api/ssc/MikeRobbins-SitecoreDataImporter-Controllers/Item/" + mediaItemId + "/GetImportAudit",
-                type: "GET",
-                context: this,
-                success: function (data) {
-
-                    this.summary.viewModel.show();
-
-                    for (var i = 0; i < data.ImportedItems.length; i++) {
-                        var obj = data.ImportedItems[i];
-
-                        var result = {
-                            Name: obj,
-                            Result: "imported successfully"
-                        };
-
-                        this.JsonDS.add(result);
-                    }
-                }
-            });
-
-
         },
 
         FileUploaded: function (model) {
