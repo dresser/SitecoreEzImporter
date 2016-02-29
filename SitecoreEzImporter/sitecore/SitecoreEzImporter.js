@@ -8,13 +8,13 @@
         },
 
         UploadFiles: function () {
-            this.pi.viewModel.show();
+            this.ProgressIndicator.viewModel.show();
 
             if (this.SourceFile.viewModel.totalFiles() > 0) {
                 this.SourceFile.viewModel.upload();
             } else {
                 this.MessageBar.addMessage("warning", "Please select file(s) to import");
-                this.pi.viewModel.hide();
+                this.ProgressIndicator.viewModel.hide();
             }
 
         },
@@ -47,21 +47,20 @@
                 //    MediaItemId: this.filesUploaded[i]
                 //};
 
-                alert('button clicked');
-                //$.ajax({
-                //    url: "/sitecore/api/ssc/MikeRobbins-SitecoreDataImporter-Controllers/Item/1/ImportItems",
-                //    type: "POST",
-                //    contentType: "application/json; charset=utf-8",
-                //    dataType: "json",
-                //    context: this,
-                //    success: function () {
-                //        this.GetImportAudit(this.filesUploaded[i - 1]);
-                //    },
-                //    data: JSON.stringify(item)
-                //});
+                $.ajax({
+                    url: "/sitecore/api/EzImporter/Import",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    context: this,
+                    success: function () {
+                        this.GetImportAudit(this.filesUploaded[i - 1]);
+                    },
+                    data: JSON.stringify(item)
+                });
             }
 
-            this.pi.viewModel.hide();
+            this.ProgressIndicator.viewModel.hide();
         },
 
         FileUploaded: function (model) {
