@@ -20,12 +20,13 @@ Harvard
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 1446
+content-length: 1613
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
     <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" par="PageCodeScriptFileName=%2fsitecore%2fSitecoreEzImporter.js" ph="Page.Code" uid="{EBDA2BA2-1715-4B9B-B374-1902DC86FF7E}" />
     <r id="{BE007891-2D9C-4E67-943C-752DBA0C041F}" ph="Page.Body" uid="{91DEEDDC-B621-4A19-B2B8-8ADADEA9FE6B}" />
+    <r id="{FE9723FC-56E4-4CA8-9C64-CB34F29462A5}" par="Id=ProgressIndicator&amp;AutoShowTimeout=1000" ph="Page.Body" uid="{5B8EAE49-9775-4E88-B60A-AFECA876CB2A}" />
     <r id="{5AE97C0C-EE88-4564-A363-4FA11C01C90A}" ph="GlobalHeader" uid="{56B1FCDE-0250-4AA1-998B-6EA277CE67DB}" />
     <r id="{93CEEFCD-2DE1-40AF-AE9A-EBBFBCCC522F}" ph="ApplicationHeader" uid="{78E1151F-237A-49CF-96A0-74FF0B5B6E36}" />
     <r id="{19A9EB6B-1283-49EB-BD75-AAFE76453469}" ph="ApplicationContent" uid="{4FC547E0-FA84-4801-B3B7-5707D4667168}" />
@@ -38,7 +39,7 @@ content-length: 1446
 ----version----
 language: en
 version: 1
-revision: 789a6ae6-13c8-4b1a-81f8-6d0555a40879
+revision: 0723304f-860f-4f4f-8004-a666725c3ccd
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -60,14 +61,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-789a6ae6-13c8-4b1a-81f8-6d0555a40879
+0723304f-860f-4f4f-8004-a666725c3ccd
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160220T221229Z
+20160228T231158Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

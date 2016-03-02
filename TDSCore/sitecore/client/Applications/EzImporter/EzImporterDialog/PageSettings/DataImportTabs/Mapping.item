@@ -27,7 +27,7 @@ content-length: 3
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 1781
+content-length: 1774
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
@@ -38,13 +38,13 @@ content-length: 1781
     <r id="{33A02142-2DBD-4034-AEA2-BDF215EB2451}" par="Id=ExistingMappingDataSource&amp;Query=%2fsitecore%2fsystem%2fModules%2fEz+Importer%2f%2f*%5b%40%40templateid%3d%27%7bF666A29E-A9C3-40FD-A3B8-CDAE59D9F09D%7d%27%5d&amp;Database=master" ph="ExistingMappingBorder.Content" uid="{80F530AD-B26A-4FD8-9E1D-30869015F176}" />
     <r id="{25D357D3-3648-4336-9B53-55EED7CFA078}" par="Id=ExistingMapping&amp;Items=%7bBinding+ExistingMappingDataSource.Items%7d" ph="ExistingMappingBorder.Content" uid="{A1824B8F-FFB5-4005-B1FA-C39238FB9E29}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=ImportButtonBorder&amp;PaddingType=All&amp;UsePadding=1" ph="MappingExpander.Body" uid="{5BBF39A0-3CDF-4289-8BE3-CA52975F8061}" />
-    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aalert(%27hello+world%27)%3b&amp;Id=ImportButton&amp;ButtonType=Primary&amp;Text=Import" ph="ImportButtonBorder.Content" uid="{F8ACD832-2530-468C-94AD-8CD3A48CCB26}" />
+    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.UploadFiles()%3b&amp;Id=ImportButton&amp;ButtonType=Primary&amp;Text=Import" ph="ImportButtonBorder.Content" uid="{F8ACD832-2530-468C-94AD-8CD3A48CCB26}" />
   </d>
 </r>
 ----version----
 language: en
 version: 1
-revision: a723da6c-00b1-4b6d-aa65-7e847a854be2
+revision: 458f4e77-0f6b-4f0b-95b8-3329a506b31d
 
 ----field----
 field: {AEA872FB-AA91-4D1A-B877-3CA6FBBB4FD4}
@@ -66,14 +66,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-a723da6c-00b1-4b6d-aa65-7e847a854be2
+458f4e77-0f6b-4f0b-95b8-3329a506b31d
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160128T184102Z
+20160302T212858Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
