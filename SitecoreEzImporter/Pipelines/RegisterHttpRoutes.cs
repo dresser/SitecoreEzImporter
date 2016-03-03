@@ -12,11 +12,15 @@ namespace EzImporter.Pipelines
 
         protected void Configure(HttpConfiguration configuration)
         {
-            var routes = configuration.Routes;
-            routes.MapHttpRoute("ImportApi", "sitecore/api/EzImporter/Import", new
+            configuration.Routes.MapHttpRoute("ImportApi", "sitecore/api/EzImporter/Import", new
             {
                 controller = "Import",
                 action = "Import"
+            });
+            configuration.Routes.MapHttpRoute("ImportSettings", "sitecore/api/EzImporter/DefaultSettings", new
+            {
+                controller = "Import",
+                action = "DefaultSettings"
             });
         }
     }

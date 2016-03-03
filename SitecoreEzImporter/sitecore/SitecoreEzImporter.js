@@ -4,6 +4,21 @@
 
         initialize: function() {
             this.on("upload-fileUploaded", this.FileUploaded, this);
+            $.ajax({
+                url: "/sitecore/api/EzImporter/DefaultSettings",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                context: this,
+                success: function (data) {
+                    this.ExistingItemHandling.viewModel.selectedValue(data.ExistingItemHandling);
+                    this.ExistingItemHandling.viewModel.rebind();
+                    this.InvalidLinkHandling.viewModel.selectedItem(data.InvalidLinkHandling);
+                    this.CsvDelimiter.viewModel.text(data.CsvDelimiter);
+                    this.MultipleValuesImportSeparator.viewModel.text(data.MultipleValuesSeparator);
+                    console.log(data);
+                },
+            });
         },
 
         //Called by the main button. Indirectly triggers ImportData once all files uploaded
