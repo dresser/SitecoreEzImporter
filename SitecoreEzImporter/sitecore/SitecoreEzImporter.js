@@ -11,8 +11,10 @@
                 dataType: "json",
                 context: this,
                 success: function (data) {
-                    this.ExistingItemHandling.viewModel.selectedValue(data.ExistingItemHandling);
-                    this.ExistingItemHandling.viewModel.rebind();
+                    console.log(this.ExistingItemHandling.viewModel);
+                    var item = this.ExistingItemHandling.viewModel.setSelection(data.ExistingItemHandling);
+                    console.log(item);
+                    //this.ExistingItemHandling.viewModel.rebind();
                     this.InvalidLinkHandling.viewModel.selectedItem(data.InvalidLinkHandling);
                     this.CsvDelimiter.viewModel.text(data.CsvDelimiter);
                     this.MultipleValuesImportSeparator.viewModel.text(data.MultipleValuesSeparator);
