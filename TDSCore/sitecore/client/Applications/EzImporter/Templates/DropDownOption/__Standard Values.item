@@ -1,10 +1,10 @@
 ----item----
 version: 1
-id: {00AABF35-EDA1-4896-AC20-631A2A43D2CE}
+id: {8A0827EA-D8C0-4CCB-AD43-4EC1012ECA6E}
 database: core
-path: /sitecore/client/Applications/EzImporter/EzImporterDialog/SystemOptions/InvalidLinkHandling/SetEmpty
-parent: {95FAE475-BABB-458C-9B78-BD74C4EF1BC3}
-name: SetEmpty
+path: /sitecore/client/Applications/EzImporter/Templates/DropDownOption/__Standard Values
+parent: {A4D53947-A337-493E-97CF-80F4B79835A3}
+name: __Standard Values
 master: {00000000-0000-0000-0000-000000000000}
 template: {A4D53947-A337-493E-97CF-80F4B79835A3}
 templatekey: DropDownOption
@@ -12,22 +12,15 @@ templatekey: DropDownOption
 ----version----
 language: en
 version: 1
-revision: bd0e7112-cd24-431d-ba0c-043f31945573
+revision: 52e7842a-22a1-457d-9d9a-b2aaa54863b4
 
-----field----
-field: {B6930976-13AC-43C7-8B63-F7AF43722E5C}
-name: HelpText
-key: helptext
-content-length: 60
-
-Sets the link field as empty if the link item does not exist
 ----field----
 field: {6F4C8934-0336-4846-B6AE-CCF5F386C024}
 name: Name
 key: name
-content-length: 8
+content-length: 5
 
-SetEmpty
+$name
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -41,7 +34,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20160107T140901Z
+20160316T220427Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -55,14 +48,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-bd0e7112-cd24-431d-ba0c-043f31945573
+52e7842a-22a1-457d-9d9a-b2aaa54863b4
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160316T223536Z
+20160316T220436Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
