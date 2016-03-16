@@ -11,14 +11,28 @@
                 dataType: "json",
                 context: this,
                 success: function (data) {
-                    console.log(this.ExistingItemHandling.viewModel);
-                    var item = this.ExistingItemHandling.viewModel.setSelection(data.ExistingItemHandling);
-                    console.log(item);
-                    //this.ExistingItemHandling.viewModel.rebind();
+                    console.log(data.ExistingItemHandling);
+                    var app = this;
+                    app.ExistingItemHandlingDataSource.on("change:hasItems", function () {
+                        var value = app.ExistingItemHandling.viewModel.$el.select('option:contains("' + data.ExistingItemHandling + '")').val();
+                        console.log(value);
+                        //app.ExistingItemHandling.set("selectedValue", value);
+                        app.ExistingItemHandling.rebind(null, null, value, null, null);
+                        //console.log(app.ExistingItemHandling);
+                        //var dd = $(app.ExistingItemHandling);
+                        //var value = dd.select('option:contains("Update")').val();
+                        //console.log(value);
+                        //console.log('event fired',app.ExistingItemHandling, app.ExistingItemHandling.viewModel);
+                        //var item = app.ExistingItemHandling.viewModel.getItemFromValue("{61CF3496-106C-4F13-9F11-F3A4A62267FB}"); //data.ExistingItemHandling);
+                        //console.log(item);
+                        //item.attr('selected', true);
+                        //app.ExistingItemHandling.viewModel.setSelection(selItem);
+                        //app.ExistingItemHandling.viewModel.set("selectedValue", "{61CF3496-106C-4F13-9F11-F3A4A62267FB}");// data.ExistingItemHandling);
+                    });
+                    
                     this.InvalidLinkHandling.viewModel.selectedItem(data.InvalidLinkHandling);
                     this.CsvDelimiter.viewModel.text(data.CsvDelimiter);
                     this.MultipleValuesImportSeparator.viewModel.text(data.MultipleValuesSeparator);
-                    console.log(data);
                 },
             });
         },
