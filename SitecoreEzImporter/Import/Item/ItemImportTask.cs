@@ -28,7 +28,7 @@ namespace EzImporter.Import.Item
             ReadMapInfo(ref dataTable);
             ReadData(ref dataTable);
             ImportItems(dataTable);
-            return Log.ToString();
+            return Log.ToString().Replace(Environment.NewLine, "<br/>");
         }
 
         protected bool ValidateArgs()

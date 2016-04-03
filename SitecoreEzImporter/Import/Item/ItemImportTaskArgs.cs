@@ -8,6 +8,7 @@ namespace EzImporter.Import.Item
 {
     public class ItemImportTaskArgs
     {
+        public bool FirstRowAsColumnNames { get; set; }
         public string FileExtension { get; set; }
         public Stream FileStream { get; set; }
         public Database Database { get; set; }

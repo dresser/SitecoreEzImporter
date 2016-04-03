@@ -78,8 +78,8 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     context: this,
-                    success: function() {
-
+                    success: function(data) {
+                        this.LogInfo.viewModel.text(data.Log);
                     },
                     data: JSON.stringify(item)
                 });

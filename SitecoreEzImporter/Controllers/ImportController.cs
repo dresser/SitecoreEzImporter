@@ -29,7 +29,7 @@ namespace EzImporter.Controllers
             var args = new ItemImportTaskArgs
             {
                 Database = database,
-                //FileName = csvFileName.Value, //TODO change to use media item instead
+                FirstRowAsColumnNames = false,
                 FileExtension = uploadedFile.Extension.ToLower(),
                 FileStream = uploadedFile.GetMediaStream(),
                 RootItemId = new ID(importModel.ImportLocationId),

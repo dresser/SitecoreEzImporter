@@ -19,7 +19,7 @@ namespace EzImporter.DataReaders
                 //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)
                 IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(args.FileStream);
 
-                excelReader.IsFirstRowAsColumnNames = true;
+                excelReader.IsFirstRowAsColumnNames = args.FirstRowAsColumnNames;
                 if (!excelReader.IsValid)
                 {
                     log.AppendLine("Invalid Excel file '" + excelReader.ExceptionMessage + "'");
