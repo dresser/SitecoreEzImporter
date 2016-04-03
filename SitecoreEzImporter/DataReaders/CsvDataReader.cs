@@ -12,29 +12,31 @@ namespace EzImporter.DataReaders
             log.AppendLine("Reading CSV input data...");
             try
             {
-                var lines = File.ReadAllLines(args.FileName, System.Text.Encoding.UTF8);
-                if (lines.Length == 0)
+                var reader = new StreamReader(args.FileStream);
+                var lineCount = 0;
+                do
                 {
-                    log.AppendLine("No data found in file");
-                }
-                for (int i = 0; i < lines.Length; i++)
-                {
-                    var row = dataTable.NewRow();
-                    var values = lines[i].Split(args.ImportOptions.CsvDelimiter, StringSplitOptions.None);
-                    for (int j = 0; j < args.Map.InputFields.Count; j++)
+                    var line = reader.ReadLine();
+                    if (line != null)
                     {
-                        if (j < values.Length)
+                        var row = dataTable.NewRow();
+                        var values = line.Split(args.ImportOptions.CsvDelimiter, StringSplitOptions.None);
+                        for (int j = 0; j < args.Map.InputFields.Count; j++)
                         {
-                            row[j] = values[j];
+                            if (j < values.Length)
+                            {
+                                row[j] = values[j];
+                            }
+                            else
+                            {
+                                row[j] = "";
+                            }
                         }
-                        else
-                        {
-                            row[j] = "";
-                        }
+                        dataTable.Rows.Add(row);
+                        lineCount++;
                     }
-                    dataTable.Rows.Add(row);
-                }
-                log.AppendFormat("{0} records read from input data. {1}", lines.Length, Environment.NewLine);
+                } while (!reader.EndOfStream);
+                log.AppendFormat("{0} records read from input data. {1}", lineCount, Environment.NewLine);
             }
             catch (Exception ex)
             {

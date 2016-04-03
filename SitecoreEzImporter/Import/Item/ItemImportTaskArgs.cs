@@ -2,13 +2,14 @@
 using EzImporter.Map;
 using Sitecore.Data;
 using Sitecore.Globalization;
+using System.IO;
 
 namespace EzImporter.Import.Item
 {
     public class ItemImportTaskArgs
     {
-        public string FileName { get; set; }
-        public byte[] FileBytes { get; set; }
+        public string FileExtension { get; set; }
+        public Stream FileStream { get; set; }
         public Database Database { get; set; }
         public ID RootItemId { get; set; }
         public Language TargetLanguage { get; set; }

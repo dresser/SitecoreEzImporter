@@ -3,6 +3,7 @@ using EzImporter.Import.Item;
 using EzImporter.Models;
 using Newtonsoft.Json;
 using Sitecore.Data;
+using Sitecore.Data.Items;
 using Sitecore.Services.Core;
 using Sitecore.Services.Infrastructure.Web.Http;
 using System;
@@ -20,10 +21,17 @@ namespace EzImporter.Controllers
         {
             var database = Sitecore.Configuration.Factory.GetDatabase("master");
             var languageItem = database.GetItem(importModel.Language);
+            var uploadedFile = (MediaItem) database.GetItem(importModel.MediaItemId);
+            if (uploadedFile == null)
+            {
+                return new JsonResult<ImportResultModel>(null, new JsonSerializerSettings(), Encoding.UTF8, this);
+            }
             var args = new ItemImportTaskArgs
             {
                 Database = database,
                 //FileName = csvFileName.Value, //TODO change to use media item instead
+                FileExtension = uploadedFile.Extension.ToLower(),
+                FileStream = uploadedFile.GetMediaStream(),
                 RootItemId = new ID(importModel.ImportLocationId),
                 TargetLanguage = Sitecore.Globalization.Language.Parse(languageItem.Name),
                 Map = Map.Factory.BuildMapInfo(new ID(importModel.MappingId)),

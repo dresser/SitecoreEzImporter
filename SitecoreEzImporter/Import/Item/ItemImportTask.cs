@@ -5,7 +5,6 @@ using Sitecore.Data.Items;
 using Sitecore.Globalization;
 using System;
 using System.Data;
-using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -36,9 +35,9 @@ namespace EzImporter.Import.Item
         {
             Log.AppendLine("Validating input...");
             var argsValid = true;
-            if (!File.Exists(Args.FileName))
+            if (Args.FileStream == null)
             {
-                Log.AppendFormat("Input file '{0}' not found.{1}", Args.FileName, Environment.NewLine);
+                Log.AppendFormat("Input file not found.{0}", Environment.NewLine);
                 argsValid = false;
             }
             return argsValid;
@@ -58,13 +57,12 @@ namespace EzImporter.Import.Item
         protected void ReadData(ref DataTable dataTable)
         {
             DataReaders.IDataReader reader;
-            var loweredFileName = Args.FileName.ToLower();
-            if (loweredFileName.EndsWith(".csv"))
+            if (Args.FileExtension == "csv")
             {
                 reader = new DataReaders.CsvDataReader();
             }
-            else if (loweredFileName.EndsWith(".xlsx") ||
-                     loweredFileName.EndsWith(".xls"))
+            else if (Args.FileExtension == "xlsx" ||
+                     Args.FileExtension == "xls")
             {
                 reader = new DataReaders.XlsxDataReader();
             }
