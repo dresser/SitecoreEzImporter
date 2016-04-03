@@ -140,7 +140,6 @@
     <Compile Include="Models\ImportModel.cs" />
     <Compile Include="Models\ImportResultModel.cs" />
     <Compile Include="Models\SettingsModel.cs" />
-    <Compile Include="Pipelines\RegisterHttpRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Import\Item\ItemImportTask.cs" />
     <Compile Include="Import\Item\ItemImportTaskArgs.cs" />
