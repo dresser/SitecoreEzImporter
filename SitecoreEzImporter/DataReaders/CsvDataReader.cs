@@ -43,5 +43,27 @@ namespace EzImporter.DataReaders
                 log.AppendLine(ex.ToString());
             }
         }
+
+
+        public string[] GetColumnNames(ItemImportTaskArgs args, StringBuilder log)
+        {
+            log.AppendLine("Reading column names from input CSV file...");
+            try
+            {
+                using (var reader = new StreamReader(args.FileStream))
+                {
+                    var line = reader.ReadLine();
+                    if (line != null)
+                    {
+                        return line.Split(args.ImportOptions.CsvDelimiter, StringSplitOptions.None);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.AppendLine(ex.ToString());
+            }
+            return new string[] {};
+        }
     }
 }
