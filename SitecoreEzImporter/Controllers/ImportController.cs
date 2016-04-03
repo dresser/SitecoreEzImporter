@@ -18,12 +18,14 @@ namespace EzImporter.Controllers
         [HttpPost]
         public IHttpActionResult Import(ImportModel importModel)
         {
+            var database = Sitecore.Configuration.Factory.GetDatabase("master");
+            var languageItem = database.GetItem(importModel.Language);
             var args = new ItemImportTaskArgs
             {
-                Database = Sitecore.Configuration.Factory.GetDatabase("master"),
+                Database = database,
                 //FileName = csvFileName.Value, //TODO change to use media item instead
                 RootItemId = new ID(importModel.ImportLocationId),
-                TargetLanguage = Sitecore.Globalization.Language.Parse(importModel.Language),
+                TargetLanguage = Sitecore.Globalization.Language.Parse(languageItem.Name),
                 Map = Map.Factory.BuildMapInfo(new ID(importModel.MappingId)),
                 ImportOptions = new ImportOptions
                 {
