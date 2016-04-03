@@ -1,16 +1,18 @@
-﻿using System;
-using EzImporter.Configuration;
+﻿using EzImporter.Configuration;
 using EzImporter.Import.Item;
 using EzImporter.Models;
 using Newtonsoft.Json;
 using Sitecore.Data;
+using Sitecore.Services.Core;
 using Sitecore.Services.Infrastructure.Web.Http;
+using System;
 using System.Text;
 using System.Web.Http;
 using System.Web.Http.Results;
 
 namespace EzImporter.Controllers
 {
+    [ServicesController]
     public class ImportController : ServicesApiController
     {
         [HttpPost]

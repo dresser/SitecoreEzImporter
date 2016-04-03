@@ -5,7 +5,7 @@
         initialize: function() {
             this.on("upload-fileUploaded", this.FileUploaded, this);
             $.ajax({
-                url: "/sitecore/api/EzImporter/DefaultSettings",
+                url: "/sitecore/api/ssc/EzImporter-Controllers/Import/1/DefaultSettings",
                 type: "GET",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -73,7 +73,7 @@
                 console.log(item);
 
                 $.ajax({
-                    url: "/sitecore/api/EzImporter/Import",
+                    url: "/sitecore/api/ssc/EzImporter-Controllers/Import/1/Import",
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
