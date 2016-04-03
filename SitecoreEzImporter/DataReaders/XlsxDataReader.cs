@@ -17,7 +17,7 @@ namespace EzImporter.DataReaders
                 IExcelDataReader excelReader;
                 if (args.FileExtension == "xls")
                 {
-                    excelReader = ExcelReaderFactory.CreateBinaryReader(args.FileStream);
+                    excelReader = ExcelReaderFactory.CreateBinaryReader(args.FileStream, ReadOption.Loose);
                 }
                 else
                 {
