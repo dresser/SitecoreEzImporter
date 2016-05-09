@@ -2,6 +2,8 @@
 using System.Linq;
 using EzImporter.Configuration;
 using Sitecore.Data.Fields;
+using Sitecore.Data;
+using Sitecore.Data.Items;
 
 namespace EzImporter.FieldUpdater
 {
@@ -12,13 +14,16 @@ namespace EzImporter.FieldUpdater
             var selectionSource = field.Item.Database.SelectSingleItem(field.Source);
             if (selectionSource != null)
             {
-                var selectedItem = selectionSource.Children[importValue];
+                var isIdImportValue = ID.IsID(importValue);
+                var selectedItem = isIdImportValue
+                    ? selectionSource.Children[ID.Parse(importValue)]
+                    : selectionSource.Children[importValue];
                 if (selectedItem != null)
                 {
                     field.Value = selectedItem.ID.ToString();
                     return;
                 }
-                if (importOptions.InvalidLinkHandling == InvalidLinkHandling.CreateItem)
+                if (importOptions.InvalidLinkHandling == InvalidLinkHandling.CreateItem && !isIdImportValue)
                 {
                     var firstChild = selectionSource.Children.FirstOrDefault();
                     if (firstChild != null)
