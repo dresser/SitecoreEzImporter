@@ -1,8 +1,5 @@
 ﻿using EzImporter.Configuration;
-using Sitecore.Data.Items;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Sitecore.Data;
 
 namespace EzImporter.FieldUpdater
 {
@@ -13,9 +10,11 @@ namespace EzImporter.FieldUpdater
             var selectionSource = field.Item.Database.SelectSingleItem(field.Source);
             if (selectionSource != null)
             {
-                var query = "." +
-                            Sitecore.StringUtil.EnsurePrefix('/',
-                                importValue.Replace(importOptions.TreePathValuesImportSeparator, "/"));
+                var query = ID.IsID(importValue)
+                    ? ".//[@@id=\"" + ID.Parse(importValue) + "\"]"
+                    : "." +
+                      Sitecore.StringUtil.EnsurePrefix('/',
+                          importValue.Replace(importOptions.TreePathValuesImportSeparator, "/"));
                 var selectedItem = selectionSource.Axes.SelectSingleItem(query);
                 if (selectedItem != null)
                 {
