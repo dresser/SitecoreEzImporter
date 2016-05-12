@@ -1,8 +1,7 @@
-﻿using System.Linq;
-using EzImporter.Configuration;
+﻿using EzImporter.Configuration;
 using Sitecore.Data.Fields;
-using Sitecore.Data.Items;
 using System;
+using System.Linq;
 
 namespace EzImporter.FieldUpdater
 {

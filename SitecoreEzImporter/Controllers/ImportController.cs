@@ -45,7 +45,7 @@ namespace EzImporter.Controllers
                         (InvalidLinkHandling)
                             Enum.Parse(typeof (InvalidLinkHandling), importModel.InvalidLinkHandling),
                     MultipleValuesImportSeparator = importModel.MultipleValuesSeparator,
-                    TreePathValuesImportSeparator = "\""
+                    TreePathValuesImportSeparator = @"\"
                 }
             };
             var task = new ItemImportTask();

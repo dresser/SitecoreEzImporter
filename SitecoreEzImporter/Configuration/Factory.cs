@@ -28,7 +28,7 @@ namespace EzImporter.Configuration
                 MultipleValuesImportSeparator =
                     Sitecore.Configuration.Settings.GetSetting("EzImporter.MultipleValuesImportSeparator", "|"),
                 TreePathValuesImportSeparator =
-                    Sitecore.Configuration.Settings.GetSetting("EzImporter.TreePathValuesImportSeparator", "\""),
+                    Sitecore.Configuration.Settings.GetSetting("EzImporter.TreePathValuesImportSeparator", @"\"),
                 CsvDelimiter = new[]
                 {
                     Sitecore.Configuration.Settings.GetSetting("EzImporter.CsvDelimiter", ",")
