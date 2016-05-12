@@ -11,7 +11,7 @@ namespace EzImporter.FieldUpdater
             if (selectionSource != null)
             {
                 var query = ID.IsID(importValue)
-                    ? ".//[@@id=\"" + ID.Parse(importValue) + "\"]"
+                    ? ".//*[@@id='" + ID.Parse(importValue) + "']"
                     : "." +
                       Sitecore.StringUtil.EnsurePrefix('/',
                           importValue.Replace(importOptions.TreePathValuesImportSeparator, "/"));
