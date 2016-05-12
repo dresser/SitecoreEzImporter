@@ -1,4 +1,5 @@
 ﻿using EzImporter.Configuration;
+using Sitecore.Data;
 using Sitecore.Data.Fields;
 using System;
 using System.Linq;
@@ -19,7 +20,10 @@ namespace EzImporter.FieldUpdater
                 var idListValue = "";
                 foreach (var value in importValues)
                 {
-                    var selectedItem = selectionSource.Children[value];
+                    var isIdImportValue = ID.IsID(value);
+                    var selectedItem = isIdImportValue
+                        ? selectionSource.Children[ID.Parse(value)]
+                        : selectionSource.Children[value];
                     if (selectedItem != null)
                     {
                         idListValue += "|" + selectedItem.ID;
