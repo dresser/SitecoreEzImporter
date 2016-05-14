@@ -49,8 +49,17 @@ namespace EzImporter.Controllers
                 }
             };
             var task = new ItemImportTask();
-            var result = new ImportResultModel {Log = task.Run(args)};
-            return new JsonResult<ImportResultModel>(result, new JsonSerializerSettings(), Encoding.UTF8, this);
+            ImportResultModel result;
+            try
+            {
+                result = new ImportResultModel {Log = task.Run(args)};
+                return new JsonResult<ImportResultModel>(result, new JsonSerializerSettings(), Encoding.UTF8, this);
+            }
+            catch (Exception ex)
+            {
+                result = new ImportResultModel {HasError = true, ErrorMessage = ex.Message, ErrorDetail = ex.ToString()};
+                return new JsonResult<ImportResultModel>(result, new JsonSerializerSettings(), Encoding.UTF8, this);
+            }
         }
 
         [HttpGet]

@@ -78,8 +78,13 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     context: this,
-                    success: function(data) {
-                        this.LogInfo.viewModel.text(data.Log);
+                    success: function (data) {
+                        if (data.HasError == true) {
+                            this.ErrorDialogMessageBar.addMessage("error", data.ErrorMessage);
+                            this.ErrorDialog.show();
+                        } else {
+                            this.LogInfo.viewModel.text(data.Log);
+                        }
                     },
                     data: JSON.stringify(item)
                 });

@@ -22,7 +22,7 @@ name: Source
 key: source
 content-length: 33
 
-/sitecore/content/DropTreeSource/
+/sitecore/content/DropdownSource/
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
 name: __Sortorder
@@ -33,7 +33,7 @@ content-length: 3
 ----version----
 language: en
 version: 1
-revision: 4238a2e3-d849-4076-8c18-3c1ac93b2934
+revision: c0ece674-e931-4e94-9f3e-da97312728ed
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -48,14 +48,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-4238a2e3-d849-4076-8c18-3c1ac93b2934
+c0ece674-e931-4e94-9f3e-da97312728ed
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20151125T222527Z
+20160512T092051Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
