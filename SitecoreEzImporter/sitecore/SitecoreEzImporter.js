@@ -25,26 +25,34 @@
         },
 
         //Called by the main button. Indirectly triggers ImportData once all files uploaded
-        UploadFiles: function() {
+        UploadFiles: function () {
+            if (this.SourceFile.viewModel.totalFiles() == 0) {
+                this.MessageBar.removeMessages();
+                this.MessageBar.addMessage("error", "Please select file(s) to import");
+                return;
+            }
+            if (this.uploadedFiles.length == this.SourceFile.viewModel.totalFiles()) {
+                this.MessageBar.removeMessages();
+                this.MessageBar.addMessage("notification", "File(s) have already been imported.");
+                this.ProgressIndicator.viewModel.hide();
+                return;
+            }
             this.ProgressIndicator.viewModel.show();
-
             if (this.SourceFile.viewModel.totalFiles() > 0) {
                 this.SourceFile.viewModel.upload();
-            } else {
-                this.MessageBar.addMessage("warning", "Please select file(s) to import");
-                this.ProgressIndicator.viewModel.hide();
             }
         },
 
-        FileUploaded: function(model) {
+        FileUploaded: function (model) {
             this.uploadedFiles.push(model.itemId);
             this.SourceFile.viewModel.refreshNumberFiles();
             if (this.SourceFile.viewModel.globalPercentage() === 100) {
+                this.MessageBar.removeMessages();
                 this.ImportData();
             }
         },
 
-        ImportData: function() {
+        ImportData: function () {
             var location = this.ImportLocationTreeView.viewModel.selectedItemId();
             var language = this.TargetLanguageCombo.viewModel.selectedItemId();
             var existingItemHandling = this.ExistingItemHandling.viewModel.selectedItemId();
@@ -53,10 +61,10 @@
             var multipleValuesSeparator = this.MultipleValuesImportSeparator.viewModel.text();
             var mappingId = this.ExistingMapping.viewModel.selectedItemId();
             if (language == null) {
-                this.MessageBar.addMessage("warning", "Please select language for import");
+                this.MessageBar.addMessage("error", "Please select language for import");
             }
             if (location == null) {
-                this.MessageBar.addMessage("warning", "Please select import location");
+                this.MessageBar.addMessage("error", "Please select import location");
             }
             for (var i = 0; i < this.uploadedFiles.length; i++) {
 
@@ -70,8 +78,6 @@
                     MultipleValuesSeparator: multipleValuesSeparator,
                     MediaItemId: this.uploadedFiles[i]
                 };
-                console.log(item);
-
                 $.ajax({
                     url: "/sitecore/api/ssc/EzImporter-Controllers/Import/1/Import",
                     type: "POST",
@@ -81,6 +87,7 @@
                     success: function (data) {
                         if (data.HasError == true) {
                             this.ErrorDialogMessageBar.addMessage("error", data.ErrorMessage);
+                            this.ErrorDialogExpanderText.set("text", data.ErrorDetail);
                             this.ErrorDialog.show();
                         } else {
                             this.LogInfo.viewModel.text(data.Log);
@@ -91,6 +98,10 @@
             }
 
             this.ProgressIndicator.viewModel.hide();
+        },
+
+        CloseErrorDialog: function() {
+            this.ErrorDialog.hide();
         }
     });
 

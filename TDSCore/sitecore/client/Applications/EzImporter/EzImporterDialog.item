@@ -20,16 +20,17 @@ Harvard
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 2408
+content-length: 2749
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
     <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" par="PageCodeScriptFileName=%2fsitecore%2fSitecoreEzImporter.js" ph="Page.Code" uid="{EBDA2BA2-1715-4B9B-B374-1902DC86FF7E}" />
-    <r id="{CB83D434-31ED-4AC3-A280-CCE2B63F9743}" ph="ApplicationContent" uid="{66B5939B-3083-427D-BB93-C8D1FCFDBE31}" />
-    <r id="{B60FB581-44D1-4372-86A2-D6E494F020E1}" par="Id=ErrorDialog&amp;Size=%7bDFE6D45B-ED26-4D2C-8C5C-5A1EA07B1DEF%7d" ph="ApplicationContent" uid="{28904620-A7A0-4C96-993A-82359552308F}" />
+    <r id="{B60FB581-44D1-4372-86A2-D6E494F020E1}" par="HeaderText=Import+Error&amp;Id=ErrorDialog&amp;HeaderLess=0&amp;Size=%7bDFE6D45B-ED26-4D2C-8C5C-5A1EA07B1DEF%7d" ph="ApplicationContent" uid="{28904620-A7A0-4C96-993A-82359552308F}" />
     <r id="{910155C7-3881-4A56-90FB-D126490EDE55}" par="Id=ErrorDialogMessageBar" ph="ErrorDialog.Content" uid="{EEE07D44-7F32-42CA-9CAF-6A158385F22B}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=ErrorDialogBorder" ph="ErrorDialog.Content" uid="{C531D6B8-7257-47C5-890E-90B14D5C0AB5}" />
-    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Id=ErrorDialogClose&amp;Text=Close" ph="ErrorDialog.Buttons" uid="{DF13B6F0-D462-4CBE-BA43-981BF9D9E071}" />
+    <r id="{CA84FBFF-B3A0-4AEC-9C2C-7DDBBF7DA102}" par="IsOpen=0&amp;Id=ErrorDialogExpander&amp;Text=Details" ph="ErrorDialogBorder.Content" uid="{46B40E95-FE75-4345-B896-9D855556997C}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=ErrorDialogExpanderText&amp;TextType=Text" ph="ErrorDialogExpander.Body" uid="{7F020DAF-C2FD-46AE-824F-20D29A985A19}" />
+    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.CloseErrorDialog()%3b&amp;Id=ErrorDialogClose&amp;Text=Close" ph="ErrorDialog.Buttons" uid="{DF13B6F0-D462-4CBE-BA43-981BF9D9E071}" />
     <r id="{BE007891-2D9C-4E67-943C-752DBA0C041F}" ph="Page.Body" uid="{91DEEDDC-B621-4A19-B2B8-8ADADEA9FE6B}" />
     <r id="{FE9723FC-56E4-4CA8-9C64-CB34F29462A5}" par="Id=ProgressIndicator&amp;AutoShowTimeout=1000" ph="Page.Body" uid="{5B8EAE49-9775-4E88-B60A-AFECA876CB2A}" />
     <r id="{5AE97C0C-EE88-4564-A363-4FA11C01C90A}" ph="GlobalHeader" uid="{56B1FCDE-0250-4AA1-998B-6EA277CE67DB}" />
@@ -44,7 +45,7 @@ content-length: 2408
 ----version----
 language: en
 version: 1
-revision: 1c77b673-545f-42b7-b058-82dabcfc0511
+revision: b51b2636-ff38-4142-81db-71cfc3cfd776
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -66,14 +67,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-1c77b673-545f-42b7-b058-82dabcfc0511
+b51b2636-ff38-4142-81db-71cfc3cfd776
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160514T204742Z
+20160515T184231Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

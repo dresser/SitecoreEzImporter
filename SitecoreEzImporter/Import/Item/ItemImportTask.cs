@@ -22,7 +22,6 @@ namespace EzImporter.Import.Item
 
         public string Run(ItemImportTaskArgs args)
         {
-            throw new Exception("Something went deliberately wrong");
             Args = args;
             ValidateArgs();
             var dataTable = new DataTable();
