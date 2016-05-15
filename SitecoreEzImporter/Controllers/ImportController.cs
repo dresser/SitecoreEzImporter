@@ -52,7 +52,8 @@ namespace EzImporter.Controllers
             ImportResultModel result;
             try
             {
-                result = new ImportResultModel {Log = task.Run(args)};
+                var log = task.Run(args);
+                result = new ImportResultModel {Log = args.Statistics.ToString()};
                 return new JsonResult<ImportResultModel>(result, new JsonSerializerSettings(), Encoding.UTF8, this);
             }
             catch (Exception ex)

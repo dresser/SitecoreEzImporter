@@ -16,5 +16,11 @@ namespace EzImporter.Import.Item
         public Language TargetLanguage { get; set; }
         public ItemImportMap Map { get; set; }
         public IImportOptions ImportOptions { get; set; }
+        public ImportStatistics Statistics { get; set; }
+
+        public ItemImportTaskArgs()
+        {
+            Statistics = new ImportStatistics();
+        }
     }
 }

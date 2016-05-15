@@ -122,6 +122,7 @@
     <Compile Include="FieldUpdater\DropLinkFieldUpdater.cs" />
     <Compile Include="FieldUpdater\CheckBoxListFieldUpdater.cs" />
     <Compile Include="FieldUpdater\TextFieldUpdater.cs" />
+    <Compile Include="Import\Item\ImportStatistics.cs" />
     <Compile Include="Map\InputField.cs" />
     <Compile Include="InvalidLinkHandling.cs" />
     <Compile Include="Map\CustomItems\InputColumnCollectionItem.cs" />

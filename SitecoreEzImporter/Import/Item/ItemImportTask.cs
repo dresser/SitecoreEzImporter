@@ -2,6 +2,7 @@
 using EzImporter.FieldUpdater;
 using EzImporter.Map;
 using Sitecore.Data.Items;
+using Sitecore.Extensions;
 using Sitecore.Globalization;
 using System;
 using System.Data;
@@ -72,6 +73,7 @@ namespace EzImporter.Import.Item
                 return;
             }
             reader.ReadData(ref dataTable, Args, Log);
+            Args.Statistics.InputDataRows = dataTable.Rows.Count;
         }
 
         protected void ImportItems(DataTable dataTable)
@@ -126,6 +128,7 @@ namespace EzImporter.Import.Item
                 {
                     if (Args.ImportOptions.ExistingItemHandling == ExistingItemHandling.AddVersion)
                     {
+                        Args.Statistics.UpdatedItems++;
                         item = item.Versions.AddVersion();
                         Log.AppendFormat("Creating new version of item {0}{1}", item.Paths.ContentPath, Environment.NewLine);
                     }
@@ -137,11 +140,13 @@ namespace EzImporter.Import.Item
                     else if (Args.ImportOptions.ExistingItemHandling == ExistingItemHandling.Update)
                     {
                         //continue to update current item/version
+                        Args.Statistics.UpdatedItems ++;
                     }
                 }
                 else
                 {
                     //if not found then create one
+                    Args.Statistics.CreatedItems++;
                     item = parent.Add(itemName, templateItem);
                     Log.AppendFormat("Creating item {0}{1}", item.Paths.ContentPath, Environment.NewLine);
                 }
