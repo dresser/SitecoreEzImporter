@@ -2,26 +2,25 @@
 using EzImporter.FieldUpdater;
 using EzImporter.Map;
 using Sitecore.Data.Items;
-using Sitecore.Extensions;
+using Sitecore.Diagnostics;
 using Sitecore.Globalization;
 using System;
 using System.Data;
 using System.Linq;
-using System.Text;
 
 namespace EzImporter.Import.Item
 {
     public class ItemImportTask
     {
         protected ItemImportTaskArgs Args { get; set; }
-        protected StringBuilder Log { get; set; }
+        //protected StringBuilder Log { get; set; }
 
         public ItemImportTask()
         {
-            Log = new StringBuilder();
+            //Log = new StringBuilder();
         }
 
-        public string Run(ItemImportTaskArgs args)
+        public void Run(ItemImportTaskArgs args)
         {
             Args = args;
             ValidateArgs();
@@ -29,16 +28,15 @@ namespace EzImporter.Import.Item
             ReadMapInfo(ref dataTable);
             ReadData(ref dataTable);
             ImportItems(dataTable);
-            return Log.ToString().Replace(Environment.NewLine, "<br/>");
         }
 
         protected bool ValidateArgs()
         {
-            Log.AppendLine("Validating input...");
+            Log.Info("EzImporter:Validating input...", this);
             var argsValid = true;
             if (Args.FileStream == null)
             {
-                Log.AppendFormat("Input file not found.{0}", Environment.NewLine);
+                Log.Error("EzImporter:Input file not found.", this);
                 argsValid = false;
             }
             return argsValid;
@@ -46,13 +44,13 @@ namespace EzImporter.Import.Item
 
         protected void ReadMapInfo(ref DataTable dataTable)
         {
-            Log.AppendLine("Processing import map...");
+            Log.Info("EzImporter:Processing import map...", this);
             dataTable.Columns.Clear();
             foreach (var column in Args.Map.InputFields)
             {
                 dataTable.Columns.Add(column.Name, typeof (string));
             }
-            Log.AppendFormat("{0} Columns defined in map. {1}", Args.Map.InputFields.Count, Environment.NewLine);
+            Log.Info(string.Format("EzImporter:{0} Columns defined in map.", Args.Map.InputFields.Count), this);
         }
 
         protected void ReadData(ref DataTable dataTable)
@@ -69,10 +67,11 @@ namespace EzImporter.Import.Item
             }
             else
             {
-                Log.AppendLine("Unsupported file format supplied. DataImporter accepts *.CSV and *.XLSX files");
+                Log.Info("EzImporter:Unsupported file format supplied. DataImporter accepts *.CSV and *.XLSX files",
+                    this);
                 return;
             }
-            reader.ReadData(ref dataTable, Args, Log);
+            reader.ReadData(ref dataTable, Args);
             Args.Statistics.InputDataRows = dataTable.Rows.Count;
         }
 
@@ -88,7 +87,8 @@ namespace EzImporter.Import.Item
             }
         }
 
-        private void ImportMapItems(DataTable dataTable, OutputMap outputMap, Sitecore.Data.Items.Item parentItem, bool rootLevel)
+        private void ImportMapItems(DataTable dataTable, OutputMap outputMap, Sitecore.Data.Items.Item parentItem,
+            bool rootLevel)
         {
             var groupedTable = dataTable.GroupBy(outputMap.Fields.Select(f => f.SourceColumn).ToArray());
             for (int i = 0; i < groupedTable.Rows.Count; i++)
@@ -110,7 +110,8 @@ namespace EzImporter.Import.Item
             }
         }
 
-        protected Sitecore.Data.Items.Item CreateItem(DataRow dataRow, OutputMap outputMap, Sitecore.Data.Items.Item parentItem)
+        protected Sitecore.Data.Items.Item CreateItem(DataRow dataRow, OutputMap outputMap,
+            Sitecore.Data.Items.Item parentItem)
         {
             //CustomItemBase nItemTemplate = GetNewItemTemplate(dataRow);
             var templateItem = Args.Database.GetTemplate(outputMap.TemplateId);
@@ -130,11 +131,12 @@ namespace EzImporter.Import.Item
                     {
                         Args.Statistics.UpdatedItems++;
                         item = item.Versions.AddVersion();
-                        Log.AppendFormat("Creating new version of item {0}{1}", item.Paths.ContentPath, Environment.NewLine);
+                        Log.Info(string.Format("EzImporter:Creating new version of item {0}", item.Paths.ContentPath),
+                            this);
                     }
                     else if (Args.ImportOptions.ExistingItemHandling == ExistingItemHandling.Skip)
                     {
-                        Log.AppendFormat("Skipping update of item {0}{1}", item.Paths.ContentPath, Environment.NewLine);
+                        Log.Info(string.Format("EzImporter:Skipping update of item {0}", item.Paths.ContentPath), this);
                         return item;
                     }
                     else if (Args.ImportOptions.ExistingItemHandling == ExistingItemHandling.Update)
@@ -148,7 +150,7 @@ namespace EzImporter.Import.Item
                     //if not found then create one
                     Args.Statistics.CreatedItems++;
                     item = parent.Add(itemName, templateItem);
-                    Log.AppendFormat("Creating item {0}{1}", item.Paths.ContentPath, Environment.NewLine);
+                    Log.Info(string.Format("EzImporter:Creating item {0}", item.Paths.ContentPath), this);
                 }
 
                 if (item == null)
@@ -169,16 +171,19 @@ namespace EzImporter.Import.Item
                             {
                                 var fieldValue = dataRow[outputMap.Fields[i].SourceColumn].ToString();
                                 FieldUpdateManager.UpdateField(field, fieldValue, Args.ImportOptions);
-                                Log.AppendFormat("'{0}' field set to '{1}'{2}", mapFieldName, fieldValue, Environment.NewLine);
+                                Log.Info(string.Format("'{0}' field set to '{1}'", mapFieldName, fieldValue), this);
                             }
                             else
                             {
-                                Log.AppendFormat("Field '{0}' not found on item, skipping update for this field", mapFieldName);
+                                Log.Info(
+                                    string.Format(
+                                        "EzImporter:Field '{0}' not found on item, skipping update for this field",
+                                        mapFieldName), this);
                             }
                         }
                         else
                         {
-                            Log.AppendLine("Null or empty mapping field name found");
+                            Log.Info("EzImporter:Null or empty mapping field name found", this);
                         }
                     }
                 }

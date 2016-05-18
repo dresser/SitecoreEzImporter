@@ -1,15 +1,15 @@
 ﻿using EzImporter.Import.Item;
+using Sitecore.Diagnostics;
 using System;
 using System.IO;
-using System.Text;
 
 namespace EzImporter.DataReaders
 {
     public class CsvDataReader : IDataReader
     {
-        public void ReadData(ref System.Data.DataTable dataTable, ItemImportTaskArgs args, StringBuilder log)
+        public void ReadData(ref System.Data.DataTable dataTable, ItemImportTaskArgs args)
         {
-            log.AppendLine("Reading CSV input data...");
+            Log.Info("EzImporter:Reading CSV input data...", this);
             try
             {
                 var reader = new StreamReader(args.FileStream);
@@ -36,18 +36,18 @@ namespace EzImporter.DataReaders
                         lineCount++;
                     }
                 } while (!reader.EndOfStream);
-                log.AppendFormat("{0} records read from input data. {1}", lineCount, Environment.NewLine);
+                Log.Info(string.Format("EzImporter:{0} records read from input data.", lineCount), this);
             }
             catch (Exception ex)
             {
-                log.AppendLine(ex.ToString());
+                Log.Error("EzImporter:" + ex.ToString(), this);
             }
         }
 
 
-        public string[] GetColumnNames(ItemImportTaskArgs args, StringBuilder log)
+        public string[] GetColumnNames(ItemImportTaskArgs args)
         {
-            log.AppendLine("Reading column names from input CSV file...");
+            Log.Info("EzImporter:Reading column names from input CSV file...", this);
             try
             {
                 using (var reader = new StreamReader(args.FileStream))
@@ -61,7 +61,7 @@ namespace EzImporter.DataReaders
             }
             catch (Exception ex)
             {
-                log.AppendLine(ex.ToString());
+                Log.Error("EzImporter:" + ex.ToString(), this);
             }
             return new string[] {};
         }

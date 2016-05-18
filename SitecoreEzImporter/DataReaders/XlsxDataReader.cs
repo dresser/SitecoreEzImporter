@@ -1,17 +1,17 @@
-﻿using System.Linq;
-using Excel;
+﻿using Excel;
 using EzImporter.Import.Item;
+using Sitecore.Diagnostics;
 using System;
 using System.Data;
-using System.Text;
+using System.Linq;
 
 namespace EzImporter.DataReaders
 {
     public class XlsxDataReader : IDataReader
     {
-        public void ReadData(ref System.Data.DataTable dataTable, ItemImportTaskArgs args, StringBuilder log)
+        public void ReadData(ref System.Data.DataTable dataTable, ItemImportTaskArgs args)
         {
-            log.AppendLine("Reading XSLX input data");
+            Log.Info("EzImporter:Reading XSLX input data", this);
             try
             {
                 IExcelDataReader excelReader;
@@ -27,17 +27,17 @@ namespace EzImporter.DataReaders
                 excelReader.IsFirstRowAsColumnNames = args.FirstRowAsColumnNames;
                 if (!excelReader.IsValid)
                 {
-                    log.AppendLine("Invalid Excel file '" + excelReader.ExceptionMessage + "'");
+                    Log.Error("EzImporter:Invalid Excel file '" + excelReader.ExceptionMessage + "'", this);
                     return;
                 }
                 DataSet result = excelReader.AsDataSet();
                 if (result == null)
                 {
-                    log.AppendLine("No data could be retrieved from Excel file.");
+                    Log.Error("EzImporter:No data could be retrieved from Excel file.", this);
                 }
                 if (result.Tables == null || result.Tables.Count == 0)
                 {
-                    log.AppendLine("No worksheets found in Excel file");
+                    Log.Error("EzImporter:No worksheets found in Excel file", this);
                     return;
                 }
                 var readDataTable = result.Tables[0];
@@ -57,18 +57,18 @@ namespace EzImporter.DataReaders
                     }
                     dataTable.Rows.Add(row);
                 }
-                log.AppendFormat("{0} records read from input data. {1}", readDataTable.Rows.Count, Environment.NewLine);
+                Log.Info(string.Format("EzImporter:{0} records read from input data.", readDataTable.Rows.Count), this);
             }
             catch (Exception ex)
             {
-                log.AppendLine(ex.ToString());
+                Log.Error("EzImporter:" + ex.ToString(), this);
             }
         }
 
 
-        public string[] GetColumnNames(ItemImportTaskArgs args, StringBuilder log)
+        public string[] GetColumnNames(ItemImportTaskArgs args)
         {
-            log.AppendLine("Reading column names from input XSLX file...");
+            Log.Info("EzImporter:Reading column names from input XSLX file...", this);
             try
             {
                 //1. Reading from a binary Excel file ('97-2003 format; *.xls)
@@ -80,17 +80,17 @@ namespace EzImporter.DataReaders
                 excelReader.IsFirstRowAsColumnNames = true; //assume first line is data, so we can read it
                 if (!excelReader.IsValid)
                 {
-                    log.AppendLine("Invalid Excel file '" + excelReader.ExceptionMessage + "'");
+                    Log.Info("EzImporter:Invalid Excel file '" + excelReader.ExceptionMessage + "'", this);
                     return new string[] {};
                 }
                 DataSet result = excelReader.AsDataSet();
                 if (result == null)
                 {
-                    log.AppendLine("No data could be retrieved from Excel file.");
+                    Log.Info("EzImporter:No data could be retrieved from Excel file.", this);
                 }
                 if (result.Tables == null || result.Tables.Count == 0)
                 {
-                    log.AppendLine("No worksheets found in Excel file");
+                    Log.Info("EzImporter:No worksheets found in Excel file", this);
                     return new string[] {};
                 }
                 var readDataTable = result.Tables[0];
@@ -100,7 +100,7 @@ namespace EzImporter.DataReaders
             }
             catch (Exception ex)
             {
-                log.AppendLine(ex.ToString());
+                Log.Error("EzImporter:" + ex.ToString(), this);
             }
             return new string[] { };
         }
