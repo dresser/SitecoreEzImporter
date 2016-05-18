@@ -13,12 +13,6 @@ namespace EzImporter.Import.Item
     public class ItemImportTask
     {
         protected ItemImportTaskArgs Args { get; set; }
-        //protected StringBuilder Log { get; set; }
-
-        public ItemImportTask()
-        {
-            //Log = new StringBuilder();
-        }
 
         public void Run(ItemImportTaskArgs args)
         {
