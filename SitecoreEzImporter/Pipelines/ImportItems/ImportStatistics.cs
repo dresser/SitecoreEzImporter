@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace EzImporter.Import.Item
+namespace EzImporter.Pipelines.ImportItems
 {
     public class ImportStatistics
     {

@@ -1,9 +1,11 @@
 ﻿using EzImporter.Configuration;
 using EzImporter.Import.Item;
 using EzImporter.Models;
+using EzImporter.Pipelines.ImportItems;
 using Newtonsoft.Json;
 using Sitecore.Data;
 using Sitecore.Data.Items;
+using Sitecore.Pipelines;
 using Sitecore.Services.Core;
 using Sitecore.Services.Infrastructure.Web.Http;
 using System;
@@ -26,7 +28,7 @@ namespace EzImporter.Controllers
             {
                 return new JsonResult<ImportResultModel>(null, new JsonSerializerSettings(), Encoding.UTF8, this);
             }
-            var args = new ItemImportTaskArgs
+            var args = new ImportItemsArgs
             {
                 Database = database,
                 FirstRowAsColumnNames = false,
@@ -48,11 +50,10 @@ namespace EzImporter.Controllers
                     TreePathValuesImportSeparator = @"\"
                 }
             };
-            var task = new ItemImportTask();
             ImportResultModel result;
             try
             {
-                task.Run(args);
+                CorePipeline.Run("importItems", args);
                 result = new ImportResultModel {Log = args.Statistics.ToString()};
                 return new JsonResult<ImportResultModel>(result, new JsonSerializerSettings(), Encoding.UTF8, this);
             }

@@ -1,5 +1,6 @@
 ﻿using Excel;
 using EzImporter.Import.Item;
+using EzImporter.Pipelines.ImportItems;
 using Sitecore.Diagnostics;
 using System;
 using System.Data;
@@ -9,7 +10,7 @@ namespace EzImporter.DataReaders
 {
     public class XlsxDataReader : IDataReader
     {
-        public void ReadData(ItemImportTaskArgs args)
+        public void ReadData(ImportItemsArgs args)
         {
             Log.Info("EzImporter:Reading XSLX input data", this);
             try
@@ -66,7 +67,7 @@ namespace EzImporter.DataReaders
         }
 
 
-        public string[] GetColumnNames(ItemImportTaskArgs args)
+        public string[] GetColumnNames(ImportItemsArgs args)
         {
             Log.Info("EzImporter:Reading column names from input XSLX file...", this);
             try

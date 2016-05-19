@@ -8,64 +8,11 @@ using System;
 using System.Data;
 using System.Linq;
 
-namespace EzImporter.Import.Item
+namespace EzImporter.Pipelines.ImportItems
 {
-    public class ItemImportTask
+    public class CreateAndUpdateItems : ImportItemsProcessor
     {
-        public void Run(ItemImportTaskArgs args)
-        {
-            ValidateArgs(args);
-            ReadMapInfo(args);
-            ReadData(args);
-            ImportItems(args);
-        }
-
-        protected bool ValidateArgs(ItemImportTaskArgs args)
-        {
-            Log.Info("EzImporter:Validating input...", this);
-            var argsValid = true;
-            if (args.FileStream == null)
-            {
-                Log.Error("EzImporter:Input file not found.", this);
-                argsValid = false;
-            }
-            return argsValid;
-        }
-
-        protected void ReadMapInfo(ItemImportTaskArgs args)
-        {
-            Log.Info("EzImporter:Processing import map...", this);
-            args.ImportData.Columns.Clear();
-            foreach (var column in args.Map.InputFields)
-            {
-                args.ImportData.Columns.Add(column.Name, typeof(string));
-            }
-            Log.Info(string.Format("EzImporter:{0} Columns defined in map.", args.Map.InputFields.Count), this);
-        }
-
-        protected void ReadData(ItemImportTaskArgs args)
-        {
-            DataReaders.IDataReader reader;
-            if (args.FileExtension == "csv")
-            {
-                reader = new DataReaders.CsvDataReader();
-            }
-            else if (args.FileExtension == "xlsx" ||
-                     args.FileExtension == "xls")
-            {
-                reader = new DataReaders.XlsxDataReader();
-            }
-            else
-            {
-                Log.Info("EzImporter:Unsupported file format supplied. DataImporter accepts *.CSV and *.XLSX files",
-                    this);
-                return;
-            }
-            reader.ReadData(args);
-            args.Statistics.InputDataRows = args.ImportData.Rows.Count;
-        }
-
-        protected void ImportItems(ItemImportTaskArgs args)
+        public override void Process(ImportItemsArgs args)
         {
             using (new LanguageSwitcher(args.TargetLanguage))
             {
@@ -77,7 +24,7 @@ namespace EzImporter.Import.Item
             }
         }
 
-        private void ImportMapItems(ItemImportTaskArgs args, DataTable dataTable, OutputMap outputMap, Sitecore.Data.Items.Item parentItem,
+        private void ImportMapItems(ImportItemsArgs args, DataTable dataTable, OutputMap outputMap, Item parentItem,
             bool rootLevel)
         {
             var groupedTable = dataTable.GroupBy(outputMap.Fields.Select(f => f.SourceColumn).ToArray());
@@ -100,8 +47,7 @@ namespace EzImporter.Import.Item
             }
         }
 
-        protected Sitecore.Data.Items.Item CreateItem(ItemImportTaskArgs args, DataRow dataRow, OutputMap outputMap,
-            Sitecore.Data.Items.Item parentItem)
+        private Item CreateItem(ImportItemsArgs args, DataRow dataRow, OutputMap outputMap, Item parentItem)
         {
             //CustomItemBase nItemTemplate = GetNewItemTemplate(dataRow);
             var templateItem = args.Database.GetTemplate(outputMap.TemplateId);
@@ -109,9 +55,9 @@ namespace EzImporter.Import.Item
             using (new LanguageSwitcher(args.TargetLanguage))
             {
                 //get the parent in the specific language
-                Sitecore.Data.Items.Item parent = args.Database.GetItem(parentItem.ID);
+                Item parent = args.Database.GetItem(parentItem.ID);
 
-                Sitecore.Data.Items.Item item;
+                Item item;
                 //search for the child by name
                 string itemName = Utils.GetValidItemName(dataRow[outputMap.NameInputField]);
                 item = parent.GetChildren()[itemName];
@@ -132,7 +78,7 @@ namespace EzImporter.Import.Item
                     else if (args.ImportOptions.ExistingItemHandling == ExistingItemHandling.Update)
                     {
                         //continue to update current item/version
-                        args.Statistics.UpdatedItems ++;
+                        args.Statistics.UpdatedItems++;
                     }
                 }
                 else

@@ -3,10 +3,12 @@
 <%@ Import Namespace="EzImporter.Import.Item" %>
 <%@ Import Namespace="EzImporter.Import.Media" %>
 <%@ Import Namespace="EzImporter.Map" %>
+<%@ Import Namespace="EzImporter.Pipelines.ImportItems" %>
 <%@ Import Namespace="Sitecore.Configuration" %>
 <%@ Import Namespace="Sitecore.Data" %>
 <%@ Import Namespace="Sitecore.Data.Items" %>
 <%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="Sitecore.Pipelines" %>
 
 <script runat="server">
     protected override void OnInit(EventArgs args)
@@ -180,18 +182,17 @@
 
     private void processData_OnClick(object sender, EventArgs e)
     {
-        var args = new ItemImportTaskArgs
+        var args = new ImportItemsArgs
         {
             Database = Sitecore.Configuration.Factory.GetDatabase("master"),
-            FileName = csvFileName.Value,
+            //FileName = csvFileName.Value,
             RootItemId = new ID(ddlSites.SelectedValue),
             TargetLanguage = Sitecore.Globalization.Language.Parse(ddlLanguages.SelectedValue),
             Map = EzImporter.Map.Factory.BuildMapInfo(new ID(ddlDataImportMap.SelectedValue)),
             ImportOptions = EzImporter.Configuration.Factory.GetDefaultImportOptions()
         };
-        var task = new ItemImportTask();
-        var result = task.Run(args);
-        output.Text = result.Replace(Environment.NewLine, "<br/>");
+        CorePipeline.Run("importItems", args);
+        //output.Text = args.Statistics.Log.ToString();
     }
 
     private void processImages_Click(object sender, EventArgs e)

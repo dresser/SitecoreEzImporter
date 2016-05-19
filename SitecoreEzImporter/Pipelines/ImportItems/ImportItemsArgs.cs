@@ -1,13 +1,14 @@
-﻿using System.Data;
-using EzImporter.Configuration;
+﻿using EzImporter.Configuration;
 using EzImporter.Map;
 using Sitecore.Data;
 using Sitecore.Globalization;
+using Sitecore.Pipelines;
+using System.Data;
 using System.IO;
 
-namespace EzImporter.Import.Item
+namespace EzImporter.Pipelines.ImportItems
 {
-    public class ItemImportTaskArgs
+    public class ImportItemsArgs : PipelineArgs
     {
         public bool FirstRowAsColumnNames { get; set; }
         public string FileExtension { get; set; }
@@ -20,7 +21,7 @@ namespace EzImporter.Import.Item
         public ImportStatistics Statistics { get; set; }
         public DataTable ImportData { get; set; }
 
-        public ItemImportTaskArgs()
+        public ImportItemsArgs()
         {
             Statistics = new ImportStatistics();
             ImportData = new DataTable();

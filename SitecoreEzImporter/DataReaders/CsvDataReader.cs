@@ -1,4 +1,5 @@
 ﻿using EzImporter.Import.Item;
+using EzImporter.Pipelines.ImportItems;
 using Sitecore.Diagnostics;
 using System;
 using System.IO;
@@ -7,7 +8,7 @@ namespace EzImporter.DataReaders
 {
     public class CsvDataReader : IDataReader
     {
-        public void ReadData(ItemImportTaskArgs args)
+        public void ReadData(ImportItemsArgs args)
         {
             Log.Info("EzImporter:Reading CSV input data...", this);
             try
@@ -45,7 +46,7 @@ namespace EzImporter.DataReaders
         }
 
 
-        public string[] GetColumnNames(ItemImportTaskArgs args)
+        public string[] GetColumnNames(ImportItemsArgs args)
         {
             Log.Info("EzImporter:Reading column names from input CSV file...", this);
             try
