@@ -9,7 +9,7 @@ namespace EzImporter.DataReaders
 {
     public class XlsxDataReader : IDataReader
     {
-        public void ReadData(ref System.Data.DataTable dataTable, ItemImportTaskArgs args)
+        public void ReadData(ItemImportTaskArgs args)
         {
             Log.Info("EzImporter:Reading XSLX input data", this);
             try
@@ -43,7 +43,7 @@ namespace EzImporter.DataReaders
                 var readDataTable = result.Tables[0];
                 foreach (var readDataRow in readDataTable.AsEnumerable())
                 {
-                    var row = dataTable.NewRow();
+                    var row = args.ImportData.NewRow();
                     for (int i = 0; i < args.Map.InputFields.Count; i++)
                     {
                         if (i < readDataTable.Columns.Count && readDataRow[i] != null)
@@ -55,7 +55,7 @@ namespace EzImporter.DataReaders
                             row[i] = "";
                         }
                     }
-                    dataTable.Rows.Add(row);
+                    args.ImportData.Rows.Add(row);
                 }
                 Log.Info(string.Format("EzImporter:{0} records read from input data.", readDataTable.Rows.Count), this);
             }

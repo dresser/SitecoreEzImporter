@@ -12,23 +12,19 @@ namespace EzImporter.Import.Item
 {
     public class ItemImportTask
     {
-        protected ItemImportTaskArgs Args { get; set; }
-
         public void Run(ItemImportTaskArgs args)
         {
-            Args = args;
-            ValidateArgs();
-            var dataTable = new DataTable();
-            ReadMapInfo(ref dataTable);
-            ReadData(ref dataTable);
-            ImportItems(dataTable);
+            ValidateArgs(args);
+            ReadMapInfo(args);
+            ReadData(args);
+            ImportItems(args);
         }
 
-        protected bool ValidateArgs()
+        protected bool ValidateArgs(ItemImportTaskArgs args)
         {
             Log.Info("EzImporter:Validating input...", this);
             var argsValid = true;
-            if (Args.FileStream == null)
+            if (args.FileStream == null)
             {
                 Log.Error("EzImporter:Input file not found.", this);
                 argsValid = false;
@@ -36,26 +32,26 @@ namespace EzImporter.Import.Item
             return argsValid;
         }
 
-        protected void ReadMapInfo(ref DataTable dataTable)
+        protected void ReadMapInfo(ItemImportTaskArgs args)
         {
             Log.Info("EzImporter:Processing import map...", this);
-            dataTable.Columns.Clear();
-            foreach (var column in Args.Map.InputFields)
+            args.ImportData.Columns.Clear();
+            foreach (var column in args.Map.InputFields)
             {
-                dataTable.Columns.Add(column.Name, typeof (string));
+                args.ImportData.Columns.Add(column.Name, typeof(string));
             }
-            Log.Info(string.Format("EzImporter:{0} Columns defined in map.", Args.Map.InputFields.Count), this);
+            Log.Info(string.Format("EzImporter:{0} Columns defined in map.", args.Map.InputFields.Count), this);
         }
 
-        protected void ReadData(ref DataTable dataTable)
+        protected void ReadData(ItemImportTaskArgs args)
         {
             DataReaders.IDataReader reader;
-            if (Args.FileExtension == "csv")
+            if (args.FileExtension == "csv")
             {
                 reader = new DataReaders.CsvDataReader();
             }
-            else if (Args.FileExtension == "xlsx" ||
-                     Args.FileExtension == "xls")
+            else if (args.FileExtension == "xlsx" ||
+                     args.FileExtension == "xls")
             {
                 reader = new DataReaders.XlsxDataReader();
             }
@@ -65,23 +61,23 @@ namespace EzImporter.Import.Item
                     this);
                 return;
             }
-            reader.ReadData(ref dataTable, Args);
-            Args.Statistics.InputDataRows = dataTable.Rows.Count;
+            reader.ReadData(args);
+            args.Statistics.InputDataRows = args.ImportData.Rows.Count;
         }
 
-        protected void ImportItems(DataTable dataTable)
+        protected void ImportItems(ItemImportTaskArgs args)
         {
-            using (new LanguageSwitcher(Args.TargetLanguage))
+            using (new LanguageSwitcher(args.TargetLanguage))
             {
-                var parentItem = Args.Database.GetItem(Args.RootItemId);
-                foreach (var outputMap in Args.Map.OutputMaps)
+                var parentItem = args.Database.GetItem(args.RootItemId);
+                foreach (var outputMap in args.Map.OutputMaps)
                 {
-                    ImportMapItems(dataTable, outputMap, parentItem, true);
+                    ImportMapItems(args, args.ImportData, outputMap, parentItem, true);
                 }
             }
         }
 
-        private void ImportMapItems(DataTable dataTable, OutputMap outputMap, Sitecore.Data.Items.Item parentItem,
+        private void ImportMapItems(ItemImportTaskArgs args, DataTable dataTable, OutputMap outputMap, Sitecore.Data.Items.Item parentItem,
             bool rootLevel)
         {
             var groupedTable = dataTable.GroupBy(outputMap.Fields.Select(f => f.SourceColumn).ToArray());
@@ -91,29 +87,29 @@ namespace EzImporter.Import.Item
                 if (rootLevel ||
                     Convert.ToString(row[outputMap.ParentMap.NameInputField]) == parentItem.Name)
                 {
-                    var createdItem = CreateItem(row, outputMap, parentItem);
+                    var createdItem = CreateItem(args, row, outputMap, parentItem);
                     if (createdItem != null &&
                         outputMap.ChildMaps != null && outputMap.ChildMaps.Any())
                     {
                         foreach (var childMap in outputMap.ChildMaps)
                         {
-                            ImportMapItems(dataTable, childMap, createdItem, false);
+                            ImportMapItems(args, dataTable, childMap, createdItem, false);
                         }
                     }
                 }
             }
         }
 
-        protected Sitecore.Data.Items.Item CreateItem(DataRow dataRow, OutputMap outputMap,
+        protected Sitecore.Data.Items.Item CreateItem(ItemImportTaskArgs args, DataRow dataRow, OutputMap outputMap,
             Sitecore.Data.Items.Item parentItem)
         {
             //CustomItemBase nItemTemplate = GetNewItemTemplate(dataRow);
-            var templateItem = Args.Database.GetTemplate(outputMap.TemplateId);
+            var templateItem = args.Database.GetTemplate(outputMap.TemplateId);
 
-            using (new LanguageSwitcher(Args.TargetLanguage))
+            using (new LanguageSwitcher(args.TargetLanguage))
             {
                 //get the parent in the specific language
-                Sitecore.Data.Items.Item parent = Args.Database.GetItem(parentItem.ID);
+                Sitecore.Data.Items.Item parent = args.Database.GetItem(parentItem.ID);
 
                 Sitecore.Data.Items.Item item;
                 //search for the child by name
@@ -121,28 +117,28 @@ namespace EzImporter.Import.Item
                 item = parent.GetChildren()[itemName];
                 if (item != null)
                 {
-                    if (Args.ImportOptions.ExistingItemHandling == ExistingItemHandling.AddVersion)
+                    if (args.ImportOptions.ExistingItemHandling == ExistingItemHandling.AddVersion)
                     {
-                        Args.Statistics.UpdatedItems++;
+                        args.Statistics.UpdatedItems++;
                         item = item.Versions.AddVersion();
                         Log.Info(string.Format("EzImporter:Creating new version of item {0}", item.Paths.ContentPath),
                             this);
                     }
-                    else if (Args.ImportOptions.ExistingItemHandling == ExistingItemHandling.Skip)
+                    else if (args.ImportOptions.ExistingItemHandling == ExistingItemHandling.Skip)
                     {
                         Log.Info(string.Format("EzImporter:Skipping update of item {0}", item.Paths.ContentPath), this);
                         return item;
                     }
-                    else if (Args.ImportOptions.ExistingItemHandling == ExistingItemHandling.Update)
+                    else if (args.ImportOptions.ExistingItemHandling == ExistingItemHandling.Update)
                     {
                         //continue to update current item/version
-                        Args.Statistics.UpdatedItems ++;
+                        args.Statistics.UpdatedItems ++;
                     }
                 }
                 else
                 {
                     //if not found then create one
-                    Args.Statistics.CreatedItems++;
+                    args.Statistics.CreatedItems++;
                     item = parent.Add(itemName, templateItem);
                     Log.Info(string.Format("EzImporter:Creating item {0}", item.Paths.ContentPath), this);
                 }
@@ -164,7 +160,7 @@ namespace EzImporter.Import.Item
                             if (field != null)
                             {
                                 var fieldValue = dataRow[outputMap.Fields[i].SourceColumn].ToString();
-                                FieldUpdateManager.UpdateField(field, fieldValue, Args.ImportOptions);
+                                FieldUpdateManager.UpdateField(field, fieldValue, args.ImportOptions);
                                 Log.Info(string.Format("'{0}' field set to '{1}'", mapFieldName, fieldValue), this);
                             }
                             else

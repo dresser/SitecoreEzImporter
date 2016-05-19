@@ -7,7 +7,7 @@ namespace EzImporter.DataReaders
 {
     public class CsvDataReader : IDataReader
     {
-        public void ReadData(ref System.Data.DataTable dataTable, ItemImportTaskArgs args)
+        public void ReadData(ItemImportTaskArgs args)
         {
             Log.Info("EzImporter:Reading CSV input data...", this);
             try
@@ -19,7 +19,7 @@ namespace EzImporter.DataReaders
                     var line = reader.ReadLine();
                     if (line != null)
                     {
-                        var row = dataTable.NewRow();
+                        var row = args.ImportData.NewRow();
                         var values = line.Split(args.ImportOptions.CsvDelimiter, StringSplitOptions.None);
                         for (int j = 0; j < args.Map.InputFields.Count; j++)
                         {
@@ -32,7 +32,7 @@ namespace EzImporter.DataReaders
                                 row[j] = "";
                             }
                         }
-                        dataTable.Rows.Add(row);
+                        args.ImportData.Rows.Add(row);
                         lineCount++;
                     }
                 } while (!reader.EndOfStream);
