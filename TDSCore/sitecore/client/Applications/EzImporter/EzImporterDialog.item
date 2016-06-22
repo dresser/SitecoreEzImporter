@@ -20,7 +20,7 @@ Harvard
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 2749
+content-length: 2768
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
@@ -35,7 +35,7 @@ content-length: 2749
     <r id="{FE9723FC-56E4-4CA8-9C64-CB34F29462A5}" par="Id=ProgressIndicator&amp;AutoShowTimeout=1000" ph="Page.Body" uid="{5B8EAE49-9775-4E88-B60A-AFECA876CB2A}" />
     <r id="{5AE97C0C-EE88-4564-A363-4FA11C01C90A}" ph="GlobalHeader" uid="{56B1FCDE-0250-4AA1-998B-6EA277CE67DB}" />
     <r id="{7A69C522-7E99-4630-A25A-5D571505862A}" par="Id=LaunchpadLogo" ph="GlobalHeader.StartButton" uid="{49433BD9-E327-45B9-9763-E9F4E1774093}" />
-    <r id="{93CEEFCD-2DE1-40AF-AE9A-EBBFBCCC522F}" ph="ApplicationHeader" uid="{78E1151F-237A-49CF-96A0-74FF0B5B6E36}" />
+    <r id="{93CEEFCD-2DE1-40AF-AE9A-EBBFBCCC522F}" par="ShowHeader=0" ph="ApplicationHeader" uid="{78E1151F-237A-49CF-96A0-74FF0B5B6E36}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=ApplicationTitle&amp;Text=Ez+Importer" ph="ApplicationHeader.Title" uid="{0F7B9156-DCC6-4B4C-83CC-7ED860B94216}" />
     <r id="{19A9EB6B-1283-49EB-BD75-AAFE76453469}" ph="ApplicationContent" uid="{4FC547E0-FA84-4801-B3B7-5707D4667168}" />
     <r id="{910155C7-3881-4A56-90FB-D126490EDE55}" par="Id=MessageBar" ph="ApplicationContent.Main" uid="{CD2CFA84-9C27-4866-9464-DA81B83A27B0}" />
@@ -45,7 +45,7 @@ content-length: 2749
 ----version----
 language: en
 version: 1
-revision: b51b2636-ff38-4142-81db-71cfc3cfd776
+revision: 31e3e88f-23fb-4164-a56b-ebd89c8cf781
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -67,14 +67,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-b51b2636-ff38-4142-81db-71cfc3cfd776
+31e3e88f-23fb-4164-a56b-ebd89c8cf781
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160515T184231Z
+20160622T220934Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

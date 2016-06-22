@@ -1,5 +1,4 @@
 ﻿using EzImporter.Configuration;
-using EzImporter.Import.Item;
 using EzImporter.Models;
 using EzImporter.Pipelines.ImportItems;
 using Newtonsoft.Json;

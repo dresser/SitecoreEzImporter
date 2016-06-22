@@ -1,5 +1,4 @@
-﻿using EzImporter.Import.Item;
-using EzImporter.Pipelines.ImportItems;
+﻿using EzImporter.Pipelines.ImportItems;
 using Sitecore.Diagnostics;
 using System;
 using System.IO;

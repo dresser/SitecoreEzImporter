@@ -1,5 +1,4 @@
 ﻿using Excel;
-using EzImporter.Import.Item;
 using EzImporter.Pipelines.ImportItems;
 using Sitecore.Diagnostics;
 using System;

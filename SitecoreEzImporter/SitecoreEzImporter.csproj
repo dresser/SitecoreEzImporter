@@ -101,9 +101,12 @@
     <Content Include="sitecore\admin\EzImporter.aspx" />
     <Content Include="sitecore\SitecoreEzImporter.js" />
     <None Include="packages.config" />
-    <Content Include="App_Config\Include\EzImporter.config" />
+    <Content Include="App_Config\Include\EzImporter.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\LaunchEzImporter.cs" />
     <Compile Include="Configuration\Factory.cs" />
     <Compile Include="Configuration\IImportOptions.cs" />
     <Compile Include="Configuration\ImportOptions.cs" />
