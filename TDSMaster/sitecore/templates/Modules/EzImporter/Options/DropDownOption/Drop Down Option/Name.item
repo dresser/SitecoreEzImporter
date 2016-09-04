@@ -1,10 +1,10 @@
 ----item----
 version: 1
-id: {265CB5D9-BD53-432E-B766-4E1DC3C6B1A4}
+id: {7A46DE83-B3B8-477C-8BB0-008465753115}
 database: master
-path: /sitecore/templates/Modules/EzImporter/Import Command/Import Parameters (advanced)/InvalidLinkHandling
-parent: {C61B7AC8-DAE0-468E-8E67-332CB142FDD2}
-name: InvalidLinkHandling
+path: /sitecore/templates/Modules/EzImporter/Options/DropDownOption/Drop Down Option/Name
+parent: {2E83D0B9-7CF3-493A-8557-4F765AC30658}
+name: Name
 master: {00000000-0000-0000-0000-000000000000}
 template: {455A3E98-A627-4B40-8035-E683A0331AC7}
 templatekey: Template field
@@ -13,27 +13,20 @@ templatekey: Template field
 field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
 name: Type
 key: type
-content-length: 8
+content-length: 16
 
-Droplink
-----field----
-field: {1EB8AE32-E190-44A6-968D-ED904C794EBF}
-name: Source
-key: source
-content-length: 49
-
-datasource={1B0EF765-75FB-47C0-8A79-566476BBFE99}
+Single-Line Text
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
 name: __Sortorder
 key: __sortorder
 content-length: 3
 
-300
+200
 ----version----
 language: en
 version: 1
-revision: 34202971-3317-43a6-9982-889e5d97a7ad
+revision: 200a9328-737c-4874-b450-4274970c36ad
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -41,21 +34,21 @@ name: __Created
 key: __created
 content-length: 16
 
-20160622T223807Z
+20160903T221223Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-34202971-3317-43a6-9982-889e5d97a7ad
+200a9328-737c-4874-b450-4274970c36ad
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160903T225714Z
+20160903T221224Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

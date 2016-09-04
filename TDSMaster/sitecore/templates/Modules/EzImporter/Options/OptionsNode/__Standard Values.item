@@ -1,25 +1,25 @@
 ----item----
 version: 1
-id: {DC026ED1-73D7-4AA4-8526-0D519EF4BF74}
+id: {1A5E58B6-BADC-410F-B812-F0DB0B994991}
 database: master
-path: /sitecore/templates/Modules/EzImporter/ImportModuleRoot/__Standard Values
-parent: {25E0FA47-3411-4065-BE2E-E511C4C86583}
+path: /sitecore/templates/Modules/EzImporter/Options/OptionsNode/__Standard Values
+parent: {E3B6CB82-4880-4288-B483-B5DCD6C64D66}
 name: __Standard Values
 master: {00000000-0000-0000-0000-000000000000}
-template: {25E0FA47-3411-4065-BE2E-E511C4C86583}
-templatekey: ImportModuleRoot
+template: {E3B6CB82-4880-4288-B483-B5DCD6C64D66}
+templatekey: OptionsNode
 
 ----field----
 field: {1172F251-DAD4-4EFB-A329-0C63500E4F1E}
 name: __Masters
 key: __masters
-content-length: 0
+content-length: 38
 
-
+{7CAFA297-C1E8-4A22-A220-EE514BC2036F}
 ----version----
 language: en
 version: 1
-revision: 8be918e6-1a15-4518-847a-a951fa0712e9
+revision: 58899d9e-8c69-4b68-923f-7a845c27b04e
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -34,7 +34,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20150703T144208Z
+20160903T221532Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -48,14 +48,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-8be918e6-1a15-4518-847a-a951fa0712e9
+58899d9e-8c69-4b68-923f-7a845c27b04e
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160903T224851Z
+20160903T221548Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

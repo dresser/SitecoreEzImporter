@@ -153,6 +153,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pipelines\ImportItems\ImportItemsArgs.cs" />
     <Compile Include="Configuration\Settings.cs" />
+    <Compile Include="Tasks\ImportCommandItem.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

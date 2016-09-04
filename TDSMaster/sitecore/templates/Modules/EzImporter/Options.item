@@ -1,40 +1,26 @@
 ----item----
 version: 1
-id: {DC026ED1-73D7-4AA4-8526-0D519EF4BF74}
+id: {6B79537A-5752-41CD-808B-F4B95D8D968E}
 database: master
-path: /sitecore/templates/Modules/EzImporter/ImportModuleRoot/__Standard Values
-parent: {25E0FA47-3411-4065-BE2E-E511C4C86583}
-name: __Standard Values
+path: /sitecore/templates/Modules/EzImporter/Options
+parent: {F7E1E5FA-FA42-42C4-8DD2-360A9EC9F7EF}
+name: Options
 master: {00000000-0000-0000-0000-000000000000}
-template: {25E0FA47-3411-4065-BE2E-E511C4C86583}
-templatekey: ImportModuleRoot
-
-----field----
-field: {1172F251-DAD4-4EFB-A329-0C63500E4F1E}
-name: __Masters
-key: __masters
-content-length: 0
-
+template: {0437FEE2-44C9-46A6-ABE9-28858D9FEE8C}
+templatekey: Template Folder
 
 ----version----
 language: en
 version: 1
-revision: 8be918e6-1a15-4518-847a-a951fa0712e9
+revision: b54de6de-e3bc-4906-8bf5-26d282d60181
 
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20150703T144208Z
+20160903T221105Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -48,14 +34,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-8be918e6-1a15-4518-847a-a951fa0712e9
+b54de6de-e3bc-4906-8bf5-26d282d60181
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160903T224851Z
+20160903T221109Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

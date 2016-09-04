@@ -1,10 +1,10 @@
 ----item----
 version: 1
-id: {B3C7E13F-DEC8-436A-A097-3A884BDF0A8C}
+id: {9EC52B90-0D56-4850-BB4D-AD13491FC4CC}
 database: master
-path: /sitecore/templates/Modules/EzImporter/Import Command
-parent: {F7E1E5FA-FA42-42C4-8DD2-360A9EC9F7EF}
-name: Import Command
+path: /sitecore/templates/Modules/EzImporter/Options/DropDownOption
+parent: {6B79537A-5752-41CD-808B-F4B95D8D968E}
+name: DropDownOption
 master: {00000000-0000-0000-0000-000000000000}
 template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
 templatekey: Template
@@ -13,20 +13,27 @@ templatekey: Template
 field: {12C33F3F-86C5-43A5-AEB4-5598CEC45116}
 name: __Base template
 key: __base template
-content-length: 77
+content-length: 38
 
-{1930BBEB-7805-471A-A3BE-4858AC7CF696}|{58119A3E-560E-4DA6-97C6-1ACE8A5B1219}
+{1930BBEB-7805-471A-A3BE-4858AC7CF696}
+----field----
+field: {F7D48A55-2158-4F02-9356-756654404F73}
+name: __Standard values
+key: __standard values
+content-length: 38
+
+{A559B636-1846-4074-B7EC-4136E1B07DAA}
 ----field----
 field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
 name: __Icon
 key: __icon
-content-length: 20
+content-length: 32
 
-Apps/32x32/codes.png
+Applications/32x32/form_blue.png
 ----version----
 language: en
 version: 1
-revision: 3463ac7e-c872-4633-b6ce-0e79e5db707c
+revision: 6940e951-221b-465b-857e-240acb301da1
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -34,7 +41,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20160622T222308Z
+20160903T221139Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -48,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-3463ac7e-c872-4633-b6ce-0e79e5db707c
+6940e951-221b-465b-857e-240acb301da1
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160903T225530Z
+20160903T221920Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

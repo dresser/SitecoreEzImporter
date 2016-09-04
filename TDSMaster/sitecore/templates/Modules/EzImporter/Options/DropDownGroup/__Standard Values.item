@@ -1,25 +1,25 @@
 ----item----
 version: 1
-id: {DC026ED1-73D7-4AA4-8526-0D519EF4BF74}
+id: {BB1BB2B1-768C-4743-BC96-859DA9368C64}
 database: master
-path: /sitecore/templates/Modules/EzImporter/ImportModuleRoot/__Standard Values
-parent: {25E0FA47-3411-4065-BE2E-E511C4C86583}
+path: /sitecore/templates/Modules/EzImporter/Options/DropDownGroup/__Standard Values
+parent: {7CAFA297-C1E8-4A22-A220-EE514BC2036F}
 name: __Standard Values
 master: {00000000-0000-0000-0000-000000000000}
-template: {25E0FA47-3411-4065-BE2E-E511C4C86583}
-templatekey: ImportModuleRoot
+template: {7CAFA297-C1E8-4A22-A220-EE514BC2036F}
+templatekey: DropDownGroup
 
 ----field----
 field: {1172F251-DAD4-4EFB-A329-0C63500E4F1E}
 name: __Masters
 key: __masters
-content-length: 0
+content-length: 38
 
-
+{9EC52B90-0D56-4850-BB4D-AD13491FC4CC}
 ----version----
 language: en
 version: 1
-revision: 8be918e6-1a15-4518-847a-a951fa0712e9
+revision: e170ea5e-a157-4aa5-a941-dc399b702b63
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -34,7 +34,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20150703T144208Z
+20160903T221311Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -48,14 +48,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-8be918e6-1a15-4518-847a-a951fa0712e9
+e170ea5e-a157-4aa5-a941-dc399b702b63
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160903T224851Z
+20160903T221332Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
