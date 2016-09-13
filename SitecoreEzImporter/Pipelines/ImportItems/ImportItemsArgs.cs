@@ -1,4 +1,5 @@
-﻿using EzImporter.Configuration;
+﻿using System.Collections.Generic;
+using EzImporter.Configuration;
 using EzImporter.Map;
 using Sitecore.Data;
 using Sitecore.Globalization;
@@ -20,11 +21,13 @@ namespace EzImporter.Pipelines.ImportItems
         public IImportOptions ImportOptions { get; set; }
         public ImportStatistics Statistics { get; set; }
         public DataTable ImportData { get; set; }
+        public List<ImportItem> ImportItems { get; set; } 
 
         public ImportItemsArgs()
         {
             Statistics = new ImportStatistics();
             ImportData = new DataTable();
+            ImportItems = new List<ImportItem>();
         }
     }
 }

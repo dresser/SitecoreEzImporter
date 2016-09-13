@@ -106,6 +106,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Map\ImportItem.cs" />
+    <Compile Include="Pipelines\ImportItems\BuildImportDataStructure.cs" />
     <Compile Include="Tasks\Import.cs" />
     <Compile Include="Commands\LaunchEzImporter.cs" />
     <Compile Include="Configuration\Factory.cs" />
