@@ -35,8 +35,9 @@ namespace EzImporter.Pipelines.ImportItems
                     Convert.ToString(row[outputMap.ParentMap.NameInputField]) == parentItem.Name)
                 {
                     var createdItem = CreateItem(args, row, outputMap, parentItem);
-                    if (createdItem != null &&
-                        outputMap.ChildMaps != null && outputMap.ChildMaps.Any())
+                    if (createdItem != null
+                        && outputMap.ChildMaps != null
+                        && outputMap.ChildMaps.Any())
                     {
                         foreach (var childMap in outputMap.ChildMaps)
                         {
