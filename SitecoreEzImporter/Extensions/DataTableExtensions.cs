@@ -8,14 +8,18 @@ namespace EzImporter.Extensions
         public static DataTable GroupBy(this DataTable inputDataTable, string[] columnNames)
         {
             var groupedDataTable = new DataTable();
-            foreach (var columnName in columnNames)
+            var distinctColumnNames = columnNames.Distinct().ToArray();
+            foreach (var columnName in distinctColumnNames)
             {
                 groupedDataTable.Columns.Add(columnName, inputDataTable.Columns[columnName].DataType);
             }
-            foreach (var grouping in inputDataTable.AsEnumerable().GroupBy(r => new NTuple<object>(from columnName in columnNames select r[columnName])))
+            foreach (
+                var grouping in
+                    inputDataTable.AsEnumerable()
+                        .GroupBy(r => new NTuple<object>(distinctColumnNames.Select(cn => r[cn]))))
             {
                 var row = groupedDataTable.NewRow();
-                for (int i = 0; i < columnNames.Length; i++)
+                for (int i = 0; i < distinctColumnNames.Length; i++)
                 {
                     row[i] = grouping.Key.Values[i];
                 }
