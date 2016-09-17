@@ -1,9 +1,5 @@
 ﻿using EzImporter.Extensions;
-using EzImporter.FieldUpdater;
 using EzImporter.Map;
-using Sitecore.Data.Items;
-using Sitecore.Diagnostics;
-using Sitecore.Globalization;
 using System;
 using System.Data;
 using System.Linq;
@@ -49,7 +45,10 @@ namespace EzImporter.Pipelines.ImportItems
         private ImportItem CreateItem(DataRow dataRow, OutputMap outputMap)
         {
             string itemName = Utils.GetValidItemName(dataRow[outputMap.NameInputField]);
-            var item = new ImportItem(itemName);
+            var item = new ImportItem(itemName)
+            {
+                TemplateId = outputMap.TemplateId
+            };
             for (int i = 0; i < outputMap.Fields.Count; i++)
             {
                 var mapFieldName = outputMap.Fields[i].TargetFieldName;
