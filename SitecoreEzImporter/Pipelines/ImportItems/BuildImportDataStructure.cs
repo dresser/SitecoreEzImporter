@@ -44,7 +44,7 @@ namespace EzImporter.Pipelines.ImportItems
 
         private ImportItem CreateItem(DataRow dataRow, OutputMap outputMap)
         {
-            string itemName = Utils.GetValidItemName(dataRow[outputMap.NameInputField]);
+            var itemName = Convert.ToString(dataRow[outputMap.NameInputField]);
             var item = new ImportItem(itemName)
             {
                 TemplateId = outputMap.TemplateId
