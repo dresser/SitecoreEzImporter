@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreEzImporter", "SitecoreEzImporter\SitecoreEzImporter.csproj", "{D45D4427-E855-4103-B905-B03E4825C310}"
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDSMaster", "TDSMaster\TDSMaster.scproj", "{DD2D14E0-7052-4CE7-9DBA-34FE0440DE90}"
@@ -8,6 +10,8 @@ EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDSMasterSampleData", "TDSMasterSampleData\TDSMasterSampleData.scproj", "{2910F4A7-8100-435E-96ED-864B2B57AD91}"
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDSCore", "TDSCore\TDSCore.scproj", "{87D4C190-741C-457C-A8FD-B5FFA59C05DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreEzImporter.Tests", "SitecoreEzImporter.Tests\SitecoreEzImporter.Tests.csproj", "{77C351A2-3C37-4497-8514-CF50DCA86F3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,10 @@ Global
 		{87D4C190-741C-457C-A8FD-B5FFA59C05DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87D4C190-741C-457C-A8FD-B5FFA59C05DC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{87D4C190-741C-457C-A8FD-B5FFA59C05DC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{77C351A2-3C37-4497-8514-CF50DCA86F3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C351A2-3C37-4497-8514-CF50DCA86F3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C351A2-3C37-4497-8514-CF50DCA86F3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C351A2-3C37-4497-8514-CF50DCA86F3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

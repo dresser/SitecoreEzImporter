@@ -6,34 +6,41 @@ namespace EzImporter.Pipelines.ImportItems
 {
     public class ValidateItemNames : ImportItemsProcessor
     {
-        private List<string> _errors;
-        private List<string> _notifications;
+        public List<string> Errors { get; protected set; }
+        public List<string> Notifications { get; protected set; }
+
+        public ValidateItemNames()
+        {
+            Errors = new List<string>();
+            Notifications = new List<string>();
+        }
 
         public override void Process(ImportItemsArgs args)
         {
-            _errors = new List<string>();
-            _notifications = new List<string>();
+            Errors = new List<string>();
+            Notifications = new List<string>();
             foreach (var item in args.ImportItems)
             {
                 ValidateName(item);
             }
-            if (_errors.Any())
+            if (Errors.Any())
             {
-                _errors.ForEach(e => args.AddMessage(e));
+                args.AddMessage("Invalid item name(s) in import data.");
+                args.ErrorDetail = string.Join("\n\n", Errors);
                 args.AbortPipeline();
             }
         }
 
-        private void ValidateName(ImportItem item)
+        public void ValidateName(ImportItem item)
         {
             var suggestedName = Utils.GetValidItemName(item.Name);
-            if (suggestedName == "")
+            if (suggestedName == Utils.UnNamedItem)
             {
-                _errors.Add(string.Format("Invalid item name '{0}'.", item.Name));
+                Errors.Add(string.Format("Invalid item name '{0}'.", item.Name));
             }
             if (suggestedName != item.Name)
             {
-                _notifications.Add(string.Format("Name '{0}' is not valid, using '{1}' instead.", item.Name,
+                Notifications.Add(string.Format("Name '{0}' is not valid, using '{1}' instead.", item.Name,
                     suggestedName));
             }
             if (item.Children != null)

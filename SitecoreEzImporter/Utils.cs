@@ -14,9 +14,18 @@ namespace EzImporter
         public static string GetValidItemName(string proposedName)
         {
             var newName = proposedName.Replace("-", " ");
+            if (string.IsNullOrWhiteSpace(newName))
+            {
+                return UnNamedItem;
+            }
             newName = ItemUtil.ProposeValidItemName(newName);
             newName = Regex.Replace(newName, @"\s+", " ");
             return newName;
+        }
+
+        public static string UnNamedItem
+        {
+            get { return "Unnamed item"; }
         }
     }
 }

@@ -15,6 +15,8 @@ namespace EzImporter.Pipelines.ImportItems
             }
             if (!argsValid)
             {
+                args.AddMessage("Error: Input file not found.");
+                args.ErrorDetail = "FileStream = null";
                 args.AbortPipeline();
             }
         }

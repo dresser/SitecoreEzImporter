@@ -22,6 +22,7 @@ namespace EzImporter.Pipelines.ImportItems
         public ImportStatistics Statistics { get; set; }
         public DataTable ImportData { get; set; }
         public List<ImportItem> ImportItems { get; set; } 
+        public string ErrorDetail { get; set; }
 
         public ImportItemsArgs()
         {

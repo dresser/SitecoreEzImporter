@@ -22,7 +22,7 @@ namespace EzImporter.Controllers
         {
             var database = Sitecore.Configuration.Factory.GetDatabase("master");
             var languageItem = database.GetItem(importModel.Language);
-            var uploadedFile = (MediaItem) database.GetItem(importModel.MediaItemId);
+            var uploadedFile = (MediaItem)database.GetItem(importModel.MediaItemId);
             if (uploadedFile == null)
             {
                 return new JsonResult<ImportResultModel>(null, new JsonSerializerSettings(), Encoding.UTF8, this);
@@ -38,13 +38,13 @@ namespace EzImporter.Controllers
                 Map = Map.Factory.BuildMapInfo(new ID(importModel.MappingId)),
                 ImportOptions = new ImportOptions
                 {
-                    CsvDelimiter = new[] {importModel.CsvDelimiter},
+                    CsvDelimiter = new[] { importModel.CsvDelimiter },
                     ExistingItemHandling =
                         (ExistingItemHandling)
-                            Enum.Parse(typeof (ExistingItemHandling), importModel.ExistingItemHandling),
+                            Enum.Parse(typeof(ExistingItemHandling), importModel.ExistingItemHandling),
                     InvalidLinkHandling =
                         (InvalidLinkHandling)
-                            Enum.Parse(typeof (InvalidLinkHandling), importModel.InvalidLinkHandling),
+                            Enum.Parse(typeof(InvalidLinkHandling), importModel.InvalidLinkHandling),
                     MultipleValuesImportSeparator = importModel.MultipleValuesSeparator,
                     TreePathValuesImportSeparator = @"\"
                 }
@@ -53,14 +53,20 @@ namespace EzImporter.Controllers
             try
             {
                 CorePipeline.Run("importItems", args);
-                result = new ImportResultModel {Log = args.Statistics.ToString()};
-                return new JsonResult<ImportResultModel>(result, new JsonSerializerSettings(), Encoding.UTF8, this);
+                if (args.Aborted)
+                {
+                    result = new ImportResultModel { HasError = true, Log = args.Statistics.ToString(), ErrorMessage = args.Message, ErrorDetail = args.ErrorDetail };
+                }
+                else
+                {
+                    result = new ImportResultModel { Log = args.Statistics.ToString() };
+                }
             }
             catch (Exception ex)
             {
-                result = new ImportResultModel {HasError = true, ErrorMessage = ex.Message, ErrorDetail = ex.ToString()};
-                return new JsonResult<ImportResultModel>(result, new JsonSerializerSettings(), Encoding.UTF8, this);
+                result = new ImportResultModel { HasError = true, ErrorMessage = ex.Message, ErrorDetail = ex.ToString() };
             }
+            return new JsonResult<ImportResultModel>(result, new JsonSerializerSettings(), Encoding.UTF8, this);
         }
 
         [HttpGet]
