@@ -1,10 +1,10 @@
 ----item----
 version: 1
-id: {3ECCEED4-4045-4616-AFBB-0A29D8403F25}
+id: {0DA8C5EE-A630-4025-9AE5-E77CD34E189C}
 database: master
-path: /sitecore/templates/Modules/EzImporter/Import Command/Import Parameters (advanced)/MultipleValuesImportSeparator
+path: /sitecore/templates/Modules/EzImporter/Import Command/Import Parameters Advanced/TreePathValuesImportSeparator
 parent: {C61B7AC8-DAE0-468E-8E67-332CB142FDD2}
-name: MultipleValuesImportSeparator
+name: TreePathValuesImportSeparator
 master: {00000000-0000-0000-0000-000000000000}
 template: {455A3E98-A627-4B40-8035-E683A0331AC7}
 templatekey: Template field
@@ -22,11 +22,11 @@ name: __Sortorder
 key: __sortorder
 content-length: 3
 
-400
+500
 ----version----
 language: en
 version: 1
-revision: 53647311-113e-40cd-9f74-ab44e81c159a
+revision: 7ec8cf66-24f0-4b67-9043-f16a507cca95
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -41,14 +41,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-53647311-113e-40cd-9f74-ab44e81c159a
+7ec8cf66-24f0-4b67-9043-f16a507cca95
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160622T223822Z
+20160904T212150Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

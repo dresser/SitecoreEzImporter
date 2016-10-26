@@ -34,6 +34,8 @@
     <DisableFileDeployment>False</DisableFileDeployment>
     <SitecoreDeployFolder>C:\inetpub\wwwroot\EzImporter\Website</SitecoreDeployFolder>
     <SitecoreAccessGuid>6c896d77-4681-4fab-aadb-ebe6b70e22e4</SitecoreAccessGuid>
+    <EnableValidations>False</EnableValidations>
+    <ValidationSettingsFilePath>.\TDSMasterSampleData_Debug.xml</ValidationSettingsFilePath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>false</DebugSymbols>
