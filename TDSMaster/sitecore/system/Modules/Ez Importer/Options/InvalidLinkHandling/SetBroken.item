@@ -1,0 +1,58 @@
+----item----
+version: 1
+id: {A18A1C75-B1FE-4F93-A0C4-BAFD6451AB79}
+database: master
+path: /sitecore/system/Modules/Ez Importer/Options/InvalidLinkHandling/SetBroken
+parent: {1B0EF765-75FB-47C0-8A79-566476BBFE99}
+name: SetBroken
+master: {00000000-0000-0000-0000-000000000000}
+template: {9EC52B90-0D56-4850-BB4D-AD13491FC4CC}
+templatekey: DropDownOption
+
+----version----
+language: en
+version: 1
+revision: dd06733d-c101-4c58-9195-efa45f4f84e2
+
+----field----
+field: {B5CBAE6F-B934-4D25-B231-9373A6F7E3AF}
+name: HelpText
+key: helptext
+content-length: 62
+
+Sets the link using the specified value creating a broken link
+----field----
+field: {7A46DE83-B3B8-477C-8BB0-008465753115}
+name: Name
+key: name
+content-length: 9
+
+SetBroken
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20160903T222028Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+dd06733d-c101-4c58-9195-efa45f4f84e2
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20160904T201752Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
