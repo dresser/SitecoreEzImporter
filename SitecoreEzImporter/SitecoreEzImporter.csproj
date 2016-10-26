@@ -159,10 +159,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="sitecore\admin\EzImporter.aspx" />
     <Content Include="sitecore\SitecoreEzImporter.js" />
     <None Include="packages.config" />
-    <Content Include="App_Config\Include\EzImporter.config">
+    <Content Include="App_Config\Include\EzImporter\Sitecore.EzImporter.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -203,8 +202,6 @@
     <Compile Include="Map\CustomItems\OutputMapTemplateItem.cs" />
     <Compile Include="Map\ItemImportMap.cs" />
     <Compile Include="Map\MediaImportMap.cs" />
-    <Compile Include="Import\Media\MediaImportTask.cs" />
-    <Compile Include="Import\Media\MediaImportTaskArgs.cs" />
     <Compile Include="Extensions\NTuple.cs" />
     <Compile Include="Map\OutputField.cs" />
     <Compile Include="Map\OutputMap.cs" />
