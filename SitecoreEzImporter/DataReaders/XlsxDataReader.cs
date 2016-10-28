@@ -24,7 +24,7 @@ namespace EzImporter.DataReaders
                     excelReader = ExcelReaderFactory.CreateOpenXmlReader(args.FileStream);
                 }
 
-                excelReader.IsFirstRowAsColumnNames = args.FirstRowAsColumnNames;
+                excelReader.IsFirstRowAsColumnNames = args.ImportOptions.FirstRowAsColumnNames;
                 if (!excelReader.IsValid)
                 {
                     Log.Error("EzImporter:Invalid Excel file '" + excelReader.ExceptionMessage + "'", this);

@@ -11,5 +11,7 @@
         public string TreePathValuesImportSeparator { get; set; }
 
         public string[] CsvDelimiter { get; set; }
+
+        public bool FirstRowAsColumnNames { get; set; }
     }
 }

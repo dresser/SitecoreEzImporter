@@ -32,7 +32,8 @@ namespace EzImporter.Configuration
                 CsvDelimiter = new[]
                 {
                     Sitecore.Configuration.Settings.GetSetting("EzImporter.CsvDelimiter", ",")
-                }
+                },
+                FirstRowAsColumnNames = Sitecore.Configuration.Settings.GetBoolSetting("EzImporter.FirstRowAsColumnNames", true)
             };
         }
     }

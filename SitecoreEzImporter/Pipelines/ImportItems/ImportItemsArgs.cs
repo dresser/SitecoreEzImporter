@@ -11,7 +11,6 @@ namespace EzImporter.Pipelines.ImportItems
 {
     public class ImportItemsArgs : PipelineArgs
     {
-        public bool FirstRowAsColumnNames { get; set; }
         public string FileExtension { get; set; }
         public Stream FileStream { get; set; }
         public Database Database { get; set; }

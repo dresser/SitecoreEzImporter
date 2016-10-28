@@ -20,11 +20,11 @@ Harvard
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 2768
+content-length: 2813
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
-    <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" par="PageCodeScriptFileName=%2fsitecore%2fSitecoreEzImporter.js" ph="Page.Code" uid="{EBDA2BA2-1715-4B9B-B374-1902DC86FF7E}" />
+    <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" par="PageCodeScriptFileName=%2fsitecore%2fshell%2fclient%2fApplications%2fEzImporter%2fSitecoreEzImporter.js" ph="Page.Code" uid="{EBDA2BA2-1715-4B9B-B374-1902DC86FF7E}" />
     <r id="{B60FB581-44D1-4372-86A2-D6E494F020E1}" par="HeaderText=Import+Error&amp;Id=ErrorDialog&amp;HeaderLess=0&amp;Size=%7bDFE6D45B-ED26-4D2C-8C5C-5A1EA07B1DEF%7d" ph="ApplicationContent" uid="{28904620-A7A0-4C96-993A-82359552308F}" />
     <r id="{910155C7-3881-4A56-90FB-D126490EDE55}" par="Id=ErrorDialogMessageBar" ph="ErrorDialog.Content" uid="{EEE07D44-7F32-42CA-9CAF-6A158385F22B}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=ErrorDialogBorder" ph="ErrorDialog.Content" uid="{C531D6B8-7257-47C5-890E-90B14D5C0AB5}" />
@@ -45,7 +45,7 @@ content-length: 2768
 ----version----
 language: en
 version: 1
-revision: 31e3e88f-23fb-4164-a56b-ebd89c8cf781
+revision: 8e363292-9c3a-4ecc-91c5-2d632f137726
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -67,14 +67,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-31e3e88f-23fb-4164-a56b-ebd89c8cf781
+8e363292-9c3a-4ecc-91c5-2d632f137726
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160622T220934Z
+20161028T062750Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

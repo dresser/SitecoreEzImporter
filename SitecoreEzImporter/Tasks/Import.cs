@@ -51,6 +51,7 @@ namespace EzImporter.Tasks
             {
                 options.TreePathValuesImportSeparator = importCommand.TreePathValuesImportSeparator;
             }
+            options.FirstRowAsColumnNames = importCommand.FirstRowAsColumnNames;
             if (string.IsNullOrWhiteSpace(importCommand.FileName))
             {
                 Log.Error(
@@ -86,7 +87,6 @@ namespace EzImporter.Tasks
             var args = new ImportItemsArgs
             {
                 Database = importCommand.ImportDatabase,
-                FirstRowAsColumnNames = importCommand.FirstRowAsColumnNames,
                 FileExtension = extension,
                 FileStream = stream.BaseStream,
                 RootItemId = importCommand.ImportLocationId,

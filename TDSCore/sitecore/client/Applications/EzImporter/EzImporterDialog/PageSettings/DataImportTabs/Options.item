@@ -20,7 +20,7 @@ Import Options
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 5369
+content-length: 5949
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
@@ -33,6 +33,9 @@ content-length: 5369
     <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=TargetLanguageLabel&amp;Text=Target+Language" ph="TargetLanguageBorder.Content" uid="{10E38312-30FC-4114-B1C1-A6F8D3DFDE8B}" />
     <r id="{33A02142-2DBD-4034-AEA2-BDF215EB2451}" par="Id=LanguagesDataSource&amp;Query=%2fsitecore%2fsystem%2fLanguages%2f*&amp;Database=master" ph="TargetLanguageBorder.Content" uid="{3E9B9593-EAE0-4BC6-8289-F99EDF881E29}" />
     <r id="{25D357D3-3648-4336-9B53-55EED7CFA078}" par="Id=TargetLanguageCombo&amp;IsVisible=1&amp;WidthPolicy=%7b10E1CB3E-660F-4C5E-9F25-F67C4637D463%7d&amp;Items=%7bBinding+LanguagesDataSource.Items%7d&amp;IsEnabled=1" ph="TargetLanguageBorder.Content" uid="{8CD4C927-7D21-4316-9007-C7D1D01C5280}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=FirstRowAsColumnNamesBorder&amp;UsePadding=1" ph="StandardOptionsExpander.Body" uid="{69EB306D-7B72-4B5A-B30B-8ACF41023B80}" />
+    <r id="{3824DAB6-745A-468A-9D75-044591E72FB5}" par="Id=FirstRowAsColumnNamesCheckBox" ph="FirstRowAsColumnNamesBorder.Content" uid="{3B999A10-52D4-4128-8408-1212DF63DB37}" />
+    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=FirstRowAsColumnNamesLabel&amp;Text=First+Row+As+Column+Names" ph="FirstRowAsColumnNamesBorder.Content" uid="{51360125-B158-4D25-B893-AFA27D9AEE3B}" />
     <r id="{442BD093-FBAD-4E36-BC08-489E16C82D08}" par="Id=AdvancedOptionsExpander&amp;Header=Advanced+Options&amp;IsOpen=0" ph="OptionsBorder.Content" uid="{A713AF4E-B8DA-46AC-B728-B1A0347E06CB}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=ExistingItemHandlingBorder&amp;UsePadding=1" ph="AdvancedOptionsExpander.Body" uid="{7E45E41F-915E-4606-AC50-6735D06EA568}" />
     <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=ExistingItemHandlingLabel&amp;Text=Existing+Item+Handling" ph="ExistingItemHandlingBorder.Content" uid="{12836085-DD74-49E6-A85A-A69573F3F1CB}" />
@@ -53,7 +56,7 @@ content-length: 5369
 ----version----
 language: en
 version: 1
-revision: 63b4d2a8-1851-4005-b023-e69a4e18ea9f
+revision: 11e62d8c-abb1-4eb1-ac81-313361d7d9d7
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -75,14 +78,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-63b4d2a8-1851-4005-b023-e69a4e18ea9f
+11e62d8c-abb1-4eb1-ac81-313361d7d9d7
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160913T175259Z
+20161027T135035Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

@@ -10,5 +10,6 @@
         public string CsvDelimiter { get; set; }
         public string MultipleValuesSeparator { get; set; }
         public string MediaItemId { get; set; }
+        public bool FirstRowAsColumnNames { get; set; }
     }
 }

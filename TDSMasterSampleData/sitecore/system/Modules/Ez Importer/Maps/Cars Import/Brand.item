@@ -1,0 +1,72 @@
+----item----
+version: 1
+id: {E64D94E0-9690-4F94-A2C2-6573A736AC14}
+database: master
+path: /sitecore/system/Modules/Ez Importer/Maps/Cars Import/Brand
+parent: {B6C6D6A7-0026-4849-8287-7B2D7DEC6348}
+name: Brand
+master: {3DD41A19-1F84-4E83-A657-930ADD646ADB}
+template: {58623B95-07DC-4F00-8D7A-337BF116FB54}
+templatekey: OutputMap
+
+----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 3
+
+200
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 0
+
+
+----version----
+language: en
+version: 1
+revision: d9eb71b4-a7f9-4b43-a122-edd3f1f37775
+
+----field----
+field: {1AFA1A4E-680D-4C04-B582-A2D3782DDF0E}
+name: TargetTemplate
+key: targettemplate
+content-length: 38
+
+{7E4DD69A-8EA9-4014-8650-AEFA99F3D61F}
+----field----
+field: {436E1C7C-51A5-4A0D-84EB-9D533DBF1F2B}
+name: ItemNameField
+key: itemnamefield
+content-length: 38
+
+{84FE3BEF-0146-4AE5-97FB-175E00D89895}
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20161027T122422Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+d9eb71b4-a7f9-4b43-a122-edd3f1f37775
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20161027T122930Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

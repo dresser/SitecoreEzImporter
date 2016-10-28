@@ -159,7 +159,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="sitecore\SitecoreEzImporter.js" />
+    <Content Include="sitecore\shell\client\Applications\EzImporter\SitecoreEzImporter.js" />
     <None Include="packages.config" />
     <Content Include="App_Config\Include\EzImporter\Sitecore.EzImporter.config">
       <SubType>Designer</SubType>

@@ -30,7 +30,6 @@ namespace EzImporter.Controllers
             var args = new ImportItemsArgs
             {
                 Database = database,
-                FirstRowAsColumnNames = false,
                 FileExtension = uploadedFile.Extension.ToLower(),
                 FileStream = uploadedFile.GetMediaStream(),
                 RootItemId = new ID(importModel.ImportLocationId),
@@ -46,12 +45,14 @@ namespace EzImporter.Controllers
                         (InvalidLinkHandling)
                             Enum.Parse(typeof(InvalidLinkHandling), importModel.InvalidLinkHandling),
                     MultipleValuesImportSeparator = importModel.MultipleValuesSeparator,
-                    TreePathValuesImportSeparator = @"\"
+                    TreePathValuesImportSeparator = @"\",
+                    FirstRowAsColumnNames = importModel.FirstRowAsColumnNames
                 }
             };
             ImportResultModel result;
             try
             {
+                Sitecore.Diagnostics.Log.Info(string.Format("EzImporter: mappingId:{0} mediaItemId:{1}", importModel.MappingId, importModel.MediaItemId), this);
                 CorePipeline.Run("importItems", args);
                 if (args.Aborted)
                 {
@@ -78,7 +79,8 @@ namespace EzImporter.Controllers
                 CsvDelimiter = options.CsvDelimiter[0],
                 ExistingItemHandling = options.ExistingItemHandling.ToString(),
                 InvalidLinkHandling = options.InvalidLinkHandling.ToString(),
-                MultipleValuesSeparator = options.MultipleValuesImportSeparator
+                MultipleValuesSeparator = options.MultipleValuesImportSeparator,
+                FirstRowAsColumnNames = options.FirstRowAsColumnNames
             };
             return new JsonResult<SettingsModel>(model, new JsonSerializerSettings(), Encoding.UTF8, this);
         }

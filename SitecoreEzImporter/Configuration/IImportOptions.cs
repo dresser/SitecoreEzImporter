@@ -7,5 +7,6 @@
         string MultipleValuesImportSeparator { get; set; }
         string TreePathValuesImportSeparator { get; set; }
         string[] CsvDelimiter { get; set; }
+        bool FirstRowAsColumnNames { get; set; }
     }
 }
