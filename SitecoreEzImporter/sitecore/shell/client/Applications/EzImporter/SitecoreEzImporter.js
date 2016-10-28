@@ -62,7 +62,7 @@
             var csvDelimiter = this.CsvDelimiter.viewModel.text();
             var multipleValuesSeparator = this.MultipleValuesImportSeparator.viewModel.text();
             var mappingId = this.ExistingMapping.viewModel.selectedItemId();
-            var firstRowAsColumnNamesCheckBox = this.FirstRowAsColumnNamesCheckBox.viewModel.isChecked();
+            var firstRowAsColumnNames = this.FirstRowAsColumnNamesCheckBox.viewModel.isChecked();
             if (language == null) {
                 this.MessageBar.addMessage("error", "Please select language for import");
             }
@@ -80,7 +80,7 @@
                     CsvDelimiter: csvDelimiter,
                     MultipleValuesSeparator: multipleValuesSeparator,
                     MediaItemId: this.uploadedFiles[i],
-                    FirstRowAsColumnNamesCheckBox: firstRowAsColumnNamesCheckBox
+                    FirstRowAsColumnNames: firstRowAsColumnNames
                 };
                 $.ajax({
                     url: "/sitecore/api/ssc/EzImporter-Controllers/Import/1/Import",

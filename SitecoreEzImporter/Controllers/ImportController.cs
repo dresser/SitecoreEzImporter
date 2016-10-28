@@ -52,7 +52,7 @@ namespace EzImporter.Controllers
             ImportResultModel result;
             try
             {
-                Sitecore.Diagnostics.Log.Info(string.Format("EzImporter: mappingId:{0} mediaItemId:{1}", importModel.MappingId, importModel.MediaItemId), this);
+                Sitecore.Diagnostics.Log.Info(string.Format("EzImporter: mappingId:{0} mediaItemId:{1} firstRowAsColumnNames:{2}", importModel.MappingId, importModel.MediaItemId, args.ImportOptions.FirstRowAsColumnNames), this);
                 CorePipeline.Run("importItems", args);
                 if (args.Aborted)
                 {
