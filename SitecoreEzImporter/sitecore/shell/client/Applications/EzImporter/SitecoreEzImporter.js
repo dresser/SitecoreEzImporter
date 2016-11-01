@@ -36,10 +36,9 @@
             if (this.uploadedFiles.length == this.SourceFile.viewModel.totalFiles()) {
                 this.MessageBar.removeMessages();
                 this.MessageBar.addMessage("notification", "File(s) have already been imported.");
-                this.ProgressIndicator.viewModel.hide();
                 return;
             }
-            this.ProgressIndicator.viewModel.show();
+            this.ProgressIndicator.set('isBusy', true);
             if (this.SourceFile.viewModel.totalFiles() > 0) {
                 this.SourceFile.viewModel.upload();
             }
@@ -55,7 +54,6 @@
         },
 
         ImportData: function () {
-            this.ImportProgressIndicator.set('isBusy', true);
             var location = this.ImportLocationTreeView.viewModel.selectedItemId();
             var language = this.TargetLanguageCombo.viewModel.selectedItemId();
             var existingItemHandling = this.ExistingItemHandling.viewModel.selectedItemId();
@@ -90,20 +88,20 @@
                     dataType: "json",
                     context: this,
                     success: function (data) {
-                        this.ImportProgressIndicator.set('isBusy', false);
                         if (data.HasError == true) {
                             this.ErrorDialogMessageBar.addMessage("error", data.ErrorMessage);
                             this.ErrorDialogExpanderText.set("text", data.ErrorDetail);
+                            this.ProgressIndicator.set('isBusy', false);
                             this.ErrorDialog.show();
                         } else {
                             this.LogInfo.viewModel.text(data.Log);
+                            this.ProgressIndicator.set('isBusy', false);
                         }
                     },
                     data: JSON.stringify(item)
                 });
             }
 
-            this.ProgressIndicator.viewModel.hide();
         },
 
         CloseErrorDialog: function() {
