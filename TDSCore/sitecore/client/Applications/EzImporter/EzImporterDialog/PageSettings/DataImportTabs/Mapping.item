@@ -27,7 +27,7 @@ content-length: 3
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 2122
+content-length: 2323
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
@@ -38,6 +38,7 @@ content-length: 2122
     <r id="{33A02142-2DBD-4034-AEA2-BDF215EB2451}" par="Id=ExistingMappingDataSource&amp;Query=%2fsitecore%2fsystem%2fModules%2fEz+Importer%2f%2f*%5b%40%40templateid%3d%27%7bF666A29E-A9C3-40FD-A3B8-CDAE59D9F09D%7d%27%5d&amp;Database=master" ph="ExistingMappingBorder.Content" uid="{80F530AD-B26A-4FD8-9E1D-30869015F176}" />
     <r id="{25D357D3-3648-4336-9B53-55EED7CFA078}" par="Id=ExistingMapping&amp;Items=%7bBinding+ExistingMappingDataSource.Items%7d" ph="ExistingMappingBorder.Content" uid="{A1824B8F-FFB5-4005-B1FA-C39238FB9E29}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=LogInfoBorder&amp;PaddingType=All&amp;UsePadding=1" ph="MappingExpander.Body" uid="{049E7913-34A2-4FA8-8D2E-BB6CD5BA9D3B}" />
+    <r id="{FE9723FC-56E4-4CA8-9C64-CB34F29462A5}" par="Id=ImportProgressIndicator&amp;IsVisible=0&amp;AutoShowTimeout=1000" ph="LogInfoBorder.Content" uid="{14C5AA98-9DD8-4B1C-855E-2A3DADE12CF3}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=LogInfo&amp;TextType=Text" ph="LogInfoBorder.Content" uid="{57DA2090-C5C6-4AA9-B2DF-FCFD4675C436}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=ImportButtonBorder&amp;PaddingType=All&amp;UsePadding=1" ph="MappingExpander.Body" uid="{5BBF39A0-3CDF-4289-8BE3-CA52975F8061}" />
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.UploadFiles()%3b&amp;Id=ImportButton&amp;ButtonType=Primary&amp;Text=Import" ph="ImportButtonBorder.Content" uid="{F8ACD832-2530-468C-94AD-8CD3A48CCB26}" />
@@ -46,7 +47,7 @@ content-length: 2122
 ----version----
 language: en
 version: 1
-revision: 0f2b9647-61d9-467f-8475-098f709edf0f
+revision: e2efb522-58c0-49f3-8cb8-1022586c53f7
 
 ----field----
 field: {AEA872FB-AA91-4D1A-B877-3CA6FBBB4FD4}
@@ -68,14 +69,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-0f2b9647-61d9-467f-8475-098f709edf0f
+e2efb522-58c0-49f3-8cb8-1022586c53f7
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160403T175526Z
+20161101T162722Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

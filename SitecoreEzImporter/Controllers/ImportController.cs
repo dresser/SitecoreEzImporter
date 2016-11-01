@@ -62,7 +62,7 @@ namespace EzImporter.Controllers
                 }
                 else
                 {
-                    result = new ImportResultModel { Log = args.Statistics.ToString() + "\n" + args.Timer.Elapsed.ToString("c") };
+                    result = new ImportResultModel { Log = args.Statistics.ToString() + "<br/>" + args.Timer.Elapsed.ToString("c") }
                 }
             }
             catch (Exception ex)

@@ -55,6 +55,7 @@
         },
 
         ImportData: function () {
+            this.ImportProgressIndicator.set('isBusy', true);
             var location = this.ImportLocationTreeView.viewModel.selectedItemId();
             var language = this.TargetLanguageCombo.viewModel.selectedItemId();
             var existingItemHandling = this.ExistingItemHandling.viewModel.selectedItemId();
@@ -89,6 +90,7 @@
                     dataType: "json",
                     context: this,
                     success: function (data) {
+                        this.ImportProgressIndicator.set('isBusy', false);
                         if (data.HasError == true) {
                             this.ErrorDialogMessageBar.addMessage("error", data.ErrorMessage);
                             this.ErrorDialogExpanderText.set("text", data.ErrorDetail);
