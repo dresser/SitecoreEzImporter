@@ -26,16 +26,16 @@ namespace EzImporter.Pipelines.ImportItems
             bool rootLevel)
         {
             if (rootLevel ||
-                importItem.Name == parentItem.Name)
+                importItem.Parent.Name == parentItem.Name)
             {
                 var createdItem = CreateItem(args, importItem, parentItem);
                 if (createdItem != null
                     && importItem.Children != null
                     && importItem.Children.Any())
                 {
-                    foreach (var childMap in importItem.Children)
+                    foreach (var childImportItem in importItem.Children)
                     {
-                        ImportMapItems(args, childMap, createdItem, false);
+                        ImportMapItems(args, childImportItem, createdItem, false);
                     }
                 }
             }

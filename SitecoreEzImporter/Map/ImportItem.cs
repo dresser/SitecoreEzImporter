@@ -8,6 +8,7 @@ namespace EzImporter.Map
         public string Name { get; set; }
         public ID TemplateId { get; set; }
         public Dictionary<string, string> Fields { get; set; }
+        public ImportItem Parent { get; set; }
         public List<ImportItem> Children { get; set; }
 
         public ImportItem(string name)
