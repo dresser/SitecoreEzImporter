@@ -12,7 +12,7 @@ namespace SitecoreEzImporter.Tests.Pipelines.ImportItems
         public void ValidateItemNames_Success(string value)
         {
             var validateItemNamesProcessor = new ValidateItemNames();
-            var importItem = new ImportItem(value); 
+            var importItem = new ItemDto(value); 
             validateItemNamesProcessor.ValidateName(importItem);
             Assert.Empty(validateItemNamesProcessor.Errors);
             Assert.Empty(validateItemNamesProcessor.Notifications);

@@ -3,19 +3,19 @@ using Sitecore.Data;
 
 namespace EzImporter.Map
 {
-    public class ImportItem
+    public class ItemDto
     {
         public string Name { get; set; }
         public ID TemplateId { get; set; }
         public Dictionary<string, string> Fields { get; set; }
-        public ImportItem Parent { get; set; }
-        public List<ImportItem> Children { get; set; }
+        public ItemDto Parent { get; set; }
+        public List<ItemDto> Children { get; set; }
 
-        public ImportItem(string name)
+        public ItemDto(string name)
         {
             Name = name;
             Fields = new Dictionary<string, string>();
-            Children = new List<ImportItem>();
+            Children = new List<ItemDto>();
         }
     }
 }

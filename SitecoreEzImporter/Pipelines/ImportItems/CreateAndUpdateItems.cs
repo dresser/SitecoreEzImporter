@@ -22,7 +22,7 @@ namespace EzImporter.Pipelines.ImportItems
             }
         }
 
-        private void ImportMapItems(ImportItemsArgs args, ImportItem importItem, Item parentItem,
+        private void ImportMapItems(ImportItemsArgs args, ItemDto importItem, Item parentItem,
             bool rootLevel)
         {
             if (rootLevel ||
@@ -41,7 +41,7 @@ namespace EzImporter.Pipelines.ImportItems
             }
         }
 
-        private Item CreateItem(ImportItemsArgs args, ImportItem importItem, Item parentItem)
+        private Item CreateItem(ImportItemsArgs args, ItemDto importItem, Item parentItem)
         {
             //CustomItemBase nItemTemplate = GetNewItemTemplate(dataRow);
             var templateItem = args.Database.GetTemplate(importItem.TemplateId);

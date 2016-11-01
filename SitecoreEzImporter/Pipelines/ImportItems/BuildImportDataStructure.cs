@@ -10,7 +10,7 @@ namespace EzImporter.Pipelines.ImportItems
     {
         public override void Process(ImportItemsArgs args)
         {
-            var rootItem = new ImportItem("<root>"); //ick
+            var rootItem = new ItemDto("<root>"); //ick
             foreach (var outputMap in args.Map.OutputMaps)
             {
                 ImportMapItems(args, args.ImportData, outputMap, rootItem, true); //ick
@@ -18,7 +18,7 @@ namespace EzImporter.Pipelines.ImportItems
             args.ImportItems.AddRange(rootItem.Children); //ick
         }
 
-        private void ImportMapItems(ImportItemsArgs args, DataTable dataTable, OutputMap outputMap, ImportItem parentItem,
+        private void ImportMapItems(ImportItemsArgs args, DataTable dataTable, OutputMap outputMap, ItemDto parentItem,
             bool rootLevel)
         {
             var groupedTable = dataTable.GroupBy(outputMap.Fields.Select(f => f.SourceColumn).ToArray());
@@ -43,10 +43,10 @@ namespace EzImporter.Pipelines.ImportItems
             }
         }
 
-        private ImportItem CreateItem(DataRow dataRow, OutputMap outputMap)
+        private ItemDto CreateItem(DataRow dataRow, OutputMap outputMap)
         {
             var itemName = Convert.ToString(dataRow[outputMap.NameInputField]);
-            var item = new ImportItem(itemName)
+            var item = new ItemDto(itemName)
             {
                 TemplateId = outputMap.TemplateId
             };

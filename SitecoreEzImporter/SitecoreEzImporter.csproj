@@ -166,7 +166,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Map\ImportItem.cs" />
+    <Compile Include="Map\ItemDto.cs" />
     <Compile Include="Pipelines\ImportItems\BuildImportDataStructure.cs">
       <SubType>Code</SubType>
     </Compile>

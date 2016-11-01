@@ -31,7 +31,7 @@ namespace EzImporter.Pipelines.ImportItems
             }
         }
 
-        public void ValidateName(ImportItem item)
+        public void ValidateName(ItemDto item)
         {
             var suggestedName = Utils.GetValidItemName(item.Name);
             if (suggestedName == Utils.UnNamedItem)
