@@ -1,7 +1,6 @@
 ﻿using EzImporter.Extensions;
 using EzImporter.Map.CustomItems;
 using Sitecore.Data;
-using System;
 using System.Linq;
 
 namespace EzImporter.Map
@@ -76,64 +75,6 @@ namespace EzImporter.Map
             }
 
             return outputMap;
-        }
-
-        public static MediaImportMap GetMediaImportMap(ID mapId, Database database)
-        {
-            var mediaMapItem = database.GetItem(mapId);
-            var mediaMapCustomItem = new MediaImportMapItem(mediaMapItem);
-            var mediaImportMap = new MediaImportMap
-            {
-                TemplateId = mediaMapCustomItem.TargetTemplate.ID,
-                InputFileNameFormat = mediaMapCustomItem.InputFilenameFormat,
-                ItemIdProperty = mediaMapCustomItem.ItemIdProperty,
-                ImageFieldProperty = mediaMapCustomItem.ImageFieldProperty,
-                UseFileNameForMediaItem = mediaMapCustomItem.UseFileNameForMediaItem,
-                MediaItemNameFormat = mediaMapCustomItem.NewMediaItemNameFormat,
-                AltTextFormat = mediaMapCustomItem.AltTextFormat
-            };
-
-            var inputFileNameFormatNoExtension = mediaImportMap.InputFileNameFormat;
-            var i = mediaImportMap.InputFileNameFormat.LastIndexOf(".");
-            if (i > -1)
-            {
-                inputFileNameFormatNoExtension = mediaImportMap.InputFileNameFormat.Substring(0, i);
-            }
-            mediaImportMap.MappingFields = inputFileNameFormatNoExtension.Split(MediaImportMap.FileNameFormatDelimiter, StringSplitOptions.RemoveEmptyEntries);
-            if (mediaImportMap.MappingFields.Contains(mediaImportMap.ItemIdProperty) &&
-                mediaImportMap.MappingFields.Contains(mediaImportMap.ImageFieldProperty))
-            {
-                mediaImportMap.IsValid = true;
-            }
-
-            if (!mediaImportMap.UseFileNameForMediaItem)
-            {
-                var mediaItemNameFormatNoExtension = mediaImportMap.MediaItemNameFormat;
-                var j = mediaItemNameFormatNoExtension.LastIndexOf(".");
-                if (j > -1)
-                {
-                    mediaItemNameFormatNoExtension = mediaItemNameFormatNoExtension.Substring(0, j);
-                }
-                mediaImportMap.MediaNameMappingFields = mediaItemNameFormatNoExtension.Split(MediaImportMap.FileNameFormatDelimiter, StringSplitOptions.RemoveEmptyEntries);
-                //foreach (var nameMappingField in MediaNameMappingFields)
-                //{
-                //if (!MappingFields.Contains(nameMappingField))
-                //{
-                //  IsValid = false;
-                //}
-                //}
-            }
-
-            mediaImportMap.AltTextMappingFields = mediaImportMap.AltTextFormat.Split(MediaImportMap.FileNameFormatDelimiter, StringSplitOptions.RemoveEmptyEntries);
-            //foreach (var altTextMappingField in AltTextMappingFields)
-            //{
-            //    if (!MappingFields.Contains(altTextMappingField))
-            //    {
-            //        IsValid = false;
-            //    }
-            //}
-
-            return mediaImportMap;
         }
     }
 }
