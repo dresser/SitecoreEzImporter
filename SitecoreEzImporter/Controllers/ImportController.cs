@@ -53,14 +53,16 @@ namespace EzImporter.Controllers
             try
             {
                 Sitecore.Diagnostics.Log.Info(string.Format("EzImporter: mappingId:{0} mediaItemId:{1} firstRowAsColumnNames:{2}", importModel.MappingId, importModel.MediaItemId, args.ImportOptions.FirstRowAsColumnNames), this);
+                args.Timer.Start();
                 CorePipeline.Run("importItems", args);
+                args.Timer.Stop();
                 if (args.Aborted)
                 {
                     result = new ImportResultModel { HasError = true, Log = args.Statistics.ToString(), ErrorMessage = args.Message, ErrorDetail = args.ErrorDetail };
                 }
                 else
                 {
-                    result = new ImportResultModel { Log = args.Statistics.ToString() };
+                    result = new ImportResultModel { Log = args.Statistics.ToString() + "\n" + args.Timer.Elapsed.ToString("c") };
                 }
             }
             catch (Exception ex)

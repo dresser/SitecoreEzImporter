@@ -1,5 +1,6 @@
 ﻿using EzImporter.FieldUpdater;
 using EzImporter.Map;
+using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.Globalization;
@@ -12,14 +13,20 @@ namespace EzImporter.Pipelines.ImportItems
     {
         public override void Process(ImportItemsArgs args)
         {
-            using (new LanguageSwitcher(args.TargetLanguage))
+            var originalIndexingSetting = Sitecore.Configuration.Settings.Indexing.Enabled;
+            Sitecore.Configuration.Settings.Indexing.Enabled = false;
+            using (new BulkUpdateContext())
             {
-                var parentItem = args.Database.GetItem(args.RootItemId);
-                foreach (var importItem in args.ImportItems)
+                using (new LanguageSwitcher(args.TargetLanguage))
                 {
-                    ImportMapItems(args, importItem, parentItem,  true);
+                    var parentItem = args.Database.GetItem(args.RootItemId);
+                    foreach (var importItem in args.ImportItems)
+                    {
+                        ImportMapItems(args, importItem, parentItem, true);
+                    }
                 }
             }
+            Sitecore.Configuration.Settings.Indexing.Enabled = originalIndexingSetting;
         }
 
         private void ImportMapItems(ImportItemsArgs args, ItemDto importItem, Item parentItem,
