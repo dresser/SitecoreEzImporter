@@ -22,14 +22,14 @@ namespace EzImporter.Pipelines.ImportItems
                     var parentItem = args.Database.GetItem(args.RootItemId);
                     foreach (var importItem in args.ImportItems)
                     {
-                        ImportMapItems(args, importItem, parentItem, true);
+                        ImportItems(args, importItem, parentItem, true);
                     }
                 }
             }
             Sitecore.Configuration.Settings.Indexing.Enabled = originalIndexingSetting;
         }
 
-        private void ImportMapItems(ImportItemsArgs args, ItemDto importItem, Item parentItem,
+        private void ImportItems(ImportItemsArgs args, ItemDto importItem, Item parentItem,
             bool rootLevel)
         {
             if (rootLevel ||
@@ -42,7 +42,7 @@ namespace EzImporter.Pipelines.ImportItems
                 {
                     foreach (var childImportItem in importItem.Children)
                     {
-                        ImportMapItems(args, childImportItem, createdItem, false);
+                        ImportItems(args, childImportItem, createdItem, false);
                     }
                 }
             }
@@ -58,8 +58,7 @@ namespace EzImporter.Pipelines.ImportItems
 
             Item item;
             //search for the child by name
-            string itemName = Utils.GetValidItemName(importItem.Name);
-            item = parent.GetChildren()[itemName];
+            item = parent.GetChildren()[importItem.Name];
             if (item != null)
             {
                 if (args.ImportOptions.ExistingItemHandling == ExistingItemHandling.AddVersion)
@@ -84,7 +83,7 @@ namespace EzImporter.Pipelines.ImportItems
             {
                 //if not found then create one
                 args.Statistics.CreatedItems++;
-                item = parent.Add(itemName, templateItem);
+                item = parent.Add(importItem.Name, templateItem);
                 Log.Info(string.Format("EzImporter:Creating item {0}", item.Paths.ContentPath), this);
             }
 

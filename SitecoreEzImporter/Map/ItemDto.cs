@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
-using Sitecore.Data;
+﻿using Sitecore.Data;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace EzImporter.Map
 {
+    [DebuggerDisplay("Name={Name} Children={Children.Count}")]
     public class ItemDto
     {
         public string Name { get; set; }

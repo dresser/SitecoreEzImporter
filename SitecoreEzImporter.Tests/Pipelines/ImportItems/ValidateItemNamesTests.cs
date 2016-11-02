@@ -15,7 +15,6 @@ namespace SitecoreEzImporter.Tests.Pipelines.ImportItems
             var importItem = new ItemDto(value); 
             validateItemNamesProcessor.ValidateName(importItem);
             Assert.Empty(validateItemNamesProcessor.Errors);
-            Assert.Empty(validateItemNamesProcessor.Notifications);
         }
 
         //[Theory]
