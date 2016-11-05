@@ -14,7 +14,7 @@ created: 20161103T232627:636138123875170000
 field: {B1A94FF0-6897-47C0-9C51-AA6ACB80B1F0}
 name: Script
 key: script
-content-length: 2426
+content-length: 2422
 
 # Create package
        $package = new-package "Sitecore.EzImporter";
@@ -28,23 +28,18 @@ content-length: 2426
 
 $source = Get-Item 'core:\sitecore\client\Applications\EzImporter' | New-ItemSource -Name 'SPEAK Dialog' -InstallMode Overwrite
 $package.Sources.Add($source);
-
 $source = Get-Item 'core:\sitecore\client\Applications\Launchpad\PageSettings\Buttons\Tools\Ez Importer' | New-ExplicitItemSource -Name 'Shortcut' -InstallMode Overwrite
 $package.Sources.Add($source);
 
-$source = Get-Item 'master:\sitecore\media library\EzImporter\Data' | New-ItemSource -Name 'MediaLibrary Folder' -InstallMode Overwrite
+$source = Get-Item 'master:\sitecore\media library\EzImporter\Data' | New-ExplicitItemSource -Name 'MediaLibrary Folder' -InstallMode Overwrite
 $package.Sources.Add($source);
-
-$source = Get-Item 'master:\sitecore\media library\EzImporter\Data' | New-ItemSource -Name 'MediaLibrary Folder' -InstallMode Overwrite
+$source = Get-Item 'master:\sitecore\system\Modules\Ez Importer' | New-ExplicitItemSource -Name 'Module System Folder' -InstallMode Overwrite
 $package.Sources.Add($source);
-
-$source = Get-Item 'master:\sitecore\system\Modules\Ez Importer\Maps' | New-ExplicitItemSource -Name 'Module Maps Folder' -InstallMode Overwrite
+$source = Get-Item 'master:\sitecore\system\Modules\Ez Importer\Maps' | New-ExplicitItemSource -Name 'Module System Folder' -InstallMode Overwrite
 $package.Sources.Add($source);
-
-$source = Get-Item 'master:\sitecore\system\Modules\Ez Importer\Options' | New-ItemSource -Name 'Module Settings Folder' -InstallMode Overwrite
+$source = Get-Item 'master:\sitecore\system\Modules\Ez Importer\Options' | New-ItemSource -Name 'Module System Folder' -InstallMode Overwrite
 $package.Sources.Add($source);
-
-$source = Get-Item 'master:\sitecore\templates\Modules\EzImporter' | New-ExplicitItemSource -Name 'Templates' -InstallMode Overwrite
+$source = Get-Item 'master:\sitecore\templates\Modules\EzImporter' | New-ItemSource -Name 'Templates' -InstallMode Overwrite
 $package.Sources.Add($source);
 
 $source = New-FileSource -Name "Config" -Root "$AppPath\App_Config\Include\EzImporter\Sitecore.EzImporter.config"
@@ -65,7 +60,7 @@ $package.Sources.Add($source);
 ----version----
 language: en
 version: 1
-revision: 23449d6f-6be5-4004-8a4f-8cc7939feb7c
+revision: 9a923882-7173-4ac2-8d02-f9d97c5d080e
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -80,14 +75,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-23449d6f-6be5-4004-8a4f-8cc7939feb7c
+9a923882-7173-4ac2-8d02-f9d97c5d080e
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161105T215205Z
+20161105T230659Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

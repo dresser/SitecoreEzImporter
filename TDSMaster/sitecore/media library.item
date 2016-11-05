@@ -8,6 +8,7 @@ name: media library
 master: {00000000-0000-0000-0000-000000000000}
 template: {E3E2D58C-DF95-4230-ADC9-279924CECE84}
 templatekey: Main section
+created: 20160729T132116:636053952760000000
 
 ----field----
 field: {D85DB4EC-FF89-4F9C-9E7C-A9E0654797FC}
@@ -50,7 +51,7 @@ name: __Thumbnail
 key: __thumbnail
 content-length: 169
 
-<image mediaid="{7992E405-A9BA-49E0-8C87-C88060756731}" mediapath="/System/Template Thumbnails/leopard-folder-big" src="~/media/7992E405A9BA49E08C87C88060756731.ashx" />
+<image mediaid="{7992E405-A9BA-49E0-8C87-C88060756731}" mediapath="/System/Template Thumbnails/leopard-folder-big" src="-/media/7992E405A9BA49E08C87C88060756731.ashx" />
 ----field----
 field: {21F74F6E-42D4-42A2-A4B4-4CEFBCFBD2BB}
 name: __Facets
@@ -96,7 +97,7 @@ au|sitecore\ServicesAPI|p*|+item:read|^*|ar|sitecore\Sitecore Client Authoring|p
 ----version----
 language: da
 version: 1
-revision: d777b7c5-dfb6-4d5e-bc76-b7b3d4c889e6
+revision: 19195cea-ed43-412f-8bf2-1b9457bec3ed
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -132,7 +133,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20150812T120213Z
+20160729T133411Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -146,14 +147,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d777b7c5-dfb6-4d5e-bc76-b7b3d4c889e6
+19195cea-ed43-412f-8bf2-1b9457bec3ed
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20150812T120213Z
+20160729T133411Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -164,7 +165,7 @@ sitecore\admin
 ----version----
 language: de-DE
 version: 1
-revision: 5ebab8c4-7af9-4c62-a3a8-3a92474bee08
+revision: b10f25d9-2dd6-4b2d-860a-20b208058901
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -200,7 +201,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20150812T115800Z
+20160729T133540Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -214,14 +215,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-5ebab8c4-7af9-4c62-a3a8-3a92474bee08
+b10f25d9-2dd6-4b2d-860a-20b208058901
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20150812T115800Z
+20160729T133540Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -232,7 +233,7 @@ sitecore\admin
 ----version----
 language: en
 version: 1
-revision: 471a9ca6-bdb9-4b5b-abe9-a655473756c7
+revision: dde5f67e-028d-4fb6-8258-6f25e17e2f77
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -256,13 +257,6 @@ content-length: 17
 
 Images and files.
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -282,25 +276,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-471a9ca6-bdb9-4b5b-abe9-a655473756c7
+dde5f67e-028d-4fb6-8258-6f25e17e2f77
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20150812T120909Z
+20160729T132425Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 14
+content-length: 18
 
-sitecore\admin
+extranet\Anonymous
 ----version----
 language: ja-JP
 version: 1
-revision: 49e3c531-1507-4f11-9cfe-f598c62d322b
+revision: 069564e9-217f-4b56-8535-bd2bc43397db
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -336,7 +330,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20150812T115355Z
+20160729T133709Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -350,14 +344,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-49e3c531-1507-4f11-9cfe-f598c62d322b
+069564e9-217f-4b56-8535-bd2bc43397db
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20150812T115355Z
+20160729T133709Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

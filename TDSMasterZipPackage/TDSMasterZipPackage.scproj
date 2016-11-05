@@ -28,10 +28,10 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>.\bin\Debug\</OutputPath>
     <RecursiveDeployAction>Ignore</RecursiveDeployAction>
-    <SitecoreWebUrl>http://sc82/</SitecoreWebUrl>
+    <SitecoreWebUrl>http://ezimporter/</SitecoreWebUrl>
     <InstallSitecoreConnector>True</InstallSitecoreConnector>
     <DisableFileDeployment>False</DisableFileDeployment>
-    <SitecoreDeployFolder>C:\inetpub\wwwroot\sc82\Website</SitecoreDeployFolder>
+    <SitecoreDeployFolder>C:\inetpub\wwwroot\EzImporter\Website</SitecoreDeployFolder>
     <SitecoreAccessGuid>6c896d77-4681-4fab-aadb-ebe6b70e22e4</SitecoreAccessGuid>
     <EnableValidations>False</EnableValidations>
     <ValidationSettingsFilePath>.\TDSMasterZipPackage_Debug.xml</ValidationSettingsFilePath>
@@ -74,6 +74,11 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\PowerShell\Script Library\EzImporter.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\system\Modules\PowerShell\Script Library\EzImporterSampleMap.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />

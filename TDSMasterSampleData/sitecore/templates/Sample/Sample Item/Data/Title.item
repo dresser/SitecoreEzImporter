@@ -8,6 +8,7 @@ name: Title
 master: {00000000-0000-0000-0000-000000000000}
 template: {455A3E98-A627-4B40-8035-E683A0331AC7}
 templatekey: Template field
+created: 20160729T132117:636053952770000000
 
 ----field----
 field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
@@ -77,6 +78,13 @@ key: title
 content-length: 5
 
 Titel
+----field----
+field: {B12E4906-B96B-495E-B343-CD2E92DC6347}
+name: ValidationText
+key: validationtext
+content-length: 0
+
+
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
@@ -152,6 +160,13 @@ key: title
 content-length: 5
 
 Titel
+----field----
+field: {B12E4906-B96B-495E-B343-CD2E92DC6347}
+name: ValidationText
+key: validationtext
+content-length: 0
+
+
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
@@ -302,6 +317,13 @@ key: title
 content-length: 4
 
 タイトル
+----field----
+field: {B12E4906-B96B-495E-B343-CD2E92DC6347}
+name: ValidationText
+key: validationtext
+content-length: 0
+
+
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name

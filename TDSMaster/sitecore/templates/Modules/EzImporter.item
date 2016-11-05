@@ -3,11 +3,12 @@ version: 1
 id: {F7E1E5FA-FA42-42C4-8DD2-360A9EC9F7EF}
 database: master
 path: /sitecore/templates/Modules/EzImporter
-parent: {CD93F207-85D7-44BD-8FA5-FC0EDFBFF9BA}
+parent: {731DBF27-C743-4422-8F56-C2BB7988F950}
 name: EzImporter
 master: {00000000-0000-0000-0000-000000000000}
 template: {0437FEE2-44C9-46A6-ABE9-28858D9FEE8C}
 templatekey: Template Folder
+created: 20161105T221000:636139806005570000
 
 ----version----
 language: en
