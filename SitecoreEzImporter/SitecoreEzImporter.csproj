@@ -221,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\ezimporter.pubxml" />
+    <None Include="Properties\PublishProfiles\sc82.pubxml" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
   </ItemGroup>
   <ItemGroup />

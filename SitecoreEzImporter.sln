@@ -13,6 +13,8 @@ Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDSCore", "TDSCore\TDSCore.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreEzImporter.Tests", "SitecoreEzImporter.Tests\SitecoreEzImporter.Tests.csproj", "{77C351A2-3C37-4497-8514-CF50DCA86F3E}"
 EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDSMasterZipPackage", "TDSMasterZipPackage\TDSMasterZipPackage.scproj", "{6DD2B6E0-70CE-4D41-867D-E943924A1F6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{77C351A2-3C37-4497-8514-CF50DCA86F3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77C351A2-3C37-4497-8514-CF50DCA86F3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77C351A2-3C37-4497-8514-CF50DCA86F3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD2B6E0-70CE-4D41-867D-E943924A1F6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD2B6E0-70CE-4D41-867D-E943924A1F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD2B6E0-70CE-4D41-867D-E943924A1F6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD2B6E0-70CE-4D41-867D-E943924A1F6F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
