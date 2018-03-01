@@ -13,30 +13,36 @@ namespace EzImporter.DataReaders
             try
             {
                 var reader = new StreamReader(args.FileStream);
-                var lineCount = 0;
+                var insertLineCount = 0;
+                var readLineCount = 0;
                 do
                 {
                     var line = reader.ReadLine();
-                    if (line != null)
+                    readLineCount++;
+                    if (line == null
+                        || (readLineCount == 1 && args.ImportOptions.FirstRowAsColumnNames))
                     {
-                        var row = args.ImportData.NewRow();
-                        var values = line.Split(args.ImportOptions.CsvDelimiter, StringSplitOptions.None);
-                        for (int j = 0; j < args.Map.InputFields.Count; j++)
-                        {
-                            if (j < values.Length)
-                            {
-                                row[j] = values[j];
-                            }
-                            else
-                            {
-                                row[j] = "";
-                            }
-                        }
-                        args.ImportData.Rows.Add(row);
-                        lineCount++;
+                        continue;
                     }
+
+                    var row = args.ImportData.NewRow();
+                    var values = line.Split(args.ImportOptions.CsvDelimiter, StringSplitOptions.None);
+                    for (int j = 0; j < args.Map.InputFields.Count; j++)
+                    {
+                        if (j < values.Length)
+                        {
+                            row[j] = values[j];
+                        }
+                        else
+                        {
+                            row[j] = "";
+                        }
+                    }
+                    args.ImportData.Rows.Add(row);
+                    insertLineCount++;
+
                 } while (!reader.EndOfStream);
-                Log.Info(string.Format("EzImporter:{0} records read from input data.", lineCount), this);
+                Log.Info(string.Format("EzImporter:{0} records read from input data.", insertLineCount), this);
             }
             catch (Exception ex)
             {
@@ -63,7 +69,7 @@ namespace EzImporter.DataReaders
             {
                 Log.Error("EzImporter:" + ex.ToString(), this);
             }
-            return new string[] {};
+            return new string[] { };
         }
     }
 }
