@@ -1,10 +1,10 @@
 ----item----
 version: 1
-id: {B5CBAE6F-B934-4D25-B231-9373A6F7E3AF}
+id: {7A46DE83-B3B8-477C-8BB0-008465753115}
 database: master
-path: /sitecore/templates/Modules/EzImporter/Options/DropDownOption/Drop Down Option/HelpText
+path: /sitecore/templates/Modules/EzImporter/Options/DropDownOption/Drop Down Option/OptionText
 parent: {2E83D0B9-7CF3-493A-8557-4F765AC30658}
-name: HelpText
+name: OptionText
 master: {00000000-0000-0000-0000-000000000000}
 template: {455A3E98-A627-4B40-8035-E683A0331AC7}
 templatekey: Template field
@@ -23,11 +23,11 @@ name: __Sortorder
 key: __sortorder
 content-length: 3
 
-100
+200
 ----version----
 language: en
 version: 1
-revision: ab5666e1-0067-4156-9583-55dc11e8fae5
+revision: b3a9a3b2-8682-4cc7-82b5-4441a6db9e08
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -42,7 +42,7 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ab5666e1-0067-4156-9583-55dc11e8fae5
+b3a9a3b2-8682-4cc7-82b5-4441a6db9e08
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated

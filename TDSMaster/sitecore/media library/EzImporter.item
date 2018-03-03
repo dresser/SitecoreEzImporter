@@ -1,6 +1,6 @@
 ----item----
 version: 1
-id: {324D89AB-7EE6-4CBF-8079-D72C3ACDB5BF}
+id: {E7EDC167-A1EF-4400-822A-BB521B8D2DF1}
 database: master
 path: /sitecore/media library/EzImporter
 parent: {3D6658D8-A0BF-4E75-B3E2-D050FABCF4E1}
@@ -8,12 +8,12 @@ name: EzImporter
 master: {00000000-0000-0000-0000-000000000000}
 template: {239F9CF4-E5A0-44E0-B342-0F32CD4C6D8B}
 templatekey: Node
-created: 20161105T221000:636139806006230000
+created: 20180207T233535Z
 
 ----version----
 language: en
 version: 1
-revision: a4beb74d-85d8-45d6-b0c8-d9a9821a4e74
+revision: 86c2a0eb-6597-4595-933a-de42e5ca2f18
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -21,21 +21,21 @@ name: __Created
 key: __created
 content-length: 16
 
-20161105T221000Z
+20180207T233535Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-a4beb74d-85d8-45d6-b0c8-d9a9821a4e74
+86c2a0eb-6597-4595-933a-de42e5ca2f18
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161105T221000Z
+20180207T233535Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
