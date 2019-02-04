@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Data;
 using Xunit;
+using FluentAssertions;
 
 namespace SitecoreEzImporter.Tests.Extensions
 {
@@ -25,8 +26,10 @@ namespace SitecoreEzImporter.Tests.Extensions
         {
             var dataTable = GetSampleData();
             var groupedDataTable = EzImporter.Extensions.DataTableExtensions.GroupBy(dataTable, new[] { "ProductType" });
-            Assert.Equal(1, groupedDataTable.Columns.Count);
-            Assert.Equal(2, groupedDataTable.Rows.Count);
+
+            groupedDataTable.Columns.Should().HaveCount(1);
+
+            groupedDataTable.Rows.Should().HaveCount(2);
         }
     }
 }
